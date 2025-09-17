@@ -1,0 +1,20 @@
+2025-09-17 15:32:35.898 -03 [21496] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-09-17 15:32:35.903 -03 [21496] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-09-17 15:32:35.903 -03 [21496] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-09-17 15:32:37.813 -03 [18360] LOG:  sistema de banco de dados foi interrompido; última execução em 2025-07-16 16:04:14 -03
+2025-09-17 15:32:48.011 -03 [18360] LOG:  syncing data directory (fsync), elapsed time: 10.17 s, current path: ./base/1/2841
+2025-09-17 15:32:57.854 -03 [18360] LOG:  syncing data directory (fsync), elapsed time: 20.02 s, current path: ./base/16388/2607_vm
+2025-09-17 15:33:07.988 -03 [18360] LOG:  syncing data directory (fsync), elapsed time: 30.15 s, current path: ./base/16388/41011
+2025-09-17 15:33:17.893 -03 [18360] LOG:  syncing data directory (fsync), elapsed time: 40.06 s, current path: ./base/4/3541_fsm
+2025-09-17 15:33:27.856 -03 [18360] LOG:  syncing data directory (fsync), elapsed time: 50.02 s, current path: ./base/49174/3455
+2025-09-17 15:33:37.837 -03 [18360] LOG:  syncing data directory (fsync), elapsed time: 60.00 s, current path: ./base/5/3603_vm
+2025-09-17 15:33:43.047 -03 [18360] LOG:  sistema de banco de dados não foi desligado corretamente; recuperação automática está em andamento
+2025-09-17 15:33:43.209 -03 [18360] LOG:  redo inicia em 0/22AE630
+2025-09-17 15:33:43.209 -03 [18360] LOG:  comprimento de registro inválido em 0/22AE738: esperado pelo menos 24, obtido 0
+2025-09-17 15:33:43.210 -03 [18360] LOG:  refazer feito em 0/22AE700 uso do sistema: CPU: usuário: 0.00 s, sistema: 0.00 s, decorrido: 0.02 s
+2025-09-17 15:33:43.242 -03 [18952] LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-09-17 15:33:43.459 -03 [18952] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.053 s, total=0.244 s; sync files=2, longest=0.032 s, average=0.027 s; distance=0 kB, estimate=0 kB; lsn=0/22AE738, redo lsn=0/22AE738
+2025-09-17 15:33:43.615 -03 [21496] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-09-17 15:36:54.484 -03 [19092] FATAL:  banco de dados "mauricio" não existe
+2025-09-17 15:43:43.489 -03 [18952] LOG:  checkpoint starting: time
+2025-09-17 15:45:32.286 -03 [18952] LOG:  checkpoint complete: wrote 970 buffers (5.9%); 0 WAL file(s) added, 0 removed, 0 recycled; write=105.650 s, sync=3.049 s, total=108.797 s; sync files=303, longest=0.048 s, average=0.011 s; distance=4577 kB, estimate=4577 kB; lsn=0/2726C28, redo lsn=0/2726B98
