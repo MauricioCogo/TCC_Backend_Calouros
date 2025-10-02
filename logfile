@@ -18,3 +18,12 @@
 2025-09-17 15:36:54.484 -03 [19092] FATAL:  banco de dados "mauricio" não existe
 2025-09-17 15:43:43.489 -03 [18952] LOG:  checkpoint starting: time
 2025-09-17 15:45:32.286 -03 [18952] LOG:  checkpoint complete: wrote 970 buffers (5.9%); 0 WAL file(s) added, 0 removed, 0 recycled; write=105.650 s, sync=3.049 s, total=108.797 s; sync files=303, longest=0.048 s, average=0.011 s; distance=4577 kB, estimate=4577 kB; lsn=0/2726C28, redo lsn=0/2726B98
+2025-09-17 16:46:54.459 -03 [21496] LOG:  processo servidor (PID 1552) foi terminado pela exceção 0xC000013A
+2025-09-17 16:46:54.459 -03 [21496] DETALHE:  Processo que falhou estava executando: SHOW search_path
+2025-09-17 16:46:54.459 -03 [21496] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-09-17 16:46:54.663 -03 [21496] LOG:  terminando quaisquer outros processos servidor ativos
+2025-09-17 16:47:01.048 -03 [21496] LOG:  todos os processos servidor foram terminados; reinicializando
+2025-09-17 16:47:09.337 -03 [21496] LOG:  processo de ativação (PID 20516) foi terminado pela exceção 0xC0000142
+2025-09-17 16:47:09.337 -03 [21496] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-09-17 16:47:09.337 -03 [21496] LOG:  interrompendo a ativação devido a falha no processo de ativação
+2025-09-17 16:47:09.601 -03 [21496] LOG:  sistema de banco de dados está desligado
