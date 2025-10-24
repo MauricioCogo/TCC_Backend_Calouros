@@ -28,7 +28,7 @@ public class User {
     private Long id;
 
     @Column(nullable = false)
-    private String nome;
+    private String name;
 
     @Column(length = 11, nullable = false, unique = true)
     private String cpf;
@@ -37,7 +37,7 @@ public class User {
     private String email;
 
     @Column(nullable = false)
-    private String senha;
+    private String password;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)

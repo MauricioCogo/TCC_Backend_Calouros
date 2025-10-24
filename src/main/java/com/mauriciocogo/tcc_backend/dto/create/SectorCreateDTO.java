@@ -2,7 +2,6 @@ package com.mauriciocogo.tcc_backend.dto.create;
 
 import com.mauriciocogo.tcc_backend.dto.response.UserResponseDTO;
 import com.mauriciocogo.tcc_backend.entity.Sector;
-import com.mauriciocogo.tcc_backend.entity.User;
 
 public record SectorCreateDTO(
     Long id,
@@ -15,7 +14,6 @@ public record SectorCreateDTO(
     String room,
     UserResponseDTO user
 ){
-
     public static Sector toEntity(SectorCreateDTO dto){
         Sector s = new Sector();
         s.setAcronym(dto.acromyn);
@@ -25,6 +23,7 @@ public record SectorCreateDTO(
         s.setLongi(dto.longi);
         s.setBuild(dto.build);
         s.setRoom(dto.room);
-        s.setIdUser();
+        s.setUser(UserResponseDTO.toEntity(dto.user));
+        return s;
     }
 }

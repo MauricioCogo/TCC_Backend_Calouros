@@ -13,19 +13,19 @@ import lombok.*;
 @Entity
 @Table(name = "sectors", uniqueConstraints = {
     @UniqueConstraint(columnNames = "id"),
-    @UniqueConstraint(columnNames = "sigla")
+    @UniqueConstraint(columnNames = "acronym")
 })
 public class Sector {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    
+
     @Column(nullable = false)
     private String acronym;
 
     @Column(nullable = false)
     private String name;
-    
+
     @Column(nullable = false)
     private String description;
 
@@ -41,8 +41,9 @@ public class Sector {
     @Column(nullable = false)
     private String room;
 
-    @Column(nullable = false)
-    private User idUser;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
@@ -57,6 +58,4 @@ public class Sector {
 
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
-    
-
 }
