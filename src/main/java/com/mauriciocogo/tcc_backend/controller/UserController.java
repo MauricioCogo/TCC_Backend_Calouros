@@ -27,12 +27,12 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public UserResponseDTO getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
     }
 
-    @GetMapping("/{cpf}")
+    @GetMapping("cpf/{cpf}")
     public UserResponseDTO getUserByCPF(@PathVariable String cpf) {
         return userService.getUserByCPF(cpf);
     }

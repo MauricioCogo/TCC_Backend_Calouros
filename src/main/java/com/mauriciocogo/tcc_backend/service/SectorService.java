@@ -1,5 +1,6 @@
 package com.mauriciocogo.tcc_backend.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.mauriciocogo.tcc_backend.dto.create.SectorCreateDTO;
 import com.mauriciocogo.tcc_backend.dto.response.SectorResponseDTO;
+import com.mauriciocogo.tcc_backend.dto.response.UserResponseDTO;
 import com.mauriciocogo.tcc_backend.entity.Sector;
 import com.mauriciocogo.tcc_backend.repository.SectorRepository;
 
@@ -38,5 +40,26 @@ public class SectorService {
         Sector sector = sectorRepository.findById(id).orElseThrow(() -> new RuntimeException("Sector not found" + id));
         return SectorResponseDTO.toDTO(sector);
     }
-    
+
+    public SectorResponseDTO updateSector(Long id, SectorCreateDTO dto){
+        Sector sector = sectorRepository.findById(id).orElseThrow(() -> new RuntimeException("Sector not found" + id));
+        sector.setAcronym(dto.acromyn());
+        sector.setName(dto.name());
+        sector.setDescription(dto.desc());
+        sector.setLat(dto.lat());
+        sector.setLongi(dto.longi());
+        sector.setBuild(dto.build());
+        sector.setRoom(dto.room());
+        sector.setUser(UserResponseDTO.toEntity(dto.user()));
+        sector.setUpdatedAt(LocalDateTime.now());
+
+        Sector updatedSector = sectorRepository.save(sector);
+        return SectorResponseDTO.toDTO(updatedSector);
+    }
+
+    public void deleteSector(Long id){
+        Sector sector = sectorRepository.findById(id).orElseThrow(() -> new RuntimeException("Sector not found" + id));
+        sector.setDeleted(true);
+        sectorRepository.save(sector);
+    }
 }

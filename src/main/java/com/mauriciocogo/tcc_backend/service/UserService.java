@@ -1,5 +1,6 @@
 package com.mauriciocogo.tcc_backend.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,17 +41,29 @@ public class UserService {
         return UserResponseDTO.toDTO(user);
     }
 
-        public UserResponseDTO getUserByCPF(String cpf) {
+    public UserResponseDTO getUserByCPF(String cpf) {
         User user = userRepository.findByCpf(cpf)
                 .orElseThrow(() -> new RuntimeException("User not found with cpf " + cpf));
         return UserResponseDTO.toDTO(user);
     }
 
-
-        public UserResponseDTO getUserByEmail(String email) {
+    public UserResponseDTO getUserByEmail(String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found with email " + email));
         return UserResponseDTO.toDTO(user);
+    }
+
+    public void updateUser(Long id, UserCreateDTO dto) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found with id " + id));
+
+        user.setName(dto.name());
+        user.setEmail(dto.email());
+        user.setCpf(dto.cpf());
+        user.setPassword(dto.password());
+        user.setUpdatedAt(LocalDateTime.now());
+
+        userRepository.save(user);
     }
 
     public void deleteUser(Long id) {
