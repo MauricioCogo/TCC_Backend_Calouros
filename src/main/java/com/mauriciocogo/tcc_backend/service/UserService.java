@@ -70,7 +70,7 @@ public class UserService {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found with id " + id));
         user.setDeleted(true);
-        user.setDeletedAt(java.time.LocalDateTime.now());
+        user.setDeletedAt(LocalDateTime.now());
         userRepository.save(user);
     }
 }

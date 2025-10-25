@@ -11,7 +11,7 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "sectors", uniqueConstraints = {
+@Table(name = "sector", uniqueConstraints = {
     @UniqueConstraint(columnNames = "id"),
     @UniqueConstraint(columnNames = "acronym")
 })

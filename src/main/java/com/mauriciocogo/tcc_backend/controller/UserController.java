@@ -1,6 +1,9 @@
 package com.mauriciocogo.tcc_backend.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import com.mauriciocogo.tcc_backend.dto.create.UserCreateDTO;
 import com.mauriciocogo.tcc_backend.dto.response.UserResponseDTO;
 import com.mauriciocogo.tcc_backend.service.UserService;
@@ -18,27 +21,32 @@ public class UserController {
     }
 
     @PostMapping
-    public UserResponseDTO createUser(@RequestBody UserCreateDTO dto) {
-        return userService.createUser(dto);
+    public ResponseEntity<UserResponseDTO> createUser(@RequestBody UserCreateDTO dto) {
+        UserResponseDTO created = userService.createUser(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     @GetMapping
-    public List<UserResponseDTO> getAllUsers() {
-        return userService.getAllUsers();
+    public ResponseEntity<List<UserResponseDTO>> getAllUsers() {
+        List<UserResponseDTO> users = userService.getAllUsers();
+        return ResponseEntity.ok(users);
     }
 
-    @GetMapping("{id}")
-    public UserResponseDTO getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<UserResponseDTO> getUserById(@PathVariable Long id) {
+        UserResponseDTO user = userService.getUserById(id);
+        return ResponseEntity.ok(user);
     }
 
-    @GetMapping("cpf/{cpf}")
-    public UserResponseDTO getUserByCPF(@PathVariable String cpf) {
-        return userService.getUserByCPF(cpf);
+    @GetMapping("/cpf/{cpf}")
+    public ResponseEntity<UserResponseDTO> getUserByCPF(@PathVariable String cpf) {
+        UserResponseDTO user = userService.getUserByCPF(cpf);
+        return ResponseEntity.ok(user);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
+        return ResponseEntity.noContent().build();
     }
 }

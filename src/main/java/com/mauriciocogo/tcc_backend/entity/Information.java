@@ -7,37 +7,39 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "user", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "cpf"),
-        @UniqueConstraint(columnNames = "email")
+@Table(name = "information", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "id")
 })
-public class User {
+public class Information {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String title;
 
-    @Column(length = 11, nullable = false, unique = true)
-    private String cpf;
-
-    @Column(nullable = false, unique = true)
-    private String email;
+    @Column(nullable = false, length = 5000)
+    private String description;
 
     @Column(nullable = false)
-    private String password;
+    private String type;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sector_id", nullable = false)
+    private Sector sector;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)

@@ -1,7 +1,5 @@
 package com.mauriciocogo.tcc_backend.dto.response;
 
-import java.time.LocalDateTime;
-
 import com.mauriciocogo.tcc_backend.entity.Sector;
 
 public record SectorResponseDTO(
@@ -13,11 +11,7 @@ public record SectorResponseDTO(
         String longi,
         String build,
         String room,
-        UserResponseDTO user,
-        Boolean deleted,
-        LocalDateTime createdAt,
-        LocalDateTime updatedAt,
-        LocalDateTime deletedAt) {
+        UserResponseDTO user) {
 
     public static SectorResponseDTO toDTO(Sector sector) {
         if (sector == null) {
@@ -33,11 +27,7 @@ public record SectorResponseDTO(
                 sector.getLongi(),
                 sector.getBuild(),
                 sector.getRoom(),
-                UserResponseDTO.toDTO(sector.getUser()),
-                sector.getDeleted(),
-                sector.getCreatedAt(),
-                sector.getUpdatedAt(),
-                sector.getDeletedAt());
+                UserResponseDTO.toDTO(sector.getUser()));
     }
 
     public static Sector toEntity(SectorResponseDTO dto) {
@@ -55,10 +45,6 @@ public record SectorResponseDTO(
         sector.setBuild(dto.build());
         sector.setRoom(dto.room());
         sector.setUser(UserResponseDTO.toEntity(dto.user()));
-        sector.setDeleted(dto.deleted());
-        sector.setCreatedAt(dto.createdAt());
-        sector.setUpdatedAt(dto.updatedAt());
-        sector.setDeletedAt(dto.deletedAt());
 
         return sector;
     }

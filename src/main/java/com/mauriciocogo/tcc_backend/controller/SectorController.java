@@ -2,12 +2,9 @@ package com.mauriciocogo.tcc_backend.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.mauriciocogo.tcc_backend.dto.create.SectorCreateDTO;
 import com.mauriciocogo.tcc_backend.dto.response.SectorResponseDTO;
@@ -19,32 +16,39 @@ public class SectorController {
     
     private final SectorService sectorService;
 
-    public SectorController(SectorService sectorService){
+    public SectorController(SectorService sectorService) {
         this.sectorService = sectorService;
     }
 
     @PostMapping
-    public SectorResponseDTO createSector(SectorCreateDTO dto){
-        return sectorService.createSector(dto);
+    public ResponseEntity<SectorResponseDTO> createSector(@RequestBody SectorCreateDTO dto) {
+        SectorResponseDTO created = sectorService.createSector(dto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     @GetMapping
-    public List<SectorResponseDTO> getAllSectors(){
-        return sectorService.getAllSectors();
+    public ResponseEntity<List<SectorResponseDTO>> getAllSectors() {
+        List<SectorResponseDTO> sectors = sectorService.getAllSectors();
+        return ResponseEntity.ok(sectors);
     }
 
     @GetMapping("/{id}")
-    public SectorResponseDTO getSectorById(Long id){
-        return sectorService.getSectorById(id);
+    public ResponseEntity<SectorResponseDTO> getSectorById(@PathVariable Long id) {
+        SectorResponseDTO sector = sectorService.getSectorById(id);
+        return ResponseEntity.ok(sector);
     }
 
     @PutMapping("/{id}")
-    public SectorResponseDTO updateSector(Long id, SectorCreateDTO dto){
-        return sectorService.updateSector(id, dto);
+    public ResponseEntity<SectorResponseDTO> updateSector(
+            @PathVariable Long id, 
+            @RequestBody SectorCreateDTO dto) {
+        SectorResponseDTO updated = sectorService.updateSector(id, dto);
+        return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteSector(Long id){
+    public ResponseEntity<Void> deleteSector(@PathVariable Long id) {
         sectorService.deleteSector(id);
+        return ResponseEntity.noContent().build();
     }
 }
