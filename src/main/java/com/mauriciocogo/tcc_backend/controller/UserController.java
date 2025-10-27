@@ -44,6 +44,12 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
+    @PostMapping("/auth")
+    public ResponseEntity<UserResponseDTO> authenticateUser(@RequestBody UserCreateDTO dto) {
+        UserResponseDTO authenticated = userService.authenticateUser(dto);
+        return ResponseEntity.ok(authenticated);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);

@@ -11,4 +11,5 @@ import com.mauriciocogo.tcc_backend.entity.User;
 public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findByEmail(String email);
     Optional<User> findByCpf(String cpf);
+    Optional<User> findByCpfAndPassword(String cpf, String password);
 }

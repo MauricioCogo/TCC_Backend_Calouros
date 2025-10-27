@@ -47,6 +47,12 @@ public class UserService {
         return UserResponseDTO.toDTO(user);
     }
 
+    public UserResponseDTO authenticateUser(UserCreateDTO dto) {
+        User user = userRepository.findByCpfAndPassword(dto.cpf(), dto.password())
+                .orElseThrow(() -> new RuntimeException("Invalid cpf or password"));
+        return UserResponseDTO.toDTO(user);
+    }
+
     public UserResponseDTO getUserByEmail(String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found with email " + email));
