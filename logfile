@@ -27,3 +27,29 @@
 2025-09-17 16:47:09.337 -03 [21496] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
 2025-09-17 16:47:09.337 -03 [21496] LOG:  interrompendo a ativação devido a falha no processo de ativação
 2025-09-17 16:47:09.601 -03 [21496] LOG:  sistema de banco de dados está desligado
+2025-10-31 16:48:56.296 -03 [3720] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-10-31 16:48:56.301 -03 [3720] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-10-31 16:48:56.301 -03 [3720] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-10-31 16:48:57.702 -03 [3092] LOG:  sistema de banco de dados foi interrompido; última execução em 2025-09-17 15:45:32 -03
+2025-10-31 16:49:07.810 -03 [3092] LOG:  syncing data directory (fsync), elapsed time: 10.06 s, current path: ./base/1/3598
+2025-10-31 16:49:17.773 -03 [3092] LOG:  syncing data directory (fsync), elapsed time: 20.02 s, current path: ./base/16388/3118
+2025-10-31 16:49:27.769 -03 [3092] LOG:  syncing data directory (fsync), elapsed time: 30.02 s, current path: ./base/4/2838_fsm
+2025-10-31 16:49:37.765 -03 [3092] LOG:  syncing data directory (fsync), elapsed time: 40.02 s, current path: ./base/49174/3456
+2025-10-31 16:49:47.785 -03 [3092] LOG:  syncing data directory (fsync), elapsed time: 50.03 s, current path: ./base/5/4171
+2025-10-31 16:49:57.755 -03 [3092] LOG:  syncing data directory (fsync), elapsed time: 60.01 s, current path: ./base/57366/4173
+2025-10-31 16:50:00.503 -03 [3092] LOG:  sistema de banco de dados não foi desligado corretamente; recuperação automática está em andamento
+2025-10-31 16:50:00.575 -03 [3092] LOG:  redo inicia em 0/2726B98
+2025-10-31 16:50:00.576 -03 [3092] LOG:  comprimento de registro inválido em 0/2726CD8: esperado pelo menos 24, obtido 0
+2025-10-31 16:50:00.576 -03 [3092] LOG:  refazer feito em 0/2726CA0 uso do sistema: CPU: usuário: 0.00 s, sistema: 0.00 s, decorrido: 0.01 s
+2025-10-31 16:50:00.628 -03 [15328] LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-10-31 16:50:00.762 -03 [15328] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.010 s, total=0.172 s; sync files=2, longest=0.009 s, average=0.005 s; distance=0 kB, estimate=0 kB; lsn=0/2726CD8, redo lsn=0/2726CD8
+2025-10-31 16:50:00.876 -03 [3720] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-10-31 16:50:03.235 -03 [3720] LOG:  pedido de desligamento rápido foi recebido
+2025-10-31 16:50:03.281 -03 [3720] LOG:  interrompendo quaisquer transações ativas
+2025-10-31 16:50:03.351 -03 [14708] ERRO:  cancelando o comando devido a um pedido do usuário
+2025-10-31 16:50:03.363 -03 [15320] ERRO:  cancelando o comando devido a um pedido do usuário
+2025-10-31 16:50:03.378 -03 [3720] LOG:  processo trabalhador em segundo plano "logical replication launcher" (PID 14708) terminou com código de retorno 1
+2025-10-31 16:50:03.390 -03 [15328] LOG:  desligando
+2025-10-31 16:50:03.415 -03 [15328] LOG:  checkpoint starting: shutdown immediate
+2025-10-31 16:50:03.482 -03 [15328] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.093 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB; lsn=0/2726D88, redo lsn=0/2726D88
+2025-10-31 16:50:03.512 -03 [3720] LOG:  sistema de banco de dados está desligado
