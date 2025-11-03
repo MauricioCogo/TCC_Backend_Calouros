@@ -1,8 +1,6 @@
 package com.mauriciocogo.tcc_backend.dto.create;
 
-import com.mauriciocogo.tcc_backend.dto.response.UserResponseDTO;
 import com.mauriciocogo.tcc_backend.entity.Sector;
-import com.mauriciocogo.tcc_backend.service.UserService;
 
 public record SectorCreateDTO(
     Long id,

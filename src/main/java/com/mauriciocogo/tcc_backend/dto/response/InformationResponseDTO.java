@@ -7,7 +7,7 @@ public record InformationResponseDTO(
         String title,
         String description,
         String type,
-        Long sectorId) {
+        SectorResponseDTO sectorId) {
 
     public static InformationResponseDTO toDTO(Information information) {
         return new InformationResponseDTO(
@@ -15,7 +15,8 @@ public record InformationResponseDTO(
                 information.getTitle(),
                 information.getDescription(),
                 information.getType(),
-                information.getSector().getId());
+                SectorResponseDTO.toDTO(information.getSector())
+                );
     }
 
     public static Information toEntity(InformationResponseDTO dto) {
