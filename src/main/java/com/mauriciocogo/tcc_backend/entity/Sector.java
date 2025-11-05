@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.mauriciocogo.tcc_backend.dto.OperatingHours;
+import com.mauriciocogo.tcc_backend.utils.JsonConverter;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -12,8 +15,8 @@ import lombok.*;
 @Setter
 @Entity
 @Table(name = "sector", uniqueConstraints = {
-    @UniqueConstraint(columnNames = "id"),
-    @UniqueConstraint(columnNames = "acronym")
+        @UniqueConstraint(columnNames = "id"),
+        @UniqueConstraint(columnNames = "acronym")
 })
 public class Sector {
     @Id
@@ -42,8 +45,12 @@ public class Sector {
     private String room;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "responsible_id", nullable = false)
+    private Responsible responsible;
+
+    @Convert(converter = JsonConverter.class)
+    @Column(columnDefinition = "TEXT")
+    private OperatingHours operatingHours;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)

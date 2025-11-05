@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.mauriciocogo.tcc_backend.dto.create.SectorCreateDTO;
 import com.mauriciocogo.tcc_backend.dto.response.SectorResponseDTO;
-import com.mauriciocogo.tcc_backend.dto.response.UserResponseDTO;
+import com.mauriciocogo.tcc_backend.dto.response.ResponsibleResponseDTO;
 import com.mauriciocogo.tcc_backend.entity.Sector;
-import com.mauriciocogo.tcc_backend.entity.User;
+import com.mauriciocogo.tcc_backend.entity.Responsible;
 import com.mauriciocogo.tcc_backend.repository.SectorRepository;
 
 import jakarta.transaction.Transactional;
@@ -20,17 +20,19 @@ import jakarta.transaction.Transactional;
 @Transactional
 public class SectorService {
     private final SectorRepository sectorRepository;
-    private final UserService userService;
+    private final ResponsibleService responsibleService;
 
-    public SectorService(SectorRepository sectorRepository, UserService userService) {
+    public SectorService(SectorRepository sectorRepository, ResponsibleService responsibleService) {
         this.sectorRepository = sectorRepository;
-        this.userService = userService;
+        this.responsibleService = responsibleService;
     }
 
     public SectorResponseDTO createSector(SectorCreateDTO dto) {
         Sector sector = SectorCreateDTO.toEntity(dto);
-        User u = UserResponseDTO.toEntity(userService.getUserByCPF(dto.userCPF()));
-        sector.setUser(u);
+        Responsible u = ResponsibleResponseDTO.toEntity(responsibleService.getResponsibleById(dto.responsibleId()));
+        sector.setResponsible(u);
+        System.out.println(dto.operatingHours() + "bueda fixe");
+        sector.setOperatingHours(dto.operatingHours());
         Sector savedSector = sectorRepository.save(sector);
         return SectorResponseDTO.toDTO(savedSector);
     }
@@ -47,8 +49,17 @@ public class SectorService {
         return SectorResponseDTO.toDTO(sector);
     }
 
+    public List<SectorResponseDTO> search(String keyword) {
+        return sectorRepository.searchByAcronymOrName(keyword)
+                .stream()
+                .map(SectorResponseDTO::toDTO)
+                .collect(Collectors.toList());
+    }
+
     public SectorResponseDTO updateSector(Long id, SectorCreateDTO dto) {
-        Sector sector = sectorRepository.findById(id).orElseThrow(() -> new RuntimeException("Sector not found" + id));
+        Sector sector = sectorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Sector not found: " + id));
+
         sector.setAcronym(dto.acromyn());
         sector.setName(dto.name());
         sector.setDescription(dto.desc());
@@ -56,8 +67,10 @@ public class SectorService {
         sector.setLongi(dto.longi());
         sector.setBuild(dto.build());
         sector.setRoom(dto.room());
-        User u = UserResponseDTO.toEntity(userService.getUserByCPF(dto.userCPF()));
-        sector.setUser(u);
+        sector.setOperatingHours(dto.operatingHours());
+
+        Responsible u = ResponsibleResponseDTO.toEntity(responsibleService.getResponsibleById(dto.responsibleId()));
+        sector.setResponsible(u);
         sector.setUpdatedAt(LocalDateTime.now());
 
         Sector updatedSector = sectorRepository.save(sector);

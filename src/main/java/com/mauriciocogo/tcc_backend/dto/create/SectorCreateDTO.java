@@ -1,5 +1,6 @@
 package com.mauriciocogo.tcc_backend.dto.create;
 
+import com.mauriciocogo.tcc_backend.dto.OperatingHours;
 import com.mauriciocogo.tcc_backend.entity.Sector;
 
 public record SectorCreateDTO(
@@ -11,7 +12,8 @@ public record SectorCreateDTO(
     String longi,
     String build,
     String room,
-    String userCPF
+    Long responsibleId,
+    OperatingHours operatingHours
 ){
     public static Sector toEntity(SectorCreateDTO dto){
         Sector s = new Sector();
@@ -22,6 +24,7 @@ public record SectorCreateDTO(
         s.setLongi(dto.longi);
         s.setBuild(dto.build);
         s.setRoom(dto.room);
+        s.setOperatingHours(dto.operatingHours());
         return s;
     }
 }

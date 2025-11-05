@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsáveis - IFFar ADM</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;display:flex;background:#f4f9f4;height:100vh;}
+aside.sidebar{width:220px;background:#2e7d32;color:#fff;display:flex;flex-direction:column;}
+aside.sidebar .logo{text-align:center;padding:20px 10px;border-bottom:1px solid rgba(255,255,255,0.2);}
+aside.sidebar .logo img{width:80px;border-radius:50%;margin-bottom:10px;}
+aside.sidebar .logo h2{margin:0;font-size:18px;}
+aside.sidebar nav ul{list-style:none;padding:0;margin:0;}
+aside.sidebar nav ul li{margin:0;}
+aside.sidebar nav ul li a{display:block;padding:15px 20px;color:#c8e6c9;text-decoration:none;font-weight:bold;}
+aside.sidebar nav ul li a.active, aside.sidebar nav ul li a:hover{background:#1b5e20;color:#fff;}
+main{flex:1;padding:20px;overflow-y:auto;}
+h1{color:#2e7d32;margin-bottom:20px;}
+.section-box{background:#e8f5e9;padding:20px;border-radius:10px;margin-bottom:25px;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
+label{display:block;margin-top:10px;font-weight:bold;}
+input,select,textarea{width:100%;padding:8px;margin-top:5px;border-radius:5px;border:1px solid #ccc;}
+button{margin-top:15px;padding:10px 15px;background:#2e7d32;color:#fff;border:none;border-radius:5px;cursor:pointer;font-weight:bold;}
+button:hover{background:#1b5e20;}
+table{width:100%;border-collapse:collapse;margin-top:20px;}
+th,td{border:1px solid #ccc;padding:10px;text-align:left;}
+th{background:#c8e6c9;}
+td button{margin-right:5px;background:#81c784;}
+td button.delete{background:#e57373;}
+td button:hover{opacity:0.9;}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="logo"><img src="/img/logo.jpeg" alt="Logo"><h2>IFFar ADM</h2></div>
+  <nav>
+    <ul>
+      <li><a href="/admin/home">🏠 Home</a></li>
+      <li><a href="/admin/responsibles" class="active">👨‍🏫 Responsáveis</a></li>
+      <li><a href="/admin/sectors">🏢 Setores</a></li>
+      <li><a href="/admin/informations">ℹ️ Informações</a></li>
+    </ul>
+  </nav>
+</aside>
+<main>
+  <h1>Gestão de Responsáveis</h1>
+  <div class="section-box">
+    <h2 id="form-title">Adicionar Responsável</h2>
+    <form id="resp-form">
+      <input type="hidden" id="resp-id">
+      <label>Nome:</label><input type="text" id="name" required>
+      <label>Email:</label><input type="email" id="email">
+      <label>Função:</label><input type="text" id="role">
+      <button type="submit" id="submit-btn">Salvar</button>
+      <button type="button" id="cancel-btn" style="display:none;">Cancelar</button>
+    </form>
+  </div>
+  <div class="section-box">
+    <h2>Lista de Responsáveis</h2>
+    <table id="resp-table">
+      <thead><tr><th>ID</th><th>Nome</th><th>Email</th><th>Função</th><th>Ações</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</main>
+<script>
+const apiUrl = "http://localhost:8080/responsibles";
+const form=document.getElementById("resp-form");
+const idInput=document.getElementById("resp-id");
+const nameInput=document.getElementById("name");
+const emailInput=document.getElementById("email");
+const roleInput=document.getElementById("role");
+const tableBody=document.querySelector("#resp-table tbody");
+const cancelBtn=document.getElementById("cancel-btn");
+
+function loadResponsibles(){
+  fetch(apiUrl).then(r=>r.json()).then(data=>{
+    tableBody.innerHTML="";
+    data.forEach(r=>{
+      const row=document.createElement("tr");
+      row.innerHTML=`<td>${r.id}</td><td>${r.name}</td><td>${r.email}</td><td>${r.role}</td>
+      <td><button onclick="editResponsible(${r.id})">Editar</button>
+      <button class="delete" onclick="deleteResponsible(${r.id})">Deletar</button></td>`;
+      tableBody.appendChild(row);
+    });
+  });
+}
+
+form.addEventListener("submit", e=>{
+  e.preventDefault();
+  const id=idInput.value;
+  const payload={name:nameInput.value,email:emailInput.value,role:roleInput.value};
+  const method=id?"PUT":"POST";
+  const url=id?`${apiUrl}/${id}`:apiUrl;
+  fetch(url,{method,headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
+  .then(res=>{if(!res.ok)throw new Error("Erro");resetForm();loadResponsibles();})
+  .catch(console.error);
+});
+
+function editResponsible(id){
+  fetch(`${apiUrl}/${id}`).then(r=>r.json()).then(r=>{
+    idInput.value=r.id;nameInput.value=r.name;emailInput.value=r.email;roleInput.value=r.role;
+    document.getElementById("form-title").textContent="Editar Responsável";
+    cancelBtn.style.display="inline-block";
+  });
+}
+
+cancelBtn.addEventListener("click",resetForm);
+function resetForm(){idInput.value="";nameInput.value="";emailInput.value="";roleInput.value="";document.getElementById("form-title").textContent="Adicionar Responsável";cancelBtn.style.display="none";}
+
+function deleteResponsible(id){if(confirm("Deseja realmente deletar?")){fetch(`${apiUrl}/${id}`,{method:"DELETE"}).then(r=>{if(!r.ok)throw new Error("Erro");loadResponsibles();}).catch(console.error);}}
+
+loadResponsibles();
+</script>
+</body>
+</html>

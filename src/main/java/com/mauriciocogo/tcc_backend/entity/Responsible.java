@@ -18,11 +18,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "users", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "cpf"),
+@Table(name = "responsible", uniqueConstraints = {
         @UniqueConstraint(columnNames = "email")
 })
-public class User {
+public class Responsible  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,14 +29,11 @@ public class User {
     @Column(nullable = false)
     private String name;
 
-    @Column(length = 11, nullable = false, unique = true)
-    private String cpf;
-
     @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
-    private String password;
+    private String role;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)

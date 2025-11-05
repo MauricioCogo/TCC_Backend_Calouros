@@ -53,3 +53,246 @@
 2025-10-31 16:50:03.415 -03 [15328] LOG:  checkpoint starting: shutdown immediate
 2025-10-31 16:50:03.482 -03 [15328] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.093 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB; lsn=0/2726D88, redo lsn=0/2726D88
 2025-10-31 16:50:03.512 -03 [3720] LOG:  sistema de banco de dados está desligado
+2025-10-31 16:52:59.778 -03 [11872] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-10-31 16:52:59.783 -03 [11872] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-10-31 16:52:59.784 -03 [11872] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-10-31 16:52:59.926 -03 [14440] LOG:  sistema de banco de dados foi desligado em 2025-10-31 16:50:03 -03
+2025-10-31 16:52:59.990 -03 [11872] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-10-31 16:53:12.341 -03 [12784] FATAL:  role "postgres" não existe
+2025-10-31 16:53:14.668 -03 [7300] FATAL:  role "postgres" não existe
+2025-10-31 16:55:02.007 -03 [8480] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-10-31 16:55:02.008 -03 [10424] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-10-31 16:55:02.008 -03 [8712] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-10-31 16:55:02.008 -03 [14008] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-10-31 16:55:02.010 -03 [7904] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-10-31 16:55:02.010 -03 [13788] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-10-31 16:55:02.012 -03 [12248] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-10-31 16:55:02.012 -03 [8536] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-10-31 16:55:02.014 -03 [15176] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-10-31 16:55:02.014 -03 [13392] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-10-31 16:55:02.377 -03 [11872] LOG:  processo servidor (PID 1888) foi terminado pela exceção 0xC000013A
+2025-10-31 16:55:02.377 -03 [11872] DETALHE:  Processo que falhou estava executando: SET search_path = public,public,"$user"
+2025-10-31 16:55:02.377 -03 [11872] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-10-31 16:55:02.377 -03 [11872] LOG:  terminando quaisquer outros processos servidor ativos
+2025-10-31 16:55:02.476 -03 [11872] LOG:  todos os processos servidor foram terminados; reinicializando
+2025-10-31 16:55:02.752 -03 [11872] LOG:  processo de ativação (PID 15600) foi terminado pela exceção 0xC0000142
+2025-10-31 16:55:02.752 -03 [11872] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-10-31 16:55:02.752 -03 [11872] LOG:  interrompendo a ativação devido a falha no processo de ativação
+2025-10-31 16:55:02.759 -03 [11872] LOG:  sistema de banco de dados está desligado
+2025-11-05 13:44:04.268 -03 [10304] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-11-05 13:44:04.284 -03 [10304] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-11-05 13:44:04.285 -03 [10304] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-11-05 13:44:04.713 -03 [8892] LOG:  sistema de banco de dados foi interrompido; última execução em 2025-10-31 16:52:59 -03
+2025-11-05 13:44:13.237 -03 [8892] LOG:  sistema de banco de dados não foi desligado corretamente; recuperação automática está em andamento
+2025-11-05 13:44:13.307 -03 [8892] LOG:  redo inicia em 0/2726E00
+2025-11-05 13:44:13.480 -03 [8892] LOG:  comprimento de registro inválido em 0/276BEA8: esperado pelo menos 24, obtido 0
+2025-11-05 13:44:13.480 -03 [8892] LOG:  refazer feito em 0/276BE70 uso do sistema: CPU: usuário: 0.00 s, sistema: 0.00 s, decorrido: 0.18 s
+2025-11-05 13:44:13.525 -03 [13308] LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-11-05 13:44:15.243 -03 [13308] LOG:  checkpoint complete: wrote 81 buffers (0.5%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.020 s, sync=1.593 s, total=1.749 s; sync files=63, longest=0.062 s, average=0.026 s; distance=276 kB, estimate=276 kB; lsn=0/276BEA8, redo lsn=0/276BEA8
+2025-11-05 13:44:15.391 -03 [10304] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-11-05 13:46:29.482 -03 [10304] LOG:  pedido de desligamento rápido foi recebido
+2025-11-05 13:46:29.565 -03 [10304] LOG:  interrompendo quaisquer transações ativas
+2025-11-05 13:46:29.569 -03 [15340] FATAL:  terminando a conexão devido a um comando do administrador
+2025-11-05 13:46:29.571 -03 [8604] FATAL:  terminando a conexão devido a um comando do administrador
+2025-11-05 13:46:29.572 -03 [14892] FATAL:  terminando a conexão devido a um comando do administrador
+2025-11-05 13:46:29.588 -03 [15684] ERRO:  cancelando o comando devido a um pedido do usuário
+2025-11-05 13:46:29.601 -03 [12552] ERRO:  cancelando o comando devido a um pedido do usuário
+2025-11-05 13:46:29.610 -03 [10304] LOG:  processo trabalhador em segundo plano "logical replication launcher" (PID 15684) terminou com código de retorno 1
+2025-11-05 13:46:29.626 -03 [13308] LOG:  desligando
+2025-11-05 13:46:29.638 -03 [13308] LOG:  checkpoint starting: shutdown immediate
+2025-11-05 13:46:29.807 -03 [13308] LOG:  checkpoint complete: wrote 7 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.081 s, total=0.181 s; sync files=4, longest=0.025 s, average=0.021 s; distance=0 kB, estimate=248 kB; lsn=0/276BF58, redo lsn=0/276BF58
+2025-11-05 13:46:29.849 -03 [10304] LOG:  sistema de banco de dados está desligado
+2025-11-05 13:47:06.865 -03 [5988] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-11-05 13:47:06.871 -03 [5988] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-11-05 13:47:06.871 -03 [5988] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-11-05 13:47:07.031 -03 [14000] LOG:  sistema de banco de dados foi desligado em 2025-11-05 13:46:29 -03
+2025-11-05 13:47:07.131 -03 [5988] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-11-05 13:52:07.156 -03 [16248] LOG:  checkpoint starting: time
+2025-11-05 13:52:13.244 -03 [16248] LOG:  checkpoint complete: wrote 37 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.828 s, sync=1.943 s, total=6.091 s; sync files=25, longest=0.476 s, average=0.078 s; distance=63 kB, estimate=63 kB; lsn=0/277BD38, redo lsn=0/277BCE0
+2025-11-05 13:54:28.845 -03 [5988] LOG:  processo servidor (PID 11128) foi terminado pela exceção 0xC000013A
+2025-11-05 13:54:28.845 -03 [5988] DETALHE:  Processo que falhou estava executando: SELECT i.*,c.relnamespace FROM pg_catalog.pg_inherits i,pg_catalog.pg_class c WHERE i.inhrelid=$1 AND c.oid=i.inhparent ORDER BY i.inhseqno
+2025-11-05 13:54:28.845 -03 [5988] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-11-05 13:54:28.845 -03 [5988] LOG:  terminando quaisquer outros processos servidor ativos
+2025-11-05 13:54:28.885 -03 [5988] LOG:  todos os processos servidor foram terminados; reinicializando
+2025-11-05 13:54:29.542 -03 [5988] LOG:  processo de ativação (PID 2168) foi terminado pela exceção 0xC0000142
+2025-11-05 13:54:29.542 -03 [5988] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-11-05 13:54:29.542 -03 [5988] LOG:  interrompendo a ativação devido a falha no processo de ativação
+2025-11-05 13:54:29.544 -03 [5988] LOG:  sistema de banco de dados está desligado
+2025-11-05 14:01:03.654 -03 [11080] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-11-05 14:01:03.669 -03 [11080] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-11-05 14:01:03.669 -03 [11080] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-11-05 14:01:03.882 -03 [12556] LOG:  sistema de banco de dados foi interrompido; última execução em 2025-11-05 13:52:13 -03
+2025-11-05 14:01:05.258 -03 [12556] LOG:  sistema de banco de dados não foi desligado corretamente; recuperação automática está em andamento
+2025-11-05 14:01:05.370 -03 [12556] LOG:  redo inicia em 0/277BCE0
+2025-11-05 14:01:05.370 -03 [12556] LOG:  comprimento de registro inválido em 0/277BDE8: esperado pelo menos 24, obtido 0
+2025-11-05 14:01:05.370 -03 [12556] LOG:  refazer feito em 0/277BDB0 uso do sistema: CPU: usuário: 0.00 s, sistema: 0.00 s, decorrido: 0.01 s
+2025-11-05 14:01:05.414 -03 [208] LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-11-05 14:01:05.517 -03 [208] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.018 s, total=0.141 s; sync files=2, longest=0.017 s, average=0.009 s; distance=0 kB, estimate=0 kB; lsn=0/277BDE8, redo lsn=0/277BDE8
+2025-11-05 14:01:05.620 -03 [11080] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-11-05 14:03:34.846 -03 [11080] LOG:  processo trabalhador em segundo plano "logical replication launcher" (PID 6192) foi terminado pela exceção 0xC000013A
+2025-11-05 14:03:34.846 -03 [11080] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-11-05 14:03:34.846 -03 [11080] LOG:  terminando quaisquer outros processos servidor ativos
+2025-11-05 14:03:34.928 -03 [11080] LOG:  todos os processos servidor foram terminados; reinicializando
+2025-11-05 14:03:35.118 -03 [11080] LOG:  processo de ativação (PID 16264) foi terminado pela exceção 0xC0000142
+2025-11-05 14:03:35.118 -03 [11080] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-11-05 14:03:35.118 -03 [11080] LOG:  interrompendo a ativação devido a falha no processo de ativação
+2025-11-05 14:03:35.119 -03 [11080] LOG:  sistema de banco de dados está desligado
+2025-11-05 14:13:27.721 -03 [5708] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-11-05 14:13:27.737 -03 [5708] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-11-05 14:13:27.737 -03 [5708] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-11-05 14:13:28.234 -03 [1464] LOG:  sistema de banco de dados foi interrompido; última execução em 2025-11-05 14:01:05 -03
+2025-11-05 14:13:38.257 -03 [1464] LOG:  syncing data directory (fsync), elapsed time: 10.02 s, current path: ./base/4/2605_vm
+2025-11-05 14:13:48.329 -03 [1464] LOG:  syncing data directory (fsync), elapsed time: 20.09 s, current path: ./base/5/4146
+2025-11-05 14:13:58.272 -03 [1464] LOG:  syncing data directory (fsync), elapsed time: 30.03 s, current path: ./base/57366/3764_fsm
+2025-11-05 14:14:01.673 -03 [1464] LOG:  sistema de banco de dados não foi desligado corretamente; recuperação automática está em andamento
+2025-11-05 14:14:01.826 -03 [1464] LOG:  redo inicia em 0/277BE60
+2025-11-05 14:14:01.919 -03 [1464] LOG:  comprimento de registro inválido em 0/27A6498: esperado pelo menos 24, obtido 0
+2025-11-05 14:14:01.920 -03 [1464] LOG:  refazer feito em 0/27A6460 uso do sistema: CPU: usuário: 0.00 s, sistema: 0.00 s, decorrido: 0.11 s
+2025-11-05 14:14:02.005 -03 [10212] LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-11-05 14:14:04.269 -03 [10212] LOG:  checkpoint complete: wrote 48 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.006 s, sync=1.893 s, total=2.333 s; sync files=41, longest=0.103 s, average=0.047 s; distance=169 kB, estimate=169 kB; lsn=0/27A6498, redo lsn=0/27A6498
+2025-11-05 14:14:04.460 -03 [5708] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-11-05 14:19:01.282 -03 [10212] LOG:  checkpoint starting: time
+2025-11-05 14:19:02.834 -03 [10212] LOG:  checkpoint complete: wrote 11 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.109 s, sync=0.324 s, total=1.552 s; sync files=11, longest=0.049 s, average=0.030 s; distance=27 kB, estimate=155 kB; lsn=0/27AD258, redo lsn=0/27AD200
+2025-11-05 14:47:14.342 -03 [5708] LOG:  processo servidor (PID 10420) foi terminado pela exceção 0xC000013A
+2025-11-05 14:47:14.342 -03 [5708] DETALHE:  Processo que falhou estava executando: SELECT c.oid,c.*,d.description,pg_catalog.pg_get_expr(c.relpartbound, c.oid) as partition_expr,  pg_catalog.pg_get_partkeydef(c.oid) as partition_key 
+	FROM pg_catalog.pg_class c
+	LEFT OUTER JOIN pg_catalog.pg_description d ON d.objoid=c.oid AND d.objsubid=0 AND d.classoid='pg_class'::regclass
+	WHERE c.relnamespace=$1 AND c.relkind not in ('i','I','c')
+2025-11-05 14:47:14.342 -03 [5708] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-11-05 14:47:14.368 -03 [5708] LOG:  terminando quaisquer outros processos servidor ativos
+2025-11-05 14:47:14.650 -03 [5708] LOG:  todos os processos servidor foram terminados; reinicializando
+2025-11-05 14:48:14.925 -03 [14960] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-11-05 14:48:14.952 -03 [14960] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-11-05 14:48:14.952 -03 [14960] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-11-05 14:48:15.199 -03 [17976] LOG:  sistema de banco de dados foi interrompido; última execução em 2025-11-05 14:19:02 -03
+2025-11-05 14:48:17.655 -03 [17976] LOG:  sistema de banco de dados não foi desligado corretamente; recuperação automática está em andamento
+2025-11-05 14:48:17.707 -03 [17976] LOG:  redo inicia em 0/27AD200
+2025-11-05 14:48:17.708 -03 [17976] LOG:  comprimento de registro inválido em 0/27AD308: esperado pelo menos 24, obtido 0
+2025-11-05 14:48:17.709 -03 [17976] LOG:  refazer feito em 0/27AD2D0 uso do sistema: CPU: usuário: 0.00 s, sistema: 0.00 s, decorrido: 0.01 s
+2025-11-05 14:48:17.784 -03 [12180] LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-11-05 14:48:17.906 -03 [12180] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.006 s, sync=0.028 s, total=0.164 s; sync files=2, longest=0.027 s, average=0.014 s; distance=0 kB, estimate=0 kB; lsn=0/27AD308, redo lsn=0/27AD308
+2025-11-05 14:48:17.984 -03 [14960] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-11-05 15:24:54.457 -03 [14912] ERRO:  o valor nulo na coluna "cpf" da relação "responsibles" viola a restrição de não-nulo
+2025-11-05 15:24:54.457 -03 [14912] DETALHE:  Registro que falhou contém (1, null, 2025-11-05 15:24:53.833816, f, null, mauricioccogo@gmail.com, Mauricio Carvalho Cogo, null, 2025-11-05 15:24:53.833816, Bolsista Backend).
+2025-11-05 15:24:54.457 -03 [14912] COMANDO:  insert into responsibles (created_at,deleted,deleted_at,email,name,role,updated_at) values ($1,$2,$3,$4,$5,$6,$7)
+	RETURNING *
+2025-11-05 15:25:04.207 -03 [14912] ERRO:  o valor nulo na coluna "cpf" da relação "responsibles" viola a restrição de não-nulo
+2025-11-05 15:25:04.207 -03 [14912] DETALHE:  Registro que falhou contém (2, null, 2025-11-05 15:25:04.206194, f, null, mauricio.cogo.2005@gmail.com, Mauricio Carvalho Cogo, null, 2025-11-05 15:25:04.206194, Bolsista Backend).
+2025-11-05 15:25:04.207 -03 [14912] COMANDO:  insert into responsibles (created_at,deleted,deleted_at,email,name,role,updated_at) values ($1,$2,$3,$4,$5,$6,$7)
+	RETURNING *
+2025-11-05 15:28:18.397 -03 [12180] LOG:  checkpoint starting: time
+2025-11-05 15:28:20.047 -03 [12180] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.210 s, sync=0.321 s, total=2.061 s; sync files=2, longest=0.268 s, average=0.161 s; distance=0 kB, estimate=0 kB; lsn=0/27AD548, redo lsn=0/27AD4B8
+2025-11-05 15:33:07.452 -03 [14912] ERRO:  o valor nulo na coluna "cpf" da relação "responsibles" viola a restrição de não-nulo
+2025-11-05 15:33:07.452 -03 [14912] DETALHE:  Registro que falhou contém (3, null, 2025-11-05 15:33:07.450002, f, null, mauricioccogo@gmail.com, Mauricio Carvalho Cogo, null, 2025-11-05 15:33:07.450002, Bolsista Backend).
+2025-11-05 15:33:07.452 -03 [14912] COMANDO:  insert into responsibles (created_at,deleted,deleted_at,email,name,role,updated_at) values ($1,$2,$3,$4,$5,$6,$7)
+	RETURNING *
+2025-11-05 15:33:17.057 -03 [12180] LOG:  checkpoint starting: time
+2025-11-05 15:33:17.295 -03 [12180] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.106 s, sync=0.037 s, total=0.239 s; sync files=2, longest=0.024 s, average=0.019 s; distance=0 kB, estimate=0 kB; lsn=0/27AD718, redo lsn=0/27AD6C0
+2025-11-05 15:33:42.839 -03 [6324] ERRO:  o valor nulo na coluna "cpf" da relação "responsibles" viola a restrição de não-nulo
+2025-11-05 15:33:42.839 -03 [6324] DETALHE:  Registro que falhou contém (4, null, 2025-11-05 15:33:42.82489, f, null, mauricioccogo@gmail.com, Mauricio Carvalho Cogo, null, 2025-11-05 15:33:42.82489, Bolsista Backend).
+2025-11-05 15:33:42.839 -03 [6324] COMANDO:  insert into responsibles (created_at,deleted,deleted_at,email,name,role,updated_at) values ($1,$2,$3,$4,$5,$6,$7)
+	RETURNING *
+2025-11-05 15:38:17.301 -03 [12180] LOG:  checkpoint starting: time
+2025-11-05 15:38:22.805 -03 [12180] LOG:  checkpoint complete: wrote 46 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.956 s, sync=0.477 s, total=5.504 s; sync files=38, longest=0.032 s, average=0.013 s; distance=174 kB, estimate=174 kB; lsn=0/27D9108, redo lsn=0/27D9078
+2025-11-05 15:46:53.534 -03 [14960] LOG:  processo servidor (PID 15028) foi terminado pela exceção 0xC000013A
+2025-11-05 15:46:53.534 -03 [14960] DETALHE:  Processo que falhou estava executando: SET application_name = 'PostgreSQL JDBC Driver'
+2025-11-05 15:46:53.534 -03 [14960] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-11-05 15:46:53.535 -03 [14960] LOG:  terminando quaisquer outros processos servidor ativos
+2025-11-05 15:46:56.423 -03 [14960] LOG:  todos os processos servidor foram terminados; reinicializando
+2025-11-05 15:47:02.639 -03 [14960] LOG:  processo de ativação (PID 6956) foi terminado pela exceção 0xC0000142
+2025-11-05 15:47:02.639 -03 [14960] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-11-05 15:47:02.639 -03 [14960] LOG:  interrompendo a ativação devido a falha no processo de ativação
+2025-11-05 15:47:02.744 -03 [14960] LOG:  sistema de banco de dados está desligado
+2025-11-05 15:53:25.022 -03 [15064] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-11-05 15:53:25.040 -03 [15064] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-11-05 15:53:25.040 -03 [15064] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-11-05 15:53:26.032 -03 [16120] LOG:  sistema de banco de dados foi interrompido; última execução em 2025-11-05 15:38:22 -03
+2025-11-05 15:53:36.051 -03 [16120] LOG:  syncing data directory (fsync), elapsed time: 10.01 s, current path: ./base/57366/2579
+2025-11-05 15:53:42.605 -03 [16120] LOG:  sistema de banco de dados não foi desligado corretamente; recuperação automática está em andamento
+2025-11-05 15:53:42.862 -03 [5328] FATAL:  o sistema de banco de dados está iniciando
+2025-11-05 15:53:42.904 -03 [16120] LOG:  redo inicia em 0/27D9078
+2025-11-05 15:53:42.905 -03 [16120] LOG:  comprimento de registro inválido em 0/27D91B8: esperado pelo menos 24, obtido 0
+2025-11-05 15:53:42.906 -03 [16120] LOG:  refazer feito em 0/27D9180 uso do sistema: CPU: usuário: 0.00 s, sistema: 0.00 s, decorrido: 0.08 s
+2025-11-05 15:53:43.054 -03 [14424] LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-11-05 15:53:43.340 -03 [14424] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.085 s, total=0.359 s; sync files=2, longest=0.056 s, average=0.043 s; distance=0 kB, estimate=0 kB; lsn=0/27D91B8, redo lsn=0/27D91B8
+2025-11-05 15:53:43.438 -03 [15064] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-11-05 16:11:05.920 -03 [15596] ERRO:  coluna "operating_hours" é do tipo json mas expressão é do tipo character varying no caractere 175
+2025-11-05 16:11:05.920 -03 [15596] DICA:  Você precisará reescrever ou converter a expressão.
+2025-11-05 16:11:05.920 -03 [15596] COMANDO:  insert into sector (acronym,build,created_at,deleted,deleted_at,description,lat,longi,name,operating_hours,responsible_id,room,updated_at) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+	RETURNING *
+2025-11-05 16:16:00.528 -03 [7432] ERRO:  coluna "operating_hours" é do tipo json mas expressão é do tipo character varying no caractere 175
+2025-11-05 16:16:00.528 -03 [7432] DICA:  Você precisará reescrever ou converter a expressão.
+2025-11-05 16:16:00.528 -03 [7432] COMANDO:  insert into sector (acronym,build,created_at,deleted,deleted_at,description,lat,longi,name,operating_hours,responsible_id,room,updated_at) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+	RETURNING *
+2025-11-05 16:18:24.989 -03 [5624] ERRO:  coluna "operating_hours" é do tipo json mas expressão é do tipo character varying no caractere 175
+2025-11-05 16:18:24.989 -03 [5624] DICA:  Você precisará reescrever ou converter a expressão.
+2025-11-05 16:18:24.989 -03 [5624] COMANDO:  insert into sector (acronym,build,created_at,deleted,deleted_at,description,lat,longi,name,operating_hours,responsible_id,room,updated_at) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+	RETURNING *
+2025-11-05 16:19:26.951 -03 [11948] ERRO:  coluna "operating_hours" é do tipo json mas expressão é do tipo character varying no caractere 175
+2025-11-05 16:19:26.951 -03 [11948] DICA:  Você precisará reescrever ou converter a expressão.
+2025-11-05 16:19:26.951 -03 [11948] COMANDO:  insert into sector (acronym,build,created_at,deleted,deleted_at,description,lat,longi,name,operating_hours,responsible_id,room,updated_at) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+	RETURNING *
+2025-11-05 16:21:57.350 -03 [17384] ERRO:  coluna "operating_hours" é do tipo json mas expressão é do tipo character varying no caractere 175
+2025-11-05 16:21:57.350 -03 [17384] DICA:  Você precisará reescrever ou converter a expressão.
+2025-11-05 16:21:57.350 -03 [17384] COMANDO:  insert into sector (acronym,build,created_at,deleted,deleted_at,description,lat,longi,name,operating_hours,responsible_id,room,updated_at) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+	RETURNING *
+2025-11-05 16:29:03.665 -03 [12060] ERRO:  coluna "operating_hours" é do tipo json mas expressão é do tipo character varying no caractere 175
+2025-11-05 16:29:03.665 -03 [12060] DICA:  Você precisará reescrever ou converter a expressão.
+2025-11-05 16:29:03.665 -03 [12060] COMANDO:  insert into sector (acronym,build,created_at,deleted,deleted_at,description,lat,longi,name,operating_hours,responsible_id,room,updated_at) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+	RETURNING *
+2025-11-05 16:34:22.270 -03 [17712] ERRO:  coluna "operating_hours" é do tipo json mas expressão é do tipo character varying no caractere 175
+2025-11-05 16:34:22.270 -03 [17712] DICA:  Você precisará reescrever ou converter a expressão.
+2025-11-05 16:34:22.270 -03 [17712] COMANDO:  insert into sector (acronym,build,created_at,deleted,deleted_at,description,lat,longi,name,operating_hours,responsible_id,room,updated_at) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+	RETURNING *
+2025-11-05 16:36:15.701 -03 [3984] ERRO:  coluna "operating_hours" é do tipo json mas expressão é do tipo character varying no caractere 175
+2025-11-05 16:36:15.701 -03 [3984] DICA:  Você precisará reescrever ou converter a expressão.
+2025-11-05 16:36:15.701 -03 [3984] COMANDO:  insert into sector (acronym,build,created_at,deleted,deleted_at,description,lat,longi,name,operating_hours,responsible_id,room,updated_at) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+	RETURNING *
+2025-11-05 16:39:22.049 -03 [11660] ERRO:  o valor nulo na coluna "user_id" da relação "sector" viola a restrição de não-nulo
+2025-11-05 16:39:22.049 -03 [11660] DETALHE:  Registro que falhou contém (1, CTI, a, 2025-11-05 16:39:21.940635, f, null, asd, -23.423231, -32.543434, Projetor sem foco, 101, 2025-11-05 16:39:21.940635, null, {"days":{"Segunda":[{"open":"18:39","close":"17:39"}]}}, 1).
+2025-11-05 16:39:22.049 -03 [11660] COMANDO:  insert into sector (acronym,build,created_at,deleted,deleted_at,description,lat,longi,name,operating_hours,responsible_id,room,updated_at) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+	RETURNING *
+2025-11-05 16:42:07.446 -03 [9392] ERRO:  o valor nulo na coluna "user_id" da relação "sector" viola a restrição de não-nulo
+2025-11-05 16:42:07.446 -03 [9392] DETALHE:  Registro que falhou contém (2, asd, A, 2025-11-05 16:42:07.361522, f, null, asd, -23.423231, -32.543434, Projetor sem foco, 101, 2025-11-05 16:42:07.361522, null, {"days":{"Segunda":[{"open":"19:42","close":"16:43"}]}}, 1).
+2025-11-05 16:42:07.446 -03 [9392] COMANDO:  insert into sector (acronym,build,created_at,deleted,deleted_at,description,lat,longi,name,operating_hours,responsible_id,room,updated_at) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+	RETURNING *
+2025-11-05 16:43:09.297 -03 [16144] ERRO:  o valor nulo na coluna "user_id" da relação "sector" viola a restrição de não-nulo
+2025-11-05 16:43:09.297 -03 [16144] DETALHE:  Registro que falhou contém (3, CTI, a, 2025-11-05 16:43:09.294773, f, null, asd, -23.423231, -32.543434, asd, 101, 2025-11-05 16:43:09.294773, null, {"days":{"Segunda":[{"open":"22:43","close":"19:43"}]}}, 1).
+2025-11-05 16:43:09.297 -03 [16144] COMANDO:  insert into sector (acronym,build,created_at,deleted,deleted_at,description,lat,longi,name,operating_hours,responsible_id,room,updated_at) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+	RETURNING *
+2025-11-05 16:43:42.679 -03 [14424] LOG:  checkpoint starting: time
+2025-11-05 16:43:47.826 -03 [14424] LOG:  checkpoint complete: wrote 30 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.518 s, sync=0.951 s, total=5.347 s; sync files=26, longest=0.098 s, average=0.037 s; distance=146 kB, estimate=146 kB; lsn=0/27FDD00, redo lsn=0/27FDCA8
+2025-11-05 16:44:39.373 -03 [4300] ERRO:  o valor nulo na coluna "user_id" da relação "sector" viola a restrição de não-nulo
+2025-11-05 16:44:39.373 -03 [4300] DETALHE:  Registro que falhou contém (4, asd, A, 2025-11-05 16:44:39.369064, f, null, ads, -23.423231, -32.543434, ads, 21, 2025-11-05 16:44:39.369064, null, {"days":{"Segunda":[{"open":"17:44","close":"08:44"}]}}, 1).
+2025-11-05 16:44:39.373 -03 [4300] COMANDO:  insert into sector (acronym,build,created_at,deleted,deleted_at,description,lat,longi,name,operating_hours,responsible_id,room,updated_at) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+	RETURNING *
+2025-11-05 16:45:13.280 -03 [17288] ERRO:  o valor nulo na coluna "user_id" da relação "sector" viola a restrição de não-nulo
+2025-11-05 16:45:13.280 -03 [17288] DETALHE:  Registro que falhou contém (5, asd, A, 2025-11-05 16:45:13.278602, f, null, asd, -23.423231, -32.543434, asd, 101, 2025-11-05 16:45:13.278602, null, {"days":{"Segunda":[{"open":"19:45","close":"17:45"}]}}, 1).
+2025-11-05 16:45:13.280 -03 [17288] COMANDO:  insert into sector (acronym,build,created_at,deleted,deleted_at,description,lat,longi,name,operating_hours,responsible_id,room,updated_at) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)
+	RETURNING *
+2025-11-05 16:48:42.831 -03 [14424] LOG:  checkpoint starting: time
+2025-11-05 16:48:50.246 -03 [14424] LOG:  checkpoint complete: wrote 60 buffers (0.4%); 0 WAL file(s) added, 0 removed, 0 recycled; write=6.541 s, sync=0.750 s, total=7.416 s; sync files=49, longest=0.042 s, average=0.016 s; distance=351 kB, estimate=351 kB; lsn=0/2866590, redo lsn=0/28559A0
+2025-11-05 16:53:42.259 -03 [14424] LOG:  checkpoint starting: time
+2025-11-05 16:53:46.730 -03 [14424] LOG:  checkpoint complete: wrote 33 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=3.545 s, sync=0.796 s, total=4.471 s; sync files=21, longest=0.058 s, average=0.038 s; distance=70 kB, estimate=323 kB; lsn=0/28672D8, redo lsn=0/2867248
+2025-11-05 16:56:02.578 -03 [13428] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-11-05 16:56:02.633 -03 [17596] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-11-05 16:56:02.634 -03 [7204] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-11-05 16:56:02.634 -03 [12716] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-11-05 16:56:02.634 -03 [3796] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-11-05 16:56:02.634 -03 [5648] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-11-05 16:56:02.634 -03 [14664] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-11-05 16:56:02.634 -03 [1240] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-11-05 16:56:02.634 -03 [16788] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-11-05 16:56:02.634 -03 [12388] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10054
+2025-11-05 16:56:09.101 -03 [15064] LOG:  processo servidor (PID 11108) foi terminado pela exceção 0xC000013A
+2025-11-05 16:56:09.101 -03 [15064] DETALHE:  Processo que falhou estava executando: SELECT c.relname,a.*,pg_catalog.pg_get_expr(ad.adbin, ad.adrelid, true) as def_value,dsc.description,dep.objid
+	FROM pg_catalog.pg_attribute a
+	INNER JOIN pg_catalog.pg_class c ON (a.attrelid=c.oid)
+	LEFT OUTER JOIN pg_catalog.pg_attrdef ad ON (a.attrelid=ad.adrelid AND a.attnum = ad.adnum)
+	LEFT OUTER JOIN pg_catalog.pg_description dsc ON (c.oid=dsc.objoid AND a.attnum = dsc.objsubid)
+	LEFT OUTER JOIN pg_depend dep on dep.refobjid = a.attrelid AND dep.deptype = 'i' and dep.refobjsubid = a.attnum and dep.classid = dep.refclassid
+	WHERE NOT a.attisdropped AND c.relkind not in ('i','I','c') AND c.oid=$1
+	ORDER BY a.attnum
+2025-11-05 16:56:09.101 -03 [15064] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-11-05 16:56:09.101 -03 [15064] LOG:  terminando quaisquer outros processos servidor ativos
+2025-11-05 16:56:09.779 -03 [15064] LOG:  todos os processos servidor foram terminados; reinicializando

@@ -19,7 +19,6 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/informations")
-@SecurityRequirement(name = "bearerAuth")
 @Tag(name = "Informações", description = "Operações relacionadas ao gerenciamento de informações do sistema")
 public class InformationController {
 

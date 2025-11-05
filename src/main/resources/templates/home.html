@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - IFFar ADM</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      background: #f4f9f4;
+      height: 100vh;
+    }
+
+    aside.sidebar {
+      width: 220px;
+      background: #2e7d32;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    aside.sidebar .logo {
+      text-align: center;
+      padding: 20px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    aside.sidebar .logo img {
+      width: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    aside.sidebar .logo h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    aside.sidebar nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    aside.sidebar nav ul li {
+      margin: 0;
+    }
+
+    aside.sidebar nav ul li a {
+      display: block;
+      padding: 15px 20px;
+      color: #c8e6c9;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    aside.sidebar nav ul li a.active,
+    aside.sidebar nav ul li a:hover {
+      background: #1b5e20;
+      color: #fff;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    h1 {
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+
+    .section-box {
+      background: #e8f5e9;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .news-banner {
+      width: 150px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .horizontal-scroll {
+      display: flex;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <aside class="sidebar">
+    <div class="logo"><img src="/img/logo.jpeg" alt="Logo">
+      <h2>IFFar ADM</h2>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/admin/home" class="active">🏠 Home</a></li>
+        <li><a href="/admin/responsibles">👨‍🏫 Responsáveis</a></li>
+        <li><a href="/admin/sectors">🏢 Setores</a></li>
+        <li><a href="/admin/informations">ℹ️ Informações</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <main>
+    <h1>Bem-vindo ao IFFar ADM!</h1>
+    <div class="section-box">
+      <h2>Últimas Notícias</h2>
+      <div class="horizontal-scroll" id="news-list"></div>
+    </div>
+    <div class="section-box">
+      <h2>Últimos Editais</h2>
+      <div class="horizontal-scroll" id="announcement-list"></div>
+    </div>
+  </main>
+  <script>
+    const newsApi = "http://localhost:8080/news";
+    const announcementsApi = "http://localhost:8080/announcements";
+
+    function loadNews() {
+      fetch(newsApi).then(r => r.json()).then(data => {
+        const list = document.getElementById("news-list");
+        list.innerHTML = "";
+        (Array.isArray(data) ? data : []).forEach(item => {
+          const div = document.createElement("div");
+          div.innerHTML = `<a href="${item.link}" target="_blank"><img src="${item.banner}" class="news-banner"><p>${item.title}</p></a>`;
+          list.appendChild(div);
+        });
+      });
+    }
+
+    function loadAnnouncements() {
+      fetch(announcementsApi).then(r => r.json()).then(data => {
+        const list = document.getElementById("announcement-list");
+        list.innerHTML = "";
+        (Array.isArray(data) ? data : []).forEach(item => {
+          const div = document.createElement("div");
+          div.innerHTML = `<a href="${item.link}" target="_blank"><p>${item.title}</p></a>`;
+          list.appendChild(div);
+        });
+      });
+    }
+
+    loadNews();
+    loadAnnouncements();
+  </script>
+</body>
+
+</html>
