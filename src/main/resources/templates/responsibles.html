@@ -1,34 +1,195 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Responsáveis - IFFar ADM</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;display:flex;background:#f4f9f4;height:100vh;}
-aside.sidebar{width:220px;background:#2e7d32;color:#fff;display:flex;flex-direction:column;}
-aside.sidebar .logo{text-align:center;padding:20px 10px;border-bottom:1px solid rgba(255,255,255,0.2);}
-aside.sidebar .logo img{width:80px;border-radius:50%;margin-bottom:10px;}
-aside.sidebar .logo h2{margin:0;font-size:18px;}
-aside.sidebar nav ul{list-style:none;padding:0;margin:0;}
-aside.sidebar nav ul li{margin:0;}
-aside.sidebar nav ul li a{display:block;padding:15px 20px;color:#c8e6c9;text-decoration:none;font-weight:bold;}
-aside.sidebar nav ul li a.active, aside.sidebar nav ul li a:hover{background:#1b5e20;color:#fff;}
-main{flex:1;padding:20px;overflow-y:auto;}
-h1{color:#2e7d32;margin-bottom:20px;}
-.section-box{background:#e8f5e9;padding:20px;border-radius:10px;margin-bottom:25px;box-shadow:0 2px 4px rgba(0,0,0,0.1);}
-label{display:block;margin-top:10px;font-weight:bold;}
-input,select,textarea{width:100%;padding:8px;margin-top:5px;border-radius:5px;border:1px solid #ccc;}
-button{margin-top:15px;padding:10px 15px;background:#2e7d32;color:#fff;border:none;border-radius:5px;cursor:pointer;font-weight:bold;}
-button:hover{background:#1b5e20;}
-table{width:100%;border-collapse:collapse;margin-top:20px;}
-th,td{border:1px solid #ccc;padding:10px;text-align:left;}
-th{background:#c8e6c9;}
-td button{margin-right:5px;background:#81c784;}
-td button.delete{background:#e57373;}
-td button:hover{opacity:0.9;}
+/* Reset básico */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  background: #f4f9f4;
+  height: 100vh;
+  color: #1b5e20;
+}
+
+/* Sidebar */
+aside.sidebar {
+  width: 250px;
+  background: #2e7d32;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.1);
+}
+
+aside.sidebar .logo {
+  text-align: center;
+  padding: 25px 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  background: #d0f0c0;
+}
+
+aside.sidebar .logo img {
+  width: 100px;
+  margin-bottom: 12px;
+}
+
+aside.sidebar .logo h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #2e7d32;
+}
+
+aside.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+aside.sidebar nav ul li a {
+  display: block;
+  padding: 18px 25px;
+  color: #c8e6c9;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background 0.3s, color 0.3s;
+}
+
+aside.sidebar nav ul li a.active,
+aside.sidebar nav ul li a:hover {
+  background: #1b5e20;
+  color: #fff;
+}
+
+/* Main content */
+main {
+  flex:1;
+  padding:30px;
+  overflow-y:auto;
+}
+
+h1 {
+  color:#2e7d32;
+  margin-bottom:30px;
+  font-size:32px;
+}
+
+h2 {
+  font-size:24px;
+  margin-bottom:15px;
+}
+
+/* Section box */
+.section-box {
+  background:#e8f5e9;
+  padding:25px;
+  border-radius:15px;
+  margin-bottom:30px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Form moderno sem labels, inputs centralizados */
+form {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:15px;
+}
+
+input, select, textarea {
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  width:60%;
+  max-width:400px;
+  font-size:16px;
+  transition:border 0.3s, box-shadow 0.3s;
+}
+
+input::placeholder, textarea::placeholder {
+  color:#999;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline:none;
+  border-color:#2e7d32;
+  box-shadow:0 0 5px rgba(46,125,50,0.5);
+}
+
+/* Botões centralizados */
+button {
+  padding:12px 20px;
+  background:#2e7d32;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+  transition: background 0.3s, transform 0.2s;
+  width:fit-content;
+}
+
+button:hover {
+  background:#1b5e20;
+  transform:scale(1.02);
+}
+
+/* Tabela estilizada */
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px;
+}
+
+th, td {
+  border:1px solid #ccc;
+  padding:12px;
+  text-align:left;
+}
+
+th {
+  background:#c8e6c9;
+}
+
+td button {
+  margin-right:5px;
+  padding:6px 10px;
+  border-radius:5px;
+  border:none;
+  cursor:pointer;
+}
+
+td button.delete {
+  background:#e57373;
+  color:#fff;
+}
+
+td button:hover {
+  opacity:0.9;
+}
+
+/* Scrollbar customizada */
+::-webkit-scrollbar {
+  height:8px;
+  width:8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background:#2e7d32;
+  border-radius:4px;
+}
+
+::-webkit-scrollbar-track {
+  background:#e8f5e9;
+}
 </style>
 </head>
+
 <body>
 <aside class="sidebar">
   <div class="logo"><img src="/img/logo.jpeg" alt="Logo"><h2>IFFar ADM</h2></div>
@@ -41,27 +202,39 @@ td button:hover{opacity:0.9;}
     </ul>
   </nav>
 </aside>
+
 <main>
   <h1>Gestão de Responsáveis</h1>
+
   <div class="section-box">
     <h2 id="form-title">Adicionar Responsável</h2>
     <form id="resp-form">
       <input type="hidden" id="resp-id">
-      <label>Nome:</label><input type="text" id="name" required>
-      <label>Email:</label><input type="email" id="email">
-      <label>Função:</label><input type="text" id="role">
+      <input type="text" id="name" placeholder="Nome" required>
+      <input type="email" id="email" placeholder="Email">
+      <input type="text" id="role" placeholder="Função">
       <button type="submit" id="submit-btn">Salvar</button>
       <button type="button" id="cancel-btn" style="display:none;">Cancelar</button>
     </form>
   </div>
+
   <div class="section-box">
     <h2>Lista de Responsáveis</h2>
     <table id="resp-table">
-      <thead><tr><th>ID</th><th>Nome</th><th>Email</th><th>Função</th><th>Ações</th></tr></thead>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>Função</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
       <tbody></tbody>
     </table>
   </div>
 </main>
+
 <script>
 const apiUrl = "http://localhost:8080/responsibles";
 const form=document.getElementById("resp-form");
@@ -98,14 +271,14 @@ form.addEventListener("submit", e=>{
 
 function editResponsible(id){
   fetch(`${apiUrl}/${id}`).then(r=>r.json()).then(r=>{
-    idInput.value=r.id;nameInput.value=r.name;emailInput.value=r.email;roleInput.value=r.role;
+    idInput.value=r.id; nameInput.value=r.name; emailInput.value=r.email; roleInput.value=r.role;
     document.getElementById("form-title").textContent="Editar Responsável";
     cancelBtn.style.display="inline-block";
   });
 }
 
-cancelBtn.addEventListener("click",resetForm);
-function resetForm(){idInput.value="";nameInput.value="";emailInput.value="";roleInput.value="";document.getElementById("form-title").textContent="Adicionar Responsável";cancelBtn.style.display="none";}
+cancelBtn.addEventListener("click", resetForm);
+function resetForm(){idInput.value=""; nameInput.value=""; emailInput.value=""; roleInput.value=""; document.getElementById("form-title").textContent="Adicionar Responsável"; cancelBtn.style.display="none";}
 
 function deleteResponsible(id){if(confirm("Deseja realmente deletar?")){fetch(`${apiUrl}/${id}`,{method:"DELETE"}).then(r=>{if(!r.ok)throw new Error("Erro");loadResponsibles();}).catch(console.error);}}
 

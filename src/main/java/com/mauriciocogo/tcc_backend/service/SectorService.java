@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.mauriciocogo.tcc_backend.dto.create.SectorCreateDTO;
 import com.mauriciocogo.tcc_backend.dto.response.SectorResponseDTO;
 import com.mauriciocogo.tcc_backend.dto.response.ResponsibleResponseDTO;
+import com.mauriciocogo.tcc_backend.dto.response.SectorLocationDTO;
 import com.mauriciocogo.tcc_backend.entity.Sector;
 import com.mauriciocogo.tcc_backend.entity.Responsible;
 import com.mauriciocogo.tcc_backend.repository.SectorRepository;
@@ -48,10 +49,10 @@ public class SectorService {
         return SectorResponseDTO.toDTO(sector);
     }
 
-    public List<SectorResponseDTO> search(String keyword) {
+    public List<SectorLocationDTO> search(String keyword) {
         return sectorRepository.searchByAcronymOrName(keyword)
                 .stream()
-                .map(SectorResponseDTO::toDTO)
+                .map(SectorLocationDTO::toDTO)
                 .collect(Collectors.toList());
     }
 

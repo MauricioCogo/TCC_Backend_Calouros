@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.mauriciocogo.tcc_backend.dto.create.SectorCreateDTO;
+import com.mauriciocogo.tcc_backend.dto.response.SectorLocationDTO;
 import com.mauriciocogo.tcc_backend.dto.response.SectorResponseDTO;
 import com.mauriciocogo.tcc_backend.service.SectorService;
 
@@ -58,8 +59,8 @@ public class SectorController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<List<SectorResponseDTO>> searchSectors(@RequestParam("q") String keyword) {
-        List<SectorResponseDTO> results = sectorService.search(keyword);
+    public ResponseEntity<List<SectorLocationDTO>> searchSectors(@RequestParam("q") String keyword) {
+        List<SectorLocationDTO> results = sectorService.search(keyword);
         return ResponseEntity.ok(results);
     }
 
