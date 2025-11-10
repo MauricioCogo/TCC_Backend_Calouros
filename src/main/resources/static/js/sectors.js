@@ -97,7 +97,7 @@ form.addEventListener("submit", async (e) => {
   });
 
   const data = {
-    acromyn: document.getElementById("acronym").value,
+    acromym: document.getElementById("acronym").value,
     name: document.getElementById("name").value,
     desc: document.getElementById("desc").value,
     lat: document.getElementById("lat").value,

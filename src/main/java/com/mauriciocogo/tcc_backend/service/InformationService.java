@@ -2,6 +2,7 @@ package com.mauriciocogo.tcc_backend.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
@@ -45,6 +46,13 @@ public class InformationService {
                 .stream()
                 .map(InformationResponseDTO::toDTO)
                 .toList();
+    }
+
+        public List<InformationResponseDTO> search(String keyword) {
+        return informationRepository.searchByAcronymOrName(keyword)
+                .stream()
+                .map(InformationResponseDTO::toDTO)
+                .collect(Collectors.toList());
     }
 
     public InformationResponseDTO updateInformation(Long id, InformationCreateDTO dto) {

@@ -48,8 +48,8 @@ public class Sector {
     @JoinColumn(name = "responsible_id", nullable = false)
     private Responsible responsible;
 
+    @Column(name = "operating_hours")
     @Convert(converter = JsonConverter.class)
-    @Column(columnDefinition = "TEXT")
     private OperatingHours operatingHours;
 
     @CreationTimestamp

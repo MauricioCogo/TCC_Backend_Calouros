@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
 import com.mauriciocogo.tcc_backend.dto.create.SectorCreateDTO;
@@ -60,7 +59,7 @@ public class SectorService {
         Sector sector = sectorRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Sector not found: " + id));
 
-        sector.setAcronym(dto.acromyn());
+        sector.setAcronym(dto.acromym());
         sector.setName(dto.name());
         sector.setDescription(dto.desc());
         sector.setLat(dto.lat());

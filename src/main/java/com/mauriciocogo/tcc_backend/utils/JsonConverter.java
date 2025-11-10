@@ -1,5 +1,8 @@
 package com.mauriciocogo.tcc_backend.utils;
 
+import java.io.IOException;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mauriciocogo.tcc_backend.dto.OperatingHours;
 
@@ -9,23 +12,23 @@ import jakarta.persistence.Converter;
 @Converter
 public class JsonConverter implements AttributeConverter<OperatingHours, String> {
 
-    private final ObjectMapper mapper = new ObjectMapper();
+    private static final ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public String convertToDatabaseColumn(OperatingHours attribute) {
         try {
-            return mapper.writeValueAsString(attribute);
-        } catch (Exception e) {
-            throw new RuntimeException("Erro convertendo para JSON", e);
+            return attribute == null ? null : objectMapper.writeValueAsString(attribute);
+        } catch (JsonProcessingException e) {
+            throw new IllegalStateException("Erro ao converter OperatingHours para JSON", e);
         }
     }
 
     @Override
     public OperatingHours convertToEntityAttribute(String dbData) {
         try {
-            return mapper.readValue(dbData, OperatingHours.class);
-        } catch (Exception e) {
-            throw new RuntimeException("Erro convertendo JSON para objeto", e);
+            return dbData == null ? null : objectMapper.readValue(dbData, OperatingHours.class);
+        } catch (IOException e) {
+            throw new IllegalStateException("Erro ao converter JSON para OperatingHours", e);
         }
     }
 }

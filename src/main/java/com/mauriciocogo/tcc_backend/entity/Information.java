@@ -38,7 +38,7 @@ public class Information {
     private String type;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "sector_id", nullable = false)
+    @JoinColumn(name = "sector", nullable = false)
     private Sector sector;
 
     @CreationTimestamp

@@ -109,39 +109,62 @@ function loadResponsibles(){
   });
 }
 
-function createHoursInputs(periods){
-  hoursContainer.innerHTML="";
-  days.forEach(d=>{
-    const dayDiv=document.createElement("div");
-    dayDiv.innerHTML=`<strong>${d}</strong>`;
-    const dayPeriods=periods?.[d]||[{open:"",close:""}];
-    dayPeriods.forEach(p=>{
-      const row=document.createElement("div");
-      row.className="time-period";
-      row.innerHTML=`Abertura: <input type="time" class="open" data-day="${d}" value="${p.open}">
-                       Fechamento: <input type="time" class="close" data-day="${d}" value="${p.close}">
-                       <button type="button" class="remove-period-btn">-</button>`;
-      row.querySelector(".remove-period-btn").addEventListener("click",()=>row.remove());
-      dayDiv.appendChild(row);
+// Cria inputs de horários para todos os dias
+function createHoursInputs(periods) {
+    hoursContainer.innerHTML = "";
+    days.forEach(d => {
+        const dayDiv = document.createElement("div");
+        dayDiv.innerHTML = `<strong>${d}</strong>`;
+
+        const dayPeriods = periods?.[d] || [{ open: "", close: "" }];
+
+        dayPeriods.forEach(p => {
+            const row = document.createElement("div");
+            row.className = "time-period";
+            row.innerHTML = `
+                Abertura: <input type="time" class="open" data-day="${d}" value="${p.open}">
+                Fechamento: <input type="time" class="close" data-day="${d}" value="${p.close}">
+                <button type="button" class="remove-period-btn">-</button>
+            `;
+            row.querySelector(".remove-period-btn").addEventListener("click", () => row.remove());
+            dayDiv.appendChild(row);
+        });
+
+        const addBtn = document.createElement("button");
+        addBtn.type = "button";
+        addBtn.textContent = "+ Adicionar período";
+        addBtn.className = "add-period-btn";
+        addBtn.addEventListener("click", () => {
+            const row = document.createElement("div");
+            row.className = "time-period";
+            row.innerHTML = `
+                Abertura: <input type="time" class="open" data-day="${d}">
+                Fechamento: <input type="time" class="close" data-day="${d}">
+                <button type="button" class="remove-period-btn">-</button>
+            `;
+            row.querySelector(".remove-period-btn").addEventListener("click", () => row.remove());
+            dayDiv.appendChild(row);
+        });
+
+        dayDiv.appendChild(addBtn);
+        hoursContainer.appendChild(dayDiv);
     });
-    const addBtn=document.createElement("button");
-    addBtn.type="button";
-    addBtn.textContent="+ Adicionar período";
-    addBtn.className="add-period-btn";
-    addBtn.addEventListener("click",()=>{
-      const row=document.createElement("div");
-      row.className="time-period";
-      row.innerHTML=`Abertura: <input type="time" class="open" data-day="${d}">
-                       Fechamento: <input type="time" class="close" data-day="${d}">
-                       <button type="button" class="remove-period-btn">-</button>`;
-      row.querySelector(".remove-period-btn").addEventListener("click",()=>row.remove());
-      dayDiv.appendChild(row);
-    });
-    dayDiv.appendChild(addBtn);
-    hoursContainer.appendChild(dayDiv);
-  });
 }
 
+// Adiciona linha de horário a um dia
+function addPeriodRow(dayDiv, day, openValue = "", closeValue = "") {
+  const row = document.createElement("div");
+  row.className = "time-period";
+  row.innerHTML = `
+    Abertura: <input type="time" class="open" data-day="${day}" value="${openValue}">
+    Fechamento: <input type="time" class="close" data-day="${day}" value="${closeValue}">
+    <button type="button" class="remove-period-btn">-</button>
+  `;
+  row.querySelector(".remove-period-btn").addEventListener("click",()=>row.remove());
+  dayDiv.appendChild(row);
+}
+
+// Carrega setores e monta lista com horários
 function loadSectors(){
   fetch(apiUrl).then(r=>r.json()).then(data=>{
     sectorsDiv.innerHTML="";
@@ -153,20 +176,13 @@ function loadSectors(){
       const panel=document.createElement("div");
       panel.className="panel";
 
-      // ---- Monta horários de funcionamento ----
       let hoursHtml = "<p><strong>Horários de Funcionamento:</strong></p>";
       if(s.operatingHours?.days){
         for(const day of days){
           const dayPeriods = s.operatingHours.days[day] || [];
-          if(dayPeriods.length){
-            hoursHtml += `<p>${day}: ${dayPeriods.map(p => `${p.open} - ${p.close}`).join(", ")}</p>`;
-          } else {
-            hoursHtml += `<p>${day}: Fechado</p>`;
-          }
+          hoursHtml += `<p>${day}: ${dayPeriods.length ? dayPeriods.map(p => `${p.open} - ${p.close}`).join(", ") : "Fechado"}</p>`;
         }
-      } else {
-        hoursHtml += "<p>Sem horários cadastrados</p>";
-      }
+      } else hoursHtml += "<p>Sem horários cadastrados</p>";
 
       panel.innerHTML=`
         <p><strong>Acrônimo:</strong> ${s.acronym}</p>
@@ -211,44 +227,48 @@ function loadSectors(){
   });
 }
 
+// Formulário: salva todos os horários corretamente
+form.addEventListener("submit", e => {
+    e.preventDefault();
 
-form.addEventListener("submit",e=>{
-  e.preventDefault();
-  const periods={};
-  hoursContainer.querySelectorAll(".time-period").forEach(tp=>{
-    const day=tp.querySelector(".open").dataset.day;
-    if(!periods[day]) periods[day]=[];
-    periods[day].push({
-      open: tp.querySelector(".open").value,
-      close: tp.querySelector(".close").value
+    const periods = {};
+
+    // Para cada período no DOM, adiciona no array do dia correspondente
+    hoursContainer.querySelectorAll(".time-period").forEach(tp => {
+        const day = tp.querySelector(".open").dataset.day;
+        if (!periods[day]) periods[day] = [];
+        periods[day].push({
+            open: tp.querySelector(".open").value,
+            close: tp.querySelector(".close").value
+        });
     });
-  });
 
-  const payload={
-    acromyn: acronymInput.value,
-    name: nameInput.value,
-    desc: descInput.value,
-    lat: latInput.value,
-    longi: longInput.value,
-    build: buildInput.value,
-    room: roomInput.value,
-    responsibleId: responsibleSelect.value,
-    operatingHours: {days: periods}
-  };
+    const payload = {
+        acromym: acronymInput.value,
+        name: nameInput.value,
+        desc: descInput.value,
+        lat: latInput.value,
+        longi: longInput.value,
+        build: buildInput.value,
+        room: roomInput.value,
+        responsibleId: responsibleSelect.value,
+        operatingHours: { days: periods }
+    };
 
-  const method=idInput.value?"PUT":"POST";
-  const url=idInput.value?`${apiUrl}/${idInput.value}`:apiUrl;
+    const method = idInput.value ? "PUT" : "POST";
+    const url = idInput.value ? `${apiUrl}/${idInput.value}` : apiUrl;
 
-  fetch(url,{
-    method,
-    headers:{"Content-Type":"application/json"},
-    body:JSON.stringify(payload)
-  }).then(r=>r.json()).then(()=>{
-    form.reset();
-    createHoursInputs();
-    loadSectors();
-    idInput.value="";
-  });
+    fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    }).then(r => r.json())
+      .then(() => {
+          form.reset();
+          createHoursInputs(); // recria os inputs vazios
+          idInput.value = "";
+          loadSectors();
+      });
 });
 
 cancelBtn.addEventListener("click",()=>{

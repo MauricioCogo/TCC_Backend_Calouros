@@ -57,7 +57,7 @@ public class SectorController {
         return ResponseEntity.ok(sector);
     }
 
-    @GetMapping("/sectors/search")
+    @GetMapping("/search")
     public ResponseEntity<List<SectorResponseDTO>> searchSectors(@RequestParam("q") String keyword) {
         List<SectorResponseDTO> results = sectorService.search(keyword);
         return ResponseEntity.ok(results);

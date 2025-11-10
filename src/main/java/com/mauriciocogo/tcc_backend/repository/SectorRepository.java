@@ -14,7 +14,7 @@ public interface SectorRepository extends JpaRepository<Sector, Long> {
     @Query("""
                 SELECT s
                 FROM Sector s
-                WHERE s.deleted = false
+                WHERE s.deleted IS FALSE
                   AND (LOWER(s.acronym) LIKE LOWER(CONCAT('%', :keyword, '%'))
                     OR LOWER(s.name) LIKE LOWER(CONCAT('%', :keyword, '%')))
             """)

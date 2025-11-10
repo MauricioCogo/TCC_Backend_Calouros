@@ -7,7 +7,7 @@ public record InformationResponseDTO(
         String title,
         String description,
         String type,
-        SectorResponseDTO sectorId) {
+        SectorResponseDTO sector) {
 
     public static InformationResponseDTO toDTO(Information information) {
         return new InformationResponseDTO(
