@@ -18,7 +18,7 @@ import jakarta.transaction.Transactional;
 @Service
 @Transactional
 public class InformationService {
-    
+
     private final InformationRepository informationRepository;
     private final SectorService sectorService;
 
@@ -36,19 +36,27 @@ public class InformationService {
     }
 
     public InformationResponseDTO getInformationById(Long id) {
-        Information information = informationRepository.findById(id)
+        Information information = informationRepository.findByIdActive(id)
                 .orElseThrow(() -> new RuntimeException("Information not found with id " + id));
         return InformationResponseDTO.toDTO(information);
     }
 
-    public List<InformationResponseDTO> getAllInformations() {
+    public List<InformationResponseDTO> getAllInformationsActives() {
+        return informationRepository.findAllActive()
+                .stream()
+                .map(InformationResponseDTO::toDTO)
+                .toList();
+    }
+
+        public List<InformationResponseDTO> getAllInformations() {
         return informationRepository.findAll()
                 .stream()
                 .map(InformationResponseDTO::toDTO)
                 .toList();
     }
 
-        public List<InformationResponseDTO> search(String keyword) {
+
+    public List<InformationResponseDTO> search(String keyword) {
         return informationRepository.searchByAcronymOrName(keyword)
                 .stream()
                 .map(InformationResponseDTO::toDTO)
@@ -69,7 +77,14 @@ public class InformationService {
     }
 
     public void deleteInformation(Long id) {
-        Information information = InformationResponseDTO.toEntity(getInformationById(id));
+        Information information = informationRepository.findByIdActive(id)
+                .orElseThrow(() -> new RuntimeException("Information not found with id " + id));
+
+        if (information.getSector() != null) {
+            Sector sector = SectorResponseDTO.toEntity(sectorService.getSectorById(information.getSector().getId()));
+            information.setSector(sector);
+        }
+
         information.setDeleted(true);
         information.setDeletedAt(LocalDateTime.now());
         informationRepository.save(information);

@@ -29,7 +29,7 @@ public class ResponsibleService {
     }
 
     public List<ResponsibleResponseDTO> getAllResponsibles() {
-        return responsibleRepository.findAll()
+        return responsibleRepository.findAllActive()
                 .stream()
                 .map(ResponsibleResponseDTO::toDTO)
                 .collect(Collectors.toList());

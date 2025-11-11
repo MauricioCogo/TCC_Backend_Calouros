@@ -12,31 +12,34 @@
       display: flex;
       background: #f4f9f4;
       height: 100vh;
+      color: #1b5e20;
     }
 
     aside.sidebar {
-      width: 220px;
+      width: 250px;
       background: #2e7d32;
       color: #fff;
       display: flex;
       flex-direction: column;
+      box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
     }
 
     aside.sidebar .logo {
       text-align: center;
-      padding: 20px 10px;
+      padding: 25px 10px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      background: #d0f0c0;
     }
 
     aside.sidebar .logo img {
-      width: 80px;
-      border-radius: 50%;
-      margin-bottom: 10px;
+      width: 100px;
+      margin-bottom: 12px;
     }
 
     aside.sidebar .logo h2 {
       margin: 0;
-      font-size: 18px;
+      font-size: 22px;
+      color: #2e7d32;
     }
 
     aside.sidebar nav ul {
@@ -45,16 +48,14 @@
       margin: 0;
     }
 
-    aside.sidebar nav ul li {
-      margin: 0;
-    }
-
     aside.sidebar nav ul li a {
       display: block;
-      padding: 15px 20px;
+      padding: 18px 25px;
       color: #c8e6c9;
       text-decoration: none;
       font-weight: bold;
+      font-size: 16px;
+      transition: background 0.3s, color 0.3s;
     }
 
     aside.sidebar nav ul li a.active,
@@ -65,52 +66,78 @@
 
     main {
       flex: 1;
-      padding: 20px;
+      padding: 30px;
       overflow-y: auto;
     }
 
     h1 {
       color: #2e7d32;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
     }
 
     .section-box {
       background: #e8f5e9;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 25px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    label {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
     input,
     select,
     textarea {
-      width: 100%;
-      padding: 8px;
-      margin-top: 5px;
-      border-radius: 5px;
+      padding: 12px;
+      border-radius: 8px;
       border: 1px solid #ccc;
+      width: 60%;
+      font-size: 16px;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #999;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #2e7d32;
+      box-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
     }
 
     button {
-      margin-top: 15px;
-      padding: 10px 15px;
+      padding: 12px 20px;
       background: #2e7d32;
       color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
+      width: fit-content;
+      transition: background 0.3s, transform 0.2s;
     }
 
     button:hover {
       background: #1b5e20;
+      transform: scale(1.02);
+    }
+
+    button.delete {
+      background: #e57373;
     }
 
     table {
@@ -122,7 +149,7 @@
     th,
     td {
       border: 1px solid #ccc;
-      padding: 10px;
+      padding: 12px;
       text-align: left;
     }
 
@@ -132,15 +159,43 @@
 
     td button {
       margin-right: 5px;
-      background: #81c784;
+      padding: 6px 10px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
     }
 
     td button.delete {
       background: #e57373;
+      color: #fff;
     }
 
-    td button:hover {
-      opacity: 0.9;
+    /* Abas */
+    .tabs {
+      margin-bottom: 20px;
+    }
+
+    .tab-btn {
+      padding: 10px 20px;
+      background: #c8e6c9;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 8px 8px 0 0;
+      margin-right: 5px;
+    }
+
+    .tab-btn.active {
+      background: #2e7d32;
+      color: #fff;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
     }
   </style>
 </head>
@@ -159,41 +214,67 @@
       </ul>
     </nav>
   </aside>
+
   <main>
     <h1>Gestão de Informações</h1>
 
-    <div class="section-box">
-      <h2 id="form-title">Adicionar Informação</h2>
-      <form id="info-form">
-        <input type="hidden" id="info-id">
-        <label>Título:</label>
-        <input type="text" id="title" required>
-        <label>Descrição:</label>
-        <textarea id="description"></textarea>
-        <label>Tipo:</label>
-        <input type="text" id="type">
-        <label>Setor:</label>
-        <select id="sector"></select>
-        <button type="submit">Salvar</button>
-        <button type="button" id="cancel-btn" style="display:none;">Cancelar</button>
-      </form>
+    <!-- Abas -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('view')">Visualizar</button>
+      <button class="tab-btn" onclick="showTab('form')">Adicionar Informação</button>
     </div>
 
-    <div class="section-box">
-      <h2>Lista de Informações</h2>
-      <table id="info-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Título</th>
-            <th>Descrição</th>
-            <th>Tipo</th>
-            <th>Setor</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+    <!-- Aba Visualizar -->
+    <div id="view" class="tab-content active">
+      <div class="section-box">
+        <h2>Lista de Informações</h2>
+        <table id="info-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Título</th>
+              <th>Descrição</th>
+              <th>Tipo</th>
+              <th>Setor</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Aba Formulário -->
+    <div id="form" class="tab-content">
+      <div class="section-box">
+        <h2 id="form-title">Adicionar Informação</h2>
+        <form id="info-form">
+          <input type="hidden" id="info-id">
+          <input type="text" id="title" placeholder="Título" required>
+          <textarea id="description" placeholder="Descrição"></textarea>
+          <label>Tipo:</label>
+          <select id="type">
+            <option value="">Selecione</option>
+            <option value="Aviso">Aviso</option>
+            <option value="Documento">Documento</option>
+            <option value="Evento">Evento</option>
+            <option value="Técnico">Técnico</option>
+            <option value="Acadêmico">Acadêmico</option>
+            <option value="Alerta">Alerta</option>
+            <option value="Circular">Circular</option>
+            <option value="Manual">Manual</option>
+            <option value="Edital">Edital</option>
+            <option value="Informação">Informação</option>
+            <option value="Outro">Outro</option>
+          </select>
+          <label>Setor:</label>
+          <select id="sector"></select>
+          <div>
+            <button type="submit">Salvar</button>
+            <button type="button" id="cancel-btn">Cancelar</button>
+          </div>
+        </form>
+      </div>
     </div>
   </main>
 
@@ -209,7 +290,15 @@
     const tableBody = document.querySelector("#info-table tbody");
     const cancelBtn = document.getElementById("cancel-btn");
 
-    // Carregar setores para o select
+    // Abas
+    function showTab(tab) {
+      document.querySelectorAll(".tab-content").forEach(tc => tc.classList.remove("active"));
+      document.getElementById(tab).classList.add("active");
+      document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+      document.querySelector(`.tab-btn[onclick="showTab('${tab}')"]`).classList.add("active");
+    }
+
+    // Carregar setores
     function loadSectors() {
       fetch(sectorApi).then(r => r.json()).then(data => {
         sectorSelect.innerHTML = "<option value=''>Selecione</option>";
@@ -229,34 +318,17 @@
         data.forEach(i => {
           const row = document.createElement("tr");
           row.innerHTML = `<td>${i.id}</td><td>${i.title}</td><td>${i.description}</td><td>${i.type}</td>
-      <td>${i.sector ? i.sector.name : "-"}</td>
-      <td>
-        <button onclick="editInfo(${i.id})">Editar</button>
-        <button class="delete" onclick="deleteInfo(${i.id})">Deletar</button>
-      </td>`;
+        <td>${i.sector ? i.sector.name : "-"}</td>
+        <td>
+          <button onclick="editInfo(${i.id})">Editar</button>
+          <button class="delete" onclick="deleteInfo(${i.id})">Deletar</button>
+        </td>`;
           tableBody.appendChild(row);
         });
       });
     }
 
-    // Submit do formulário
-    form.addEventListener("submit", e => {
-      e.preventDefault();
-      const id = idInput.value;
-      const payload = {
-        title: titleInput.value,
-        description: descInput.value,
-        type: typeInput.value,
-        sectorId: sectorSelect.value || null
-      };
-      const method = id ? "PUT" : "POST";
-      const url = id ? `${apiUrl}/${id}` : apiUrl;
-      fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) })
-        .then(r => { if (!r.ok) throw new Error("Erro"); resetForm(); loadInformations(); })
-        .catch(console.error);
-    });
-
-    // Editar
+    // Editar informação
     function editInfo(id) {
       fetch(`${apiUrl}/${id}`).then(r => r.json()).then(i => {
         idInput.value = i.id;
@@ -266,28 +338,50 @@
         sectorSelect.value = i.sector ? i.sector.id : "";
         document.getElementById("form-title").textContent = "Editar Informação";
         cancelBtn.style.display = "inline-block";
+        showTab('form'); // abre aba de formulário
       });
     }
 
-    // Cancelar edição
-    cancelBtn.addEventListener("click", resetForm);
+    // Salvar informação
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const id = idInput.value;
+      const payload = {
+        title: titleInput.value,
+        description: descInput.value,
+        type: typeInput.value,
+        sectorId: sectorSelect.value
+      };
+      const method = id ? "PUT" : "POST";
+      const url = id ? `${apiUrl}/${id}` : apiUrl;
+      fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) })
+        .then(() => { resetForm(); loadInformations(); showTab('view'); })
+        .catch(console.error);
+    });
+
+    function deleteInfo(id) {
+      if (confirm("Deseja realmente deletar?")) {
+        alert(id);
+        fetch(`${apiUrl}/${id}`, { method: "DELETE" })
+          .then(r => {
+            console.log("Status:", r.status);
+            if (!r.ok) throw new Error("Erro ao deletar");
+            loadInformations();
+          })
+          .catch(err => console.error("Falha no delete:", err));
+      }
+    }
+
+
+    // Cancelar
+    cancelBtn.addEventListener("click", () => { resetForm(); showTab('view'); });
+
     function resetForm() {
       idInput.value = ""; titleInput.value = ""; descInput.value = ""; typeInput.value = ""; sectorSelect.value = "";
       document.getElementById("form-title").textContent = "Adicionar Informação";
       cancelBtn.style.display = "none";
     }
 
-    // Deletar
-    function deleteInfo(id) {
-      if (confirm("Deseja realmente deletar?")) {
-        fetch(`${apiUrl}/${id}`, { method: "DELETE" }).then(r => {
-          if (!r.ok) throw new Error("Erro");
-          loadInformations();
-        }).catch(console.error);
-      }
-    }
-
-    // Inicial
     loadSectors();
     loadInformations();
   </script>

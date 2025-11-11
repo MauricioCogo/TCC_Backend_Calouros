@@ -42,6 +42,14 @@ public class InformationController {
     @GetMapping
     @Operation(summary = "Listar todas as informações", description = "Retorna uma lista de todas as informações cadastradas no sistema.")
     @ApiResponse(responseCode = "200", description = "Lista de informações retornada com sucesso")
+    public ResponseEntity<List<InformationResponseDTO>> getAllInformationActive() {
+        List<InformationResponseDTO> informationList = informationService.getAllInformationsActives();
+        return ResponseEntity.ok(informationList);
+    }
+
+    @GetMapping("/deleted")
+    @Operation(summary = "Listar todas as informações", description = "Retorna uma lista de todas as informações cadastradas no sistema.")
+    @ApiResponse(responseCode = "200", description = "Lista de informações retornada com sucesso")
     public ResponseEntity<List<InformationResponseDTO>> getAllInformation() {
         List<InformationResponseDTO> informationList = informationService.getAllInformations();
         return ResponseEntity.ok(informationList);
@@ -84,6 +92,7 @@ public class InformationController {
             @ApiResponse(responseCode = "404", description = "Informação não encontrada")
     })
     public ResponseEntity<Void> deleteInformation(@PathVariable Long id) {
+        System.out.println("CU");
         informationService.deleteInformation(id);
         return ResponseEntity.noContent().build();
     }

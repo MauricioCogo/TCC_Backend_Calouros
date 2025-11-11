@@ -31,14 +31,15 @@ public class SectorService {
         Sector sector = SectorCreateDTO.toEntity(dto);
         Responsible u = ResponsibleResponseDTO.toEntity(responsibleService.getResponsibleById(dto.responsibleId()));
         sector.setResponsible(u);
-        System.out.println(dto.operatingHours() + "bueda fixe");
+        System.out.println("Acronym do sector: " + sector.getAcronym());
+
         sector.setOperatingHours(dto.operatingHours());
         Sector savedSector = sectorRepository.save(sector);
         return SectorResponseDTO.toDTO(savedSector);
     }
 
     public List<SectorResponseDTO> getAllSectors() {
-        return sectorRepository.findAll()
+        return sectorRepository.findAllActive()
                 .stream()
                 .map(SectorResponseDTO::toDTO)
                 .collect(Collectors.toList());
@@ -60,9 +61,9 @@ public class SectorService {
         Sector sector = sectorRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Sector not found: " + id));
 
-        sector.setAcronym(dto.acromym());
+        sector.setAcronym(dto.acronym());
         sector.setName(dto.name());
-        sector.setDescription(dto.desc());
+        sector.setDescription(dto.description());
         sector.setLat(dto.lat());
         sector.setLongi(dto.longi());
         sector.setBuild(dto.build());

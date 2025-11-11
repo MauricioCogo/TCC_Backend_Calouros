@@ -64,6 +64,6 @@ public class WeatherService {
     }
 
     public Mono<WeatherDTO> getWeatherSaoVicenteDoSul() {
-        return getWeatherByCoordinates(-29.6886, -54.6825);
+        return getWeatherByCoordinates(-29.70210696117257, -54.6968503737989);
     }
 }

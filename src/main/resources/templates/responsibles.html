@@ -187,6 +187,34 @@ td button:hover {
 ::-webkit-scrollbar-track {
   background:#e8f5e9;
 }
+
+/* Abas */
+.tabs {
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  background: #c8e6c9;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 8px 8px 0 0;
+  margin-right:5px;
+}
+
+.tab-btn.active {
+  background: #2e7d32;
+  color: #fff;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
 </style>
 </head>
 
@@ -206,82 +234,133 @@ td button:hover {
 <main>
   <h1>Gestão de Responsáveis</h1>
 
-  <div class="section-box">
-    <h2 id="form-title">Adicionar Responsável</h2>
-    <form id="resp-form">
-      <input type="hidden" id="resp-id">
-      <input type="text" id="name" placeholder="Nome" required>
-      <input type="email" id="email" placeholder="Email">
-      <input type="text" id="role" placeholder="Função">
-      <button type="submit" id="submit-btn">Salvar</button>
-      <button type="button" id="cancel-btn" style="display:none;">Cancelar</button>
-    </form>
+  <!-- Abas -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('view')">Visualizar</button>
+    <button class="tab-btn" onclick="showTab('form')">Adicionar</button>
   </div>
 
-  <div class="section-box">
-    <h2>Lista de Responsáveis</h2>
-    <table id="resp-table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nome</th>
-          <th>Email</th>
-          <th>Função</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+  <!-- Conteúdo da aba Visualizar -->
+  <div id="view" class="tab-content active">
+    <div class="section-box">
+      <h2>Lista de Responsáveis</h2>
+      <table id="resp-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Função</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Conteúdo da aba Adicionar/Editar -->
+  <div id="form" class="tab-content">
+    <div class="section-box">
+      <h2 id="form-title">Adicionar Responsável</h2>
+      <form id="resp-form">
+        <input type="hidden" id="resp-id">
+        <input type="text" id="name" placeholder="Nome" required>
+        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="role" placeholder="Função">
+        <button type="submit" id="submit-btn">Salvar</button>
+        <button type="button" id="cancel-btn">Cancelar</button>
+      </form>
+    </div>
   </div>
 </main>
 
 <script>
 const apiUrl = "http://localhost:8080/responsibles";
-const form=document.getElementById("resp-form");
-const idInput=document.getElementById("resp-id");
-const nameInput=document.getElementById("name");
-const emailInput=document.getElementById("email");
-const roleInput=document.getElementById("role");
-const tableBody=document.querySelector("#resp-table tbody");
-const cancelBtn=document.getElementById("cancel-btn");
+const form = document.getElementById("resp-form");
+const idInput = document.getElementById("resp-id");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const roleInput = document.getElementById("role");
+const tableBody = document.querySelector("#resp-table tbody");
+const cancelBtn = document.getElementById("cancel-btn");
 
+// Alternar abas
+function showTab(tab){
+  document.querySelectorAll(".tab-content").forEach(tc => tc.classList.remove("active"));
+  document.getElementById(tab).classList.add("active");
+
+  document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+  document.querySelector(`.tab-btn[onclick="showTab('${tab}')"]`).classList.add("active");
+}
+
+// Carregar responsáveis
 function loadResponsibles(){
   fetch(apiUrl).then(r=>r.json()).then(data=>{
     tableBody.innerHTML="";
     data.forEach(r=>{
-      const row=document.createElement("tr");
-      row.innerHTML=`<td>${r.id}</td><td>${r.name}</td><td>${r.email}</td><td>${r.role}</td>
-      <td><button onclick="editResponsible(${r.id})">Editar</button>
-      <button class="delete" onclick="deleteResponsible(${r.id})">Deletar</button></td>`;
+      const row = document.createElement("tr");
+      row.innerHTML = `<td>${r.id}</td><td>${r.name}</td><td>${r.email}</td><td>${r.role}</td>
+      <td>
+        <button onclick="editResponsible(${r.id})">Editar</button>
+        <button class="delete" onclick="deleteResponsible(${r.id})">Deletar</button>
+      </td>`;
       tableBody.appendChild(row);
     });
   });
 }
 
+// Enviar formulário
 form.addEventListener("submit", e=>{
   e.preventDefault();
-  const id=idInput.value;
-  const payload={name:nameInput.value,email:emailInput.value,role:roleInput.value};
-  const method=id?"PUT":"POST";
-  const url=id?`${apiUrl}/${id}`:apiUrl;
+  const id = idInput.value;
+  const payload = {name:nameInput.value,email:emailInput.value,role:roleInput.value};
+  const method = id?"PUT":"POST";
+  const url = id?`${apiUrl}/${id}`:apiUrl;
   fetch(url,{method,headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)})
-  .then(res=>{if(!res.ok)throw new Error("Erro");resetForm();loadResponsibles();})
-  .catch(console.error);
+    .then(res=>{if(!res.ok)throw new Error("Erro"); resetForm(); loadResponsibles(); showTab('view');})
+    .catch(console.error);
 });
 
+// Editar responsável
 function editResponsible(id){
   fetch(`${apiUrl}/${id}`).then(r=>r.json()).then(r=>{
-    idInput.value=r.id; nameInput.value=r.name; emailInput.value=r.email; roleInput.value=r.role;
-    document.getElementById("form-title").textContent="Editar Responsável";
-    cancelBtn.style.display="inline-block";
+    idInput.value = r.id;
+    nameInput.value = r.name;
+    emailInput.value = r.email;
+    roleInput.value = r.role;
+    document.getElementById("form-title").textContent = "Editar Responsável";
+    cancelBtn.style.display = "inline-block";
+    showTab('form'); // ir para aba do formulário
   });
 }
 
-cancelBtn.addEventListener("click", resetForm);
-function resetForm(){idInput.value=""; nameInput.value=""; emailInput.value=""; roleInput.value=""; document.getElementById("form-title").textContent="Adicionar Responsável"; cancelBtn.style.display="none";}
+// Cancelar edição
+cancelBtn.addEventListener("click", ()=>{
+  resetForm();
+  showTab('view'); // volta para aba de visualização
+});
 
-function deleteResponsible(id){if(confirm("Deseja realmente deletar?")){fetch(`${apiUrl}/${id}`,{method:"DELETE"}).then(r=>{if(!r.ok)throw new Error("Erro");loadResponsibles();}).catch(console.error);}}
+// Resetar formulário
+function resetForm(){
+  idInput.value="";
+  nameInput.value="";
+  emailInput.value="";
+  roleInput.value="";
+  document.getElementById("form-title").textContent="Adicionar Responsável";
+  cancelBtn.style.display="none";
+}
 
+// Deletar responsável
+function deleteResponsible(id){
+  if(confirm("Deseja realmente deletar?")){
+    fetch(`${apiUrl}/${id}`,{method:"DELETE"})
+      .then(r=>{if(!r.ok)throw new Error("Erro"); loadResponsibles();})
+      .catch(console.error);
+  }
+}
+
+// Inicializar
 loadResponsibles();
 </script>
 </body>

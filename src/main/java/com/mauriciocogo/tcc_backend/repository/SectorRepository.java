@@ -19,5 +19,7 @@ public interface SectorRepository extends JpaRepository<Sector, Long> {
                     OR LOWER(s.name) LIKE LOWER(CONCAT('%', :keyword, '%')))
             """)
     List<Sector> searchByAcronymOrName(@Param("keyword") String keyword);
-
+    
+    @Query("SELECT s FROM Sector s WHERE s.deleted IS FALSE")
+    List<Sector> findAllActive();
 }

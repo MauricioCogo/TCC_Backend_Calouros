@@ -2,414 +2,527 @@
 <html lang="pt-br">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Setores - IFFar ADM</title>
-<style>
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  display: flex;
-  background: #f4f9f4;
-  color: #1b5e20;
-  min-height: 100vh;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setores - IFFar ADM</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      background: #f4f9f4;
+      color: #1b5e20;
+      min-height: 100vh;
+    }
 
-/* Sidebar */
-aside.sidebar {
-  width: 250px;
-  background: #2e7d32;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 2px 0 6px rgba(0,0,0,0.1);
-}
+    /* Sidebar */
+    aside.sidebar {
+      width: 250px;
+      background: #2e7d32;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+    }
 
-aside.sidebar .logo {
-  text-align: center;
-  padding: 25px 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-  background: #d0f0c0;
-}
+    aside.sidebar .logo {
+      text-align: center;
+      padding: 25px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      background: #d0f0c0;
+    }
 
-aside.sidebar .logo img { width: 100px; margin-bottom: 12px; }
-aside.sidebar .logo h2 { margin:0; font-size:22px; color:#2e7d32; }
+    aside.sidebar .logo img {
+      width: 100px;
+      margin-bottom: 12px;
+    }
 
-aside.sidebar nav ul { list-style:none; padding:0; margin:0; }
-aside.sidebar nav ul li a {
-  display:block;
-  padding:18px 25px;
-  color:#c8e6c9;
-  text-decoration:none;
-  font-weight:bold;
-  font-size:16px;
-  transition: background 0.3s, color 0.3s;
-}
-aside.sidebar nav ul li a.active,
-aside.sidebar nav ul li a:hover { background:#1b5e20; color:#fff; }
+    aside.sidebar .logo h2 {
+      margin: 0;
+      font-size: 22px;
+      color: #2e7d32;
+    }
 
-/* Main */
-main {
-  flex:1;
-  padding:30px;
-  overflow-y:auto;
-}
+    aside.sidebar nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-h1 { color:#2e7d32; margin-bottom:30px; font-size:32px; }
-h2 { font-size:24px; margin-bottom:15px; }
+    aside.sidebar nav ul li a {
+      display: block;
+      padding: 18px 25px;
+      color: #c8e6c9;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background 0.3s, color 0.3s;
+    }
 
-/* Section box */
-.section-box {
-  background:#e8f5e9;
-  padding:25px;
-  border-radius:15px;
-  margin-bottom:30px;
-  box-shadow:0 4px 8px rgba(0,0,0,0.1);
-}
+    aside.sidebar nav ul li a.active,
+    aside.sidebar nav ul li a:hover {
+      background: #1b5e20;
+      color: #fff;
+    }
 
-/* Form moderno */
-form {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:15px;
-}
+    /* Main */
+    main {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+    }
 
-input, select, textarea {
-  padding:12px;
-  border-radius:8px;
-  border:1px solid #ccc;
-  width:60%;
-  max-width:400px;
-  font-size:16px;
-  transition:border 0.3s, box-shadow 0.3s;
-}
+    h1 {
+      color: #2e7d32;
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
 
-input::placeholder, textarea::placeholder { color:#999; }
-input:focus, select:focus, textarea:focus {
-  outline:none;
-  border-color:#2e7d32;
-  box-shadow:0 0 5px rgba(46,125,50,0.5);
-}
+    h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
 
-button {
-  padding:12px 20px;
-  background:#2e7d32;
-  color:#fff;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:bold;
-  transition: background 0.3s, transform 0.2s;
-  width:fit-content;
-}
+    /* Section box */
+    .section-box {
+      background: #e8f5e9;
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-button:hover { background:#1b5e20; transform:scale(1.02); }
-button.delete { background:#e57373; }
+    /* Form moderno */
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
 
-h3 { width:100%; text-align:left; color:#2e7d32; margin-top:20px; }
+    input,
+    select,
+    textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 60%;
+      max-width: 400px;
+      font-size: 16px;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
 
-/* Horários */
-#hours-container {
-  width:100%;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
+    input::placeholder,
+    textarea::placeholder {
+      color: #999;
+    }
 
-.day-container {
-  background:#dff0d8;
-  padding:10px;
-  border-radius:10px;
-  display:flex;
-  flex-direction:column;
-  gap:5px;
-}
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #2e7d32;
+      box-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
+    }
 
-.day-container strong { font-size:16px; }
+    button {
+      padding: 12px 20px;
+      background: #2e7d32;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
+      width: fit-content;
+    }
 
-.time-period {
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+    button:hover {
+      background: #1b5e20;
+      transform: scale(1.02);
+    }
 
-.time-period input[type="time"] {
-  padding:8px;
-  border-radius:6px;
-  border:1px solid #ccc;
-  width:120px;
-  font-size:14px;
-}
+    button.delete {
+      background: #e57373;
+    }
 
-.add-period-btn, .remove-period-btn {
-  padding:4px 8px;
-  font-size:12px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  color:#fff;
-}
+    /* Horários */
+    #hours-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-.add-period-btn { background:#4caf50; }
-.remove-period-btn { background:#e57373; }
-.add-period-btn:hover { background:#45a049; }
-.remove-period-btn:hover { background:#d32f2f; }
+    .day-container {
+      background: #dff0d8;
+      padding: 10px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
 
-/* Lista setores */
-.accordion {
-  background:#c8e6c9;
-  color:#2e7d32;
-  padding:10px;
-  cursor:pointer;
-  border:none;
-  text-align:left;
-  outline:none;
-  font-size:16px;
-  margin-bottom:5px;
-  border-radius:8px;
-  transition: background 0.3s;
-}
-.accordion.active, .accordion:hover { background:#a5d6a7; }
+    .day-container strong {
+      font-size: 16px;
+    }
 
-.panel {
-  padding:15px;
-  background:#f1fdf1;
-  border-radius:10px;
-  margin-bottom:10px;
-  display:none;
-}
-.panel p { margin:5px 0; }
-.panel button { margin-top:10px; }
+    .time-period {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-</style>
+    .time-period input[type="time"] {
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 120px;
+      font-size: 14px;
+    }
+
+    .add-period-btn,
+    .remove-period-btn {
+      padding: 4px 8px;
+      font-size: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .add-period-btn {
+      background: #4caf50;
+    }
+
+    .remove-period-btn {
+      background: #e57373;
+    }
+
+    .add-period-btn:hover {
+      background: #45a049;
+    }
+
+    .remove-period-btn:hover {
+      background: #d32f2f;
+    }
+
+    /* Abas */
+    .tabs {
+      margin-bottom: 20px;
+    }
+
+    .tab-btn {
+      padding: 10px 20px;
+      background: #c8e6c9;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 8px 8px 0 0;
+      margin-right: 5px;
+    }
+
+    .tab-btn.active {
+      background: #2e7d32;
+      color: #fff;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* Lista setores */
+    .accordion {
+      background: #c8e6c9;
+      color: #2e7d32;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 16px;
+      margin-bottom: 5px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .accordion.active,
+    .accordion:hover {
+      background: #a5d6a7;
+    }
+
+    .panel {
+      padding: 15px;
+      background: #f1fdf1;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      display: none;
+    }
+
+    .panel p {
+      margin: 5px 0;
+    }
+
+    .panel button {
+      margin-top: 10px;
+    }
+  </style>
 </head>
 
 <body>
-<aside class="sidebar">
-  <div class="logo"><img src="/img/logo.jpeg" alt="Logo"><h2>IFFar ADM</h2></div>
-  <nav>
-    <ul>
-      <li><a href="/admin/home">🏠 Home</a></li>
-      <li><a href="/admin/responsibles">👨‍🏫 Responsáveis</a></li>
-      <li><a href="/admin/sectors" class="active">🏢 Setores</a></li>
-      <li><a href="/admin/informations">ℹ️ Informações</a></li>
-    </ul>
-  </nav>
-</aside>
+  <aside class="sidebar">
+    <div class="logo"><img src="/img/logo.jpeg" alt="Logo">
+      <h2>IFFar ADM</h2>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/admin/home">🏠 Home</a></li>
+        <li><a href="/admin/responsibles">👨‍🏫 Responsáveis</a></li>
+        <li><a href="/admin/sectors" class="active">🏢 Setores</a></li>
+        <li><a href="/admin/informations">ℹ️ Informações</a></li>
+      </ul>
+    </nav>
+  </aside>
 
-<main>
-<h1>Gestão de Setores</h1>
+  <main>
+    <h1>Gestão de Setores</h1>
 
-<div class="section-box">
-  <h2>Adicionar / Editar Setor</h2>
-  <form id="sector-form">
-    <input type="hidden" id="sector-id">
-    <input type="text" id="acronym" placeholder="Acrônimo" required>
-    <input type="text" id="name" placeholder="Nome" required>
-    <textarea id="desc" placeholder="Descrição"></textarea>
-    <input type="text" id="lat" placeholder="Latitude">
-    <input type="text" id="longi" placeholder="Longitude">
-    <input type="text" id="build" placeholder="Prédio">
-    <input type="text" id="room" placeholder="Sala">
-    <select id="responsible"></select>
+    <!-- Abas -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('view')">Visualizar</button>
+      <button class="tab-btn" onclick="showTab('form')">Adicionar Setor</button>
+    </div>
 
-    <h3>Horários de Funcionamento</h3>
-    <div id="hours-container"></div>
+    <!-- Aba Visualizar -->
+    <div id="view" class="tab-content active">
+      <div class="section-box">
+        <h2>Lista de Setores</h2>
+        <div id="sectors-list"></div>
+      </div>
+    </div>
 
-    <button type="submit">Salvar Setor</button>
-    <button type="button" id="cancel-btn">Cancelar</button>
-  </form>
-</div>
+    <!-- Aba Formulário -->
+    <div id="form" class="tab-content">
+      <div class="section-box">
+        <h2 id="form-title">Adicionar Setor</h2>
+        <form id="sector-form">
+          <input type="hidden" id="sector-id">
+          <input type="text" id="acronym" placeholder="Sigla" required>
+          <input type="text" id="name" placeholder="Nome" required>
+          <textarea id="desc" placeholder="Descrição"></textarea>
+          <input type="text" id="lat" placeholder="Latitude">
+          <input type="text" id="longi" placeholder="Longitude">
+          <input type="text" id="build" placeholder="Prédio">
+          <input type="text" id="room" placeholder="Sala">
+          <select id="responsible"></select>
 
-<div class="section-box">
-  <h2>Lista de Setores</h2>
-  <div id="sectors-list"></div>
-</div>
-</main>
+          <h3>Horários de Funcionamento</h3>
+          <div id="hours-container"></div>
 
-<script>
-const apiUrl="http://localhost:8080/sectors";
-const respApi="http://localhost:8080/responsibles";
+          <button type="submit">Salvar Setor</button>
+          <button type="button" id="cancel-btn">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </main>
 
-const form=document.getElementById("sector-form");
-const idInput=document.getElementById("sector-id");
-const acronymInput=document.getElementById("acronym");
-const nameInput=document.getElementById("name");
-const descInput=document.getElementById("desc");
-const latInput=document.getElementById("lat");
-const longInput=document.getElementById("longi");
-const buildInput=document.getElementById("build");
-const roomInput=document.getElementById("room");
-const responsibleSelect=document.getElementById("responsible");
-const cancelBtn=document.getElementById("cancel-btn");
-const sectorsDiv=document.getElementById("sectors-list");
-const hoursContainer=document.getElementById("hours-container");
-const days=["Segunda","Terça","Quarta","Quinta","Sexta","Sábado","Domingo"];
+  <script>
+    const apiUrl = "http://localhost:8080/sectors";
+    const respApi = "http://localhost:8080/responsibles";
 
-// --- Carrega responsáveis ---
-function loadResponsibles(){
-  fetch(respApi).then(r=>r.json()).then(data=>{
-    responsibleSelect.innerHTML="<option value=''>Selecione</option>";
-    data.forEach(r=>{
-      const opt=document.createElement("option");
-      opt.value=r.id; opt.textContent=r.name;
-      responsibleSelect.appendChild(opt);
-    });
-  });
-}
+    const form = document.getElementById("sector-form");
+    const idInput = document.getElementById("sector-id");
+    const acronymInput = document.getElementById("acronym");
+    const nameInput = document.getElementById("name");
+    const descInput = document.getElementById("desc");
+    const latInput = document.getElementById("lat");
+    const longInput = document.getElementById("longi");
+    const buildInput = document.getElementById("build");
+    const roomInput = document.getElementById("room");
+    const responsibleSelect = document.getElementById("responsible");
+    const cancelBtn = document.getElementById("cancel-btn");
+    const sectorsDiv = document.getElementById("sectors-list");
+    const hoursContainer = document.getElementById("hours-container");
+    const days = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"];
 
-// --- Cria inputs de horários ---
-function createHoursInputs(periods){
-  hoursContainer.innerHTML="";
-  days.forEach(d=>{
-    const dayDiv=document.createElement("div");
-    dayDiv.className="day-container";
-    const dayPeriods = periods?.[d] || [{open:"", close:""}];
-    dayDiv.innerHTML=`<strong>${d}</strong>`;
-    dayPeriods.forEach(p=>{
-      const row=document.createElement("div");
-      row.className="time-period";
-      row.innerHTML=`
+    // Abas
+    function showTab(tab) {
+      document.querySelectorAll(".tab-content").forEach(tc => tc.classList.remove("active"));
+      document.getElementById(tab).classList.add("active");
+      document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+      document.querySelector(`.tab-btn[onclick="showTab('${tab}')"]`).classList.add("active");
+    }
+
+    // --- Carrega responsáveis ---
+    function loadResponsibles() {
+      fetch(respApi).then(r => r.json()).then(data => {
+        responsibleSelect.innerHTML = "<option value=''>Selecione</option>";
+        data.forEach(r => {
+          const opt = document.createElement("option");
+          opt.value = r.id; opt.textContent = r.name;
+          responsibleSelect.appendChild(opt);
+        });
+      });
+    }
+
+    // --- Cria inputs de horários ---
+    function createHoursInputs(periods) {
+      hoursContainer.innerHTML = "";
+      days.forEach(d => {
+        const dayDiv = document.createElement("div");
+        dayDiv.className = "day-container";
+        const dayPeriods = periods?.[d] || [{ open: "", close: "" }];
+        dayDiv.innerHTML = `<strong>${d}</strong>`;
+        dayPeriods.forEach(p => {
+          const row = document.createElement("div");
+          row.className = "time-period";
+          row.innerHTML = `
         <input type="time" class="open" data-day="${d}" value="${p.open}">
         <input type="time" class="close" data-day="${d}" value="${p.close}">
         <button type="button" class="remove-period-btn">-</button>
       `;
-      row.querySelector(".remove-period-btn").addEventListener("click",()=>row.remove());
-      dayDiv.appendChild(row);
-    });
-    const addBtn=document.createElement("button");
-    addBtn.type="button";
-    addBtn.textContent="+ Adicionar período";
-    addBtn.className="add-period-btn";
-    addBtn.addEventListener("click",()=>{
-      const row=document.createElement("div");
-      row.className="time-period";
-      row.innerHTML=`
+          row.querySelector(".remove-period-btn").addEventListener("click", () => row.remove());
+          dayDiv.appendChild(row);
+        });
+        const addBtn = document.createElement("button");
+        addBtn.type = "button"; addBtn.textContent = "+ Adicionar período"; addBtn.className = "add-period-btn";
+        addBtn.addEventListener("click", () => {
+          const row = document.createElement("div");
+          row.className = "time-period";
+          row.innerHTML = `
         <input type="time" class="open" data-day="${d}">
         <input type="time" class="close" data-day="${d}">
         <button type="button" class="remove-period-btn">-</button>
       `;
-      row.querySelector(".remove-period-btn").addEventListener("click",()=>row.remove());
-      dayDiv.appendChild(row);
-    });
-    dayDiv.appendChild(addBtn);
-    hoursContainer.appendChild(dayDiv);
-  });
-}
+          row.querySelector(".remove-period-btn").addEventListener("click", () => row.remove());
+          dayDiv.appendChild(row);
+        });
+        dayDiv.appendChild(addBtn);
+        hoursContainer.appendChild(dayDiv);
+      });
+    }
 
-// --- Carrega setores ---
-function loadSectors(){
-  fetch(apiUrl).then(r=>r.json()).then(data=>{
-    sectorsDiv.innerHTML="";
-    data.forEach(s=>{
-      const acc=document.createElement("button");
-      acc.className="accordion"; acc.textContent=s.name;
-      const panel=document.createElement("div"); panel.className="panel";
+    // --- Carrega setores ---
+    function loadSectors() {
+      fetch(apiUrl).then(r => r.json()).then(data => {
+        sectorsDiv.innerHTML = "";
+        data.forEach(s => {
+          const acc = document.createElement("button"); acc.className = "accordion"; acc.textContent = s.name;
+          const panel = document.createElement("div"); panel.className = "panel";
 
-      let hoursHtml="<p><strong>Horários de Funcionamento:</strong></p>";
-      if(s.operatingHours?.days){
-        for(const day of days){
-          const dayPeriods=s.operatingHours.days[day]||[];
-          hoursHtml+=`<p>${day}: ${dayPeriods.length ? dayPeriods.map(p=>`${p.open} - ${p.close}`).join(", ") : "Fechado"}</p>`;
-        }
-      } else hoursHtml+="<p>Sem horários cadastrados</p>";
+          let hoursHtml = "<p><strong>Horários de Funcionamento:</strong></p>";
+          if (s.operatingHours?.days) {
+            for (const day of days) {
+              const dayPeriods = s.operatingHours.days[day] || [];
+              hoursHtml += `<p>${day}: ${dayPeriods.length ? dayPeriods.map(p => `${p.open} - ${p.close}`).join(", ") : "Fechado"}</p>`;
+            }
+          } else hoursHtml += "<p>Sem horários cadastrados</p>";
 
-      panel.innerHTML=`
-        <p><strong>Acrônimo:</strong> ${s.acronym}</p>
+          panel.innerHTML = `
+        <p><strong>Sigla:</strong> ${s.acronym}</p>
         <p><strong>Descrição:</strong> ${s.description}</p>
         <p><strong>Prédio:</strong> ${s.build} | <strong>Sala:</strong> ${s.room}</p>
         <p><strong>Responsável:</strong> ${s.responsible?.name || ''}</p>
         ${hoursHtml}
       `;
 
-      const editBtn=document.createElement("button"); editBtn.textContent="Editar";
-      editBtn.addEventListener("click",()=>{
-        idInput.value=s.id;
-        acronymInput.value=s.acronym;
-        nameInput.value=s.name;
-        descInput.value=s.description;
-        latInput.value=s.lat;
-        longInput.value=s.longi;
-        buildInput.value=s.build;
-        roomInput.value=s.room;
-        responsibleSelect.value=s.responsible?.id||'';
-        createHoursInputs(s.operatingHours?.days);
-        window.scrollTo({top:0, behavior:'smooth'});
+          const editBtn = document.createElement("button"); editBtn.textContent = "Editar";
+          editBtn.addEventListener("click", () => {
+            idInput.value = s.id;
+            acronymInput.value = s.acronym;
+            nameInput.value = s.name;
+            descInput.value = s.description;
+            latInput.value = s.lat;
+            longInput.value = s.longi;
+            buildInput.value = s.build;
+            roomInput.value = s.room;
+            responsibleSelect.value = s.responsible?.id || '';
+            createHoursInputs(s.operatingHours?.days);
+            showTab('form'); // vai para aba de formulário
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+
+          const delBtn = document.createElement("button"); delBtn.textContent = "Deletar";
+          delBtn.className = "delete"; delBtn.addEventListener("click", () => deleteSector(s.id));
+
+          panel.appendChild(editBtn); panel.appendChild(delBtn);
+
+          sectorsDiv.appendChild(acc); sectorsDiv.appendChild(panel);
+
+          acc.addEventListener("click", () => {
+            acc.classList.toggle("active");
+            panel.style.display = (panel.style.display === "block") ? "none" : "block";
+          });
+        });
+      });
+    }
+
+    // --- Salvar setor ---
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      const periods = {};
+      hoursContainer.querySelectorAll(".time-period").forEach(tp => {
+        const day = tp.querySelector(".open").dataset.day;
+        if (!periods[day]) periods[day] = [];
+        periods[day].push({
+          open: tp.querySelector(".open").value,
+          close: tp.querySelector(".close").value
+        });
       });
 
-      const delBtn=document.createElement("button"); delBtn.textContent="Deletar";
-      delBtn.className="delete"; delBtn.addEventListener("click",()=>deleteSector(s.id));
+      const payload = {
+        acronym: acronymInput.value,
+        name: nameInput.value,
+        description: descInput.value,
+        lat: latInput.value,
+        longi: longInput.value,
+        build: buildInput.value,
+        room: roomInput.value,
+        responsibleId: responsibleSelect.value,
+        operatingHours: { days: periods }
+      };
 
-      panel.appendChild(editBtn); panel.appendChild(delBtn);
+      console.log(payload); 
 
-      sectorsDiv.appendChild(acc); sectorsDiv.appendChild(panel);
+      const method = idInput.value ? "PUT" : "POST";
+      const url = idInput.value ? `${apiUrl}/${idInput.value}` : apiUrl;
 
-      acc.addEventListener("click",()=>{ 
-        acc.classList.toggle("active"); 
-        panel.style.display=(panel.style.display==="block")?"none":"block"; 
+      fetch(url, {
+        method,
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).then(() => {
+        form.reset();
+        createHoursInputs();
+        idInput.value = "";
+        loadSectors();
+        showTab('view'); // volta para aba visualização
       });
     });
-  });
-}
 
-// --- Salvar setor ---
-form.addEventListener("submit", e=>{
-  e.preventDefault();
-  const periods={};
-  hoursContainer.querySelectorAll(".time-period").forEach(tp=>{
-    const day=tp.querySelector(".open").dataset.day;
-    if(!periods[day]) periods[day]=[];
-    periods[day].push({
-      open: tp.querySelector(".open").value,
-      close: tp.querySelector(".close").value
+    cancelBtn.addEventListener("click", () => {
+      form.reset();
+      createHoursInputs();
+      idInput.value = "";
+      showTab('view'); // volta para aba visualização
     });
-  });
 
-  const payload={
-    acronym: acronymInput.value,
-    name: nameInput.value,
-    description: descInput.value,
-    lat: latInput.value,
-    longi: longInput.value,
-    build: buildInput.value,
-    room: roomInput.value,
-    responsibleId: responsibleSelect.value,
-    operatingHours: { days: periods }
-  };
+    // --- Deletar setor ---
+    function deleteSector(id) {
+      if (confirm("Deseja realmente deletar este setor?")) {
+        fetch(`${apiUrl}/${id}`, { method: "DELETE" }).then(() => loadSectors());
+      }
+    }
 
-  const method = idInput.value ? "PUT" : "POST";
-  const url = idInput.value ? `${apiUrl}/${idInput.value}` : apiUrl;
-
-  fetch(url, {
-    method,
-    headers:{"Content-Type":"application/json"},
-    body: JSON.stringify(payload)
-  }).then(()=> {
-    form.reset();
+    // Inicialização
+    loadResponsibles();
     createHoursInputs();
-    idInput.value="";
     loadSectors();
-  });
-});
-
-cancelBtn.addEventListener("click", ()=>{
-  form.reset();
-  createHoursInputs();
-  idInput.value="";
-});
-
-// --- Deletar setor ---
-function deleteSector(id){
-  if(confirm("Deseja realmente deletar este setor?")){
-    fetch(`${apiUrl}/${id}`, {method:"DELETE"}).then(()=>loadSectors());
-  }
-}
-
-// Inicialização
-loadResponsibles();
-createHoursInputs();
-loadSectors();
-</script>
+  </script>
 </body>
+
 </html>

@@ -5,146 +5,146 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home - IFFar ADM</title>
-<style>
-/* Reset básico */
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  display: flex;
-  background: #f4f9f4;
-  height: 100vh;
-  color: #1b5e20;
-}
+  <style>
+    /* Reset básico */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      background: #f4f9f4;
+      height: 100vh;
+      color: #1b5e20;
+    }
 
-/* Sidebar */
-aside.sidebar {
-  width: 250px;
-  background: #2e7d32;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 2px 0 6px rgba(0,0,0,0.1);
-}
+    /* Sidebar */
+    aside.sidebar {
+      width: 250px;
+      background: #2e7d32;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+    }
 
-aside.sidebar .logo {
-  text-align: center;
-  padding: 25px 10px;
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-  background: #d0f0c0;
-}
+    aside.sidebar .logo {
+      text-align: center;
+      padding: 25px 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      background: #d0f0c0;
+    }
 
-aside.sidebar .logo img {
-  width: 100px;
-  margin-bottom: 12px;
-}
+    aside.sidebar .logo img {
+      width: 100px;
+      margin-bottom: 12px;
+    }
 
-aside.sidebar .logo h2 {
-  margin: 0;
-  font-size: 22px;
-  color: #2e7d32;
-}
+    aside.sidebar .logo h2 {
+      margin: 0;
+      font-size: 22px;
+      color: #2e7d32;
+    }
 
-aside.sidebar nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    aside.sidebar nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-aside.sidebar nav ul li a {
-  display: block;
-  padding: 18px 25px;
-  color: #c8e6c9;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  transition: background 0.3s, color 0.3s;
-}
+    aside.sidebar nav ul li a {
+      display: block;
+      padding: 18px 25px;
+      color: #c8e6c9;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background 0.3s, color 0.3s;
+    }
 
-aside.sidebar nav ul li a.active,
-aside.sidebar nav ul li a:hover {
-  background: #1b5e20;
-  color: #fff;
-}
+    aside.sidebar nav ul li a.active,
+    aside.sidebar nav ul li a:hover {
+      background: #1b5e20;
+      color: #fff;
+    }
 
-/* Main content */
-main {
-  flex: 1;
-  padding: 30px;
-  overflow-y: auto;
-}
+    /* Main content */
+    main {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+    }
 
-h1 {
-  color: #2e7d32;
-  margin-bottom: 30px;
-  font-size: 32px;
-}
+    h1 {
+      color: #2e7d32;
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
 
-h2 {
-  font-size: 24px;
-  margin-bottom: 15px;
-}
+    h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
 
-/* Section box */
-.section-box {
-  background: #e8f5e9;
-  padding: 25px;
-  border-radius: 15px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+    /* Section box */
+    .section-box {
+      background: #e8f5e9;
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-/* Horizontal scroll convertido em lista vertical com largura limitada */
-#news-list a,
-#announcement-list a {
-  display: block;
-  background: #dff0d8;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  text-decoration: none;
-  color: #1b5e20;
-  transition: transform 0.2s;
-  width: 80%;
-  max-width: 500px;
-  margin-left: auto; 
-  margin-right: auto;
-}
+    /* Horizontal scroll convertido em lista vertical com largura limitada */
+    #news-list a,
+    #announcement-list a {
+      display: block;
+      background: #dff0d8;
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #1b5e20;
+      transition: transform 0.2s;
+      width: 80%;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-#news-list a:hover,
-#announcement-list a:hover {
-  transform: scale(1.02);
-}
+    #news-list a:hover,
+    #announcement-list a:hover {
+      transform: scale(1.02);
+    }
 
-.news-banner {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 8px;
-}
+    .news-banner {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
 
-/* Título dentro do link */
-.section-box a p {
-  margin: 0;
-  font-weight: 600;
-  text-align: center;
-}
+    /* Título dentro do link */
+    .section-box a p {
+      margin: 0;
+      font-weight: 600;
+      text-align: center;
+    }
 
-/* Scrollbar customizada */
-::-webkit-scrollbar {
-  height: 8px;
-  width: 8px;
-}
+    /* Scrollbar customizada */
+    ::-webkit-scrollbar {
+      height: 8px;
+      width: 8px;
+    }
 
-::-webkit-scrollbar-thumb {
-  background: #2e7d32;
-  border-radius: 4px;
-}
+    ::-webkit-scrollbar-thumb {
+      background: #2e7d32;
+      border-radius: 4px;
+    }
 
-::-webkit-scrollbar-track {
-  background: #e8f5e9;
-}
-</style>
+    ::-webkit-scrollbar-track {
+      background: #e8f5e9;
+    }
+  </style>
 
 
 </head>

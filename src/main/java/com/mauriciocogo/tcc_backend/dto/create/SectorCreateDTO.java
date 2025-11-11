@@ -5,9 +5,9 @@ import com.mauriciocogo.tcc_backend.entity.Sector;
 
 public record SectorCreateDTO(
     Long id,
-    String acromym,
+    String acronym,
     String name,
-    String desc,
+    String description,
     String lat,
     String longi,
     String build,
@@ -17,9 +17,9 @@ public record SectorCreateDTO(
 ){
     public static Sector toEntity(SectorCreateDTO dto){
         Sector s = new Sector();
-        s.setAcronym(dto.acromym);
+        s.setAcronym(dto.acronym);
         s.setName(dto.name);
-        s.setDescription(dto.desc);
+        s.setDescription(dto.description);
         s.setLat(dto.lat);
         s.setLongi(dto.longi);
         s.setBuild(dto.build);
