@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Setores - IFFar ADM</title>
   <style>
     body {
@@ -15,7 +14,6 @@
       min-height: 100vh;
     }
 
-    /* Sidebar */
     aside.sidebar {
       width: 250px;
       background: #2e7d32;
@@ -65,7 +63,6 @@
       color: #fff;
     }
 
-    /* Main */
     main {
       flex: 1;
       padding: 30px;
@@ -78,12 +75,6 @@
       font-size: 32px;
     }
 
-    h2 {
-      font-size: 24px;
-      margin-bottom: 15px;
-    }
-
-    /* Section box */
     .section-box {
       background: #e8f5e9;
       padding: 25px;
@@ -92,122 +83,6 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    /* Form moderno */
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-    }
-
-    input,
-    select,
-    textarea {
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      width: 60%;
-      max-width: 400px;
-      font-size: 16px;
-      transition: border 0.3s, box-shadow 0.3s;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #999;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: none;
-      border-color: #2e7d32;
-      box-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
-    }
-
-    button {
-      padding: 12px 20px;
-      background: #2e7d32;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s, transform 0.2s;
-      width: fit-content;
-    }
-
-    button:hover {
-      background: #1b5e20;
-      transform: scale(1.02);
-    }
-
-    button.delete {
-      background: #e57373;
-    }
-
-    /* Horários */
-    #hours-container {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .day-container {
-      background: #dff0d8;
-      padding: 10px;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .day-container strong {
-      font-size: 16px;
-    }
-
-    .time-period {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .time-period input[type="time"] {
-      padding: 8px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      width: 120px;
-      font-size: 14px;
-    }
-
-    .add-period-btn,
-    .remove-period-btn {
-      padding: 4px 8px;
-      font-size: 12px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      color: #fff;
-    }
-
-    .add-period-btn {
-      background: #4caf50;
-    }
-
-    .remove-period-btn {
-      background: #e57373;
-    }
-
-    .add-period-btn:hover {
-      background: #45a049;
-    }
-
-    .remove-period-btn:hover {
-      background: #d32f2f;
-    }
-
-    /* Abas */
     .tabs {
       margin-bottom: 20px;
     }
@@ -235,47 +110,124 @@
       display: block;
     }
 
-    /* Lista setores */
-    .accordion {
-      background: #c8e6c9;
-      color: #2e7d32;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 15px;
+    }
+
+    th, td {
+      border-bottom: 1px solid #ccc;
       padding: 10px;
-      cursor: pointer;
-      border: none;
       text-align: left;
-      outline: none;
-      font-size: 16px;
-      margin-bottom: 5px;
-      border-radius: 8px;
-      transition: background 0.3s;
     }
 
-    .accordion.active,
-    .accordion:hover {
-      background: #a5d6a7;
+    th {
+      background: #c8e6c9;
+      font-weight: bold;
     }
 
-    .panel {
+    tr:hover {
+      background: #f1f8e9;
+    }
+
+    .accordion-panel {
+      background: #f9fff9;
       padding: 15px;
-      background: #f1fdf1;
       border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       margin-bottom: 10px;
       display: none;
     }
 
-    .panel p {
-      margin: 5px 0;
+    .accordion-row {
+      cursor: pointer;
     }
 
-    .panel button {
-      margin-top: 10px;
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
     }
+
+    input, select, textarea {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      width: 60%;
+      max-width: 400px;
+      font-size: 16px;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #2e7d32;
+      box-shadow: 0 0 5px rgba(46, 125, 50, 0.5);
+    }
+
+    button {
+      padding: 12px 20px;
+      background: #2e7d32;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #1b5e20;
+      transform: scale(1.02);
+    }
+
+    button.delete {
+      background: #e57373;
+    }
+
+    .hours-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    .hours-table td {
+      padding: 10px;
+      vertical-align: top;
+    }
+
+    .day-cell {
+      background: #f1fdf1;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .time-period {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .add-period-btn, .remove-period-btn {
+      padding: 4px 8px;
+      font-size: 12px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    .add-period-btn { background: #4caf50; }
+    .remove-period-btn { background: #e57373; }
   </style>
 </head>
-
 <body>
   <aside class="sidebar">
-    <div class="logo"><img src="/img/logo.jpeg" alt="Logo">
+    <div class="logo">
+      <img src="/img/logo.jpeg" alt="Logo" />
       <h2>IFFar ADM</h2>
     </div>
     <nav>
@@ -291,21 +243,29 @@
   <main>
     <h1>Gestão de Setores</h1>
 
-    <!-- Abas -->
     <div class="tabs">
       <button class="tab-btn active" onclick="showTab('view')">Visualizar</button>
       <button class="tab-btn" onclick="showTab('form')">Adicionar Setor</button>
     </div>
 
-    <!-- Aba Visualizar -->
     <div id="view" class="tab-content active">
       <div class="section-box">
         <h2>Lista de Setores</h2>
-        <div id="sectors-list"></div>
+        <table>
+          <thead>
+            <tr>
+              <th>Sigla</th>
+              <th>Nome</th>
+              <th>Prédio</th>
+              <th>Sala</th>
+              <th>Responsável</th>
+            </tr>
+          </thead>
+          <tbody id="sectors-list"></tbody>
+        </table>
       </div>
     </div>
 
-    <!-- Aba Formulário -->
     <div id="form" class="tab-content">
       <div class="section-box">
         <h2 id="form-title">Adicionar Setor</h2>
@@ -321,7 +281,7 @@
           <select id="responsible"></select>
 
           <h3>Horários de Funcionamento</h3>
-          <div id="hours-container"></div>
+          <table class="hours-table" id="hours-container"></table>
 
           <button type="submit">Salvar Setor</button>
           <button type="button" id="cancel-btn">Cancelar</button>
@@ -333,7 +293,6 @@
   <script>
     const apiUrl = "http://localhost:8080/sectors";
     const respApi = "http://localhost:8080/responsibles";
-
     const form = document.getElementById("sector-form");
     const idInput = document.getElementById("sector-id");
     const acronymInput = document.getElementById("acronym");
@@ -345,11 +304,10 @@
     const roomInput = document.getElementById("room");
     const responsibleSelect = document.getElementById("responsible");
     const cancelBtn = document.getElementById("cancel-btn");
-    const sectorsDiv = document.getElementById("sectors-list");
+    const sectorsList = document.getElementById("sectors-list");
     const hoursContainer = document.getElementById("hours-container");
     const days = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"];
 
-    // Abas
     function showTab(tab) {
       document.querySelectorAll(".tab-content").forEach(tc => tc.classList.remove("active"));
       document.getElementById(tab).classList.add("active");
@@ -357,123 +315,143 @@
       document.querySelector(`.tab-btn[onclick="showTab('${tab}')"]`).classList.add("active");
     }
 
-    // --- Carrega responsáveis ---
     function loadResponsibles() {
-      fetch(respApi).then(r => r.json()).then(data => {
-        responsibleSelect.innerHTML = "<option value=''>Selecione</option>";
-        data.forEach(r => {
-          const opt = document.createElement("option");
-          opt.value = r.id; opt.textContent = r.name;
-          responsibleSelect.appendChild(opt);
+      fetch(respApi)
+        .then(r => r.json())
+        .then(data => {
+          responsibleSelect.innerHTML = "<option value=''>Selecione o responsável</option>";
+          data.forEach(r => {
+            const opt = document.createElement("option");
+            opt.value = r.id;
+            opt.textContent = r.name;
+            responsibleSelect.appendChild(opt);
+          });
         });
-      });
     }
 
-    // --- Cria inputs de horários ---
-    function createHoursInputs(periods) {
+    // NOVA versão: cria layout dos dias, mas sem horários iniciais
+    function createHoursInputs(periods = {}) {
       hoursContainer.innerHTML = "";
-      days.forEach(d => {
-        const dayDiv = document.createElement("div");
-        dayDiv.className = "day-container";
-        const dayPeriods = periods?.[d] || [{ open: "", close: "" }];
-        dayDiv.innerHTML = `<strong>${d}</strong>`;
-        dayPeriods.forEach(p => {
-          const row = document.createElement("div");
-          row.className = "time-period";
-          row.innerHTML = `
-        <input type="time" class="open" data-day="${d}" value="${p.open}">
-        <input type="time" class="close" data-day="${d}" value="${p.close}">
-        <button type="button" class="remove-period-btn">-</button>
-      `;
-          row.querySelector(".remove-period-btn").addEventListener("click", () => row.remove());
-          dayDiv.appendChild(row);
+      const layout = [
+        ["Segunda", "Terça", "Quarta"],
+        ["Quinta", "Sexta", "Sábado"],
+        ["Domingo"]
+      ];
+      layout.forEach(rowDays => {
+        const tr = document.createElement("tr");
+        rowDays.forEach(day => {
+          const td = document.createElement("td");
+          td.className = "day-cell";
+          const dayDiv = document.createElement("div");
+          dayDiv.innerHTML = `<strong>${day}</strong><br>`;
+
+          // adiciona períodos já existentes (ex: ao editar)
+          const existing = periods[day] || [];
+          existing.forEach(p => addPeriodRow(dayDiv, day, p.open, p.close));
+
+          // botão de adicionar período
+          const addBtn = document.createElement("button");
+          addBtn.type = "button";
+          addBtn.textContent = "+ Adicionar horário";
+          addBtn.className = "add-period-btn";
+          addBtn.addEventListener("click", () => addPeriodRow(dayDiv, day));
+          dayDiv.appendChild(addBtn);
+
+          td.appendChild(dayDiv);
+          tr.appendChild(td);
         });
-        const addBtn = document.createElement("button");
-        addBtn.type = "button"; addBtn.textContent = "+ Adicionar período"; addBtn.className = "add-period-btn";
-        addBtn.addEventListener("click", () => {
-          const row = document.createElement("div");
-          row.className = "time-period";
-          row.innerHTML = `
-        <input type="time" class="open" data-day="${d}">
-        <input type="time" class="close" data-day="${d}">
-        <button type="button" class="remove-period-btn">-</button>
-      `;
-          row.querySelector(".remove-period-btn").addEventListener("click", () => row.remove());
-          dayDiv.appendChild(row);
-        });
-        dayDiv.appendChild(addBtn);
-        hoursContainer.appendChild(dayDiv);
+        hoursContainer.appendChild(tr);
       });
     }
 
-    // --- Carrega setores ---
+    function addPeriodRow(container, day, openVal = "", closeVal = "") {
+      const row = document.createElement("div");
+      row.className = "time-period";
+      row.innerHTML = `
+        <input type="time" class="open" data-day="${day}" value="${openVal}">
+        <input type="time" class="close" data-day="${day}" value="${closeVal}">
+        <button type="button" class="remove-period-btn">-</button>
+      `;
+      row.querySelector(".remove-period-btn").addEventListener("click", () => row.remove());
+      container.insertBefore(row, container.querySelector(".add-period-btn"));
+    }
+
     function loadSectors() {
-      fetch(apiUrl).then(r => r.json()).then(data => {
-        sectorsDiv.innerHTML = "";
-        data.forEach(s => {
-          const acc = document.createElement("button"); acc.className = "accordion"; acc.textContent = s.name;
-          const panel = document.createElement("div"); panel.className = "panel";
-
-          let hoursHtml = "<p><strong>Horários de Funcionamento:</strong></p>";
-          if (s.operatingHours?.days) {
-            for (const day of days) {
-              const dayPeriods = s.operatingHours.days[day] || [];
-              hoursHtml += `<p>${day}: ${dayPeriods.length ? dayPeriods.map(p => `${p.open} - ${p.close}`).join(", ") : "Fechado"}</p>`;
+      fetch(apiUrl)
+        .then(r => r.json())
+        .then(data => {
+          sectorsList.innerHTML = "";
+          data.forEach(s => {
+            const tr = document.createElement("tr");
+            tr.className = "accordion-row";
+            tr.innerHTML = `
+              <td>${s.acronym}</td>
+              <td>${s.name}</td>
+              <td>${s.build || ""}</td>
+              <td>${s.room || ""}</td>
+              <td>${s.responsible?.name || ""}</td>`;
+            const panel = document.createElement("tr");
+            const panelTd = document.createElement("td");
+            panelTd.colSpan = 5;
+            const desc = s.description || "Sem descrição.";
+            let hoursHtml = "<strong>Horários:</strong><br>";
+            if (s.operatingHours?.days) {
+              for (const day of days) {
+                const dayPeriods = s.operatingHours.days[day] || [];
+                hoursHtml += `<p>${day}: ${dayPeriods.length ? dayPeriods.map(p => `${p.open} - ${p.close}`).join(", ") : "Fechado"}</p>`;
+              }
+            } else {
+              hoursHtml += "<p>Sem horários cadastrados.</p>";
             }
-          } else hoursHtml += "<p>Sem horários cadastrados</p>";
+            panelTd.innerHTML = `
+              <div class="accordion-panel">
+                <p><strong>Descrição:</strong> ${desc}</p>
+                ${hoursHtml}
+                <button onclick="editSector(${s.id})">Editar</button>
+                <button class="delete" onclick="deleteSector(${s.id})">Excluir</button>
+              </div>`;
+            panel.appendChild(panelTd);
+            sectorsList.appendChild(tr);
+            sectorsList.appendChild(panel);
 
-          panel.innerHTML = `
-        <p><strong>Sigla:</strong> ${s.acronym}</p>
-        <p><strong>Descrição:</strong> ${s.description}</p>
-        <p><strong>Prédio:</strong> ${s.build} | <strong>Sala:</strong> ${s.room}</p>
-        <p><strong>Responsável:</strong> ${s.responsible?.name || ''}</p>
-        ${hoursHtml}
-      `;
-
-          const editBtn = document.createElement("button"); editBtn.textContent = "Editar";
-          editBtn.addEventListener("click", () => {
-            idInput.value = s.id;
-            acronymInput.value = s.acronym;
-            nameInput.value = s.name;
-            descInput.value = s.description;
-            latInput.value = s.lat;
-            longInput.value = s.longi;
-            buildInput.value = s.build;
-            roomInput.value = s.room;
-            responsibleSelect.value = s.responsible?.id || '';
-            createHoursInputs(s.operatingHours?.days);
-            showTab('form'); // vai para aba de formulário
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          });
-
-          const delBtn = document.createElement("button"); delBtn.textContent = "Deletar";
-          delBtn.className = "delete"; delBtn.addEventListener("click", () => deleteSector(s.id));
-
-          panel.appendChild(editBtn); panel.appendChild(delBtn);
-
-          sectorsDiv.appendChild(acc); sectorsDiv.appendChild(panel);
-
-          acc.addEventListener("click", () => {
-            acc.classList.toggle("active");
-            panel.style.display = (panel.style.display === "block") ? "none" : "block";
+            tr.addEventListener("click", () => {
+              const panelDiv = panelTd.querySelector(".accordion-panel");
+              const isVisible = panelDiv.style.display === "block";
+              document.querySelectorAll(".accordion-panel").forEach(p => (p.style.display = "none"));
+              panelDiv.style.display = isVisible ? "none" : "block";
+            });
           });
         });
-      });
     }
 
-    // --- Salvar setor ---
+    function editSector(id) {
+      fetch(`${apiUrl}/${id}`)
+        .then(r => r.json())
+        .then(s => {
+          idInput.value = s.id;
+          acronymInput.value = s.acronym;
+          nameInput.value = s.name;
+          descInput.value = s.description;
+          latInput.value = s.lat;
+          longInput.value = s.longi;
+          buildInput.value = s.build;
+          roomInput.value = s.room;
+          responsibleSelect.value = s.responsible?.id || "";
+          createHoursInputs(s.operatingHours?.days);
+          showTab("form");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+
     form.addEventListener("submit", e => {
       e.preventDefault();
       const periods = {};
-      hoursContainer.querySelectorAll(".time-period").forEach(tp => {
-        const day = tp.querySelector(".open").dataset.day;
+      document.querySelectorAll(".open").forEach(open => {
+        const day = open.dataset.day;
+        const close = open.parentElement.querySelector(".close").value;
         if (!periods[day]) periods[day] = [];
-        periods[day].push({
-          open: tp.querySelector(".open").value,
-          close: tp.querySelector(".close").value
-        });
+        if (open.value && close) periods[day].push({ open: open.value, close });
       });
-
       const payload = {
         acronym: acronymInput.value,
         name: nameInput.value,
@@ -485,12 +463,8 @@
         responsibleId: responsibleSelect.value,
         operatingHours: { days: periods }
       };
-
-      console.log(payload); 
-
       const method = idInput.value ? "PUT" : "POST";
       const url = idInput.value ? `${apiUrl}/${idInput.value}` : apiUrl;
-
       fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
@@ -500,7 +474,7 @@
         createHoursInputs();
         idInput.value = "";
         loadSectors();
-        showTab('view'); // volta para aba visualização
+        showTab("view");
       });
     });
 
@@ -508,21 +482,18 @@
       form.reset();
       createHoursInputs();
       idInput.value = "";
-      showTab('view'); // volta para aba visualização
+      showTab("view");
     });
 
-    // --- Deletar setor ---
     function deleteSector(id) {
-      if (confirm("Deseja realmente deletar este setor?")) {
+      if (confirm("Deseja realmente excluir este setor?")) {
         fetch(`${apiUrl}/${id}`, { method: "DELETE" }).then(() => loadSectors());
       }
     }
 
-    // Inicialização
     loadResponsibles();
     createHoursInputs();
     loadSectors();
   </script>
 </body>
-
 </html>

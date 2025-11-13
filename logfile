@@ -296,3 +296,35 @@
 2025-11-05 16:56:09.101 -03 [15064] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
 2025-11-05 16:56:09.101 -03 [15064] LOG:  terminando quaisquer outros processos servidor ativos
 2025-11-05 16:56:09.779 -03 [15064] LOG:  todos os processos servidor foram terminados; reinicializando
+2025-11-13 09:18:32.668 -03 [18236] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-11-13 09:18:32.685 -03 [18236] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-11-13 09:18:32.685 -03 [18236] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-11-13 09:18:34.157 -03 [7580] LOG:  sistema de banco de dados foi interrompido; última execução em 2025-11-05 16:53:46 -03
+2025-11-13 09:18:44.237 -03 [7580] LOG:  syncing data directory (fsync), elapsed time: 10.01 s, current path: ./base/16388/1259_fsm
+2025-11-13 09:18:54.255 -03 [7580] LOG:  syncing data directory (fsync), elapsed time: 20.03 s, current path: ./base/16388/3394
+2025-11-13 09:19:04.241 -03 [7580] LOG:  syncing data directory (fsync), elapsed time: 30.01 s, current path: ./base/4/14832
+2025-11-13 09:19:14.370 -03 [7580] LOG:  syncing data directory (fsync), elapsed time: 40.14 s, current path: ./base/4/3600_vm
+2025-11-13 09:19:24.264 -03 [7580] LOG:  syncing data directory (fsync), elapsed time: 50.04 s, current path: ./base/49174/2619_vm
+2025-11-13 09:19:34.320 -03 [7580] LOG:  syncing data directory (fsync), elapsed time: 60.09 s, current path: ./base/49174/3601_fsm
+2025-11-13 09:19:44.277 -03 [7580] LOG:  syncing data directory (fsync), elapsed time: 70.05 s, current path: ./base/5/2620
+2025-11-13 09:19:54.471 -03 [7580] LOG:  syncing data directory (fsync), elapsed time: 80.24 s, current path: ./base/5/49497
+2025-11-13 09:20:04.244 -03 [7580] LOG:  syncing data directory (fsync), elapsed time: 90.02 s, current path: ./base/57366/2602_vm
+2025-11-13 09:20:14.327 -03 [7580] LOG:  syncing data directory (fsync), elapsed time: 100.10 s, current path: ./base/57366/2682
+2025-11-13 09:20:24.252 -03 [7580] LOG:  syncing data directory (fsync), elapsed time: 110.03 s, current path: ./base/57366/3601
+2025-11-13 09:20:33.571 -03 [7580] LOG:  sistema de banco de dados não foi desligado corretamente; recuperação automática está em andamento
+2025-11-13 09:20:33.788 -03 [7580] LOG:  redo inicia em 0/2867248
+2025-11-13 09:20:33.803 -03 [7580] LOG:  comprimento de registro inválido em 0/2867AE0: esperado pelo menos 24, obtido 0
+2025-11-13 09:20:33.805 -03 [7580] LOG:  refazer feito em 0/2867AA8 uso do sistema: CPU: usuário: 0.00 s, sistema: 0.00 s, decorrido: 0.04 s
+2025-11-13 09:20:33.845 -03 [8768] LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-11-13 09:20:34.191 -03 [8768] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.003 s, sync=0.117 s, total=0.380 s; sync files=3, longest=0.052 s, average=0.039 s; distance=2 kB, estimate=2 kB; lsn=0/2867AE0, redo lsn=0/2867AE0
+2025-11-13 09:20:34.494 -03 [18236] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-11-13 09:23:03.771 -03 [14000] ERRO:  coluna i.inheritor não existe no caractere 72
+2025-11-13 09:23:03.771 -03 [14000] COMANDO:  SELECT i.inhrelid relid, pc.relnamespace parent_ns, pc.oid parent_oid, i.inheritor
+	FROM pg_catalog.pg_inherits i, pg_class rc, pg_class pc
+	WHERE rc.oid=i.inhrelid AND rc.relnamespace=$1 AND pc.oid=i.inhparent
+2025-11-13 09:24:21.643 -03 [4592] ERRO:  a coluna "sector" da relação "information" contém valores nulos
+2025-11-13 09:24:21.643 -03 [4592] COMANDO:  alter table if exists information add column sector bigint not null
+2025-11-13 09:24:22.560 -03 [4592] ERRO:  coluna "sector" referenciada na restrição de chave estrangeira não existe
+2025-11-13 09:24:22.560 -03 [4592] COMANDO:  alter table if exists information add constraint FKtkxvo2uyqy9vcbnlrlgtf7vji foreign key (sector) references sector
+2025-11-13 09:25:33.231 -03 [8768] LOG:  checkpoint starting: time
+2025-11-13 09:25:42.087 -03 [8768] LOG:  checkpoint complete: wrote 61 buffers (0.4%); 0 WAL file(s) added, 0 removed, 0 recycled; write=6.665 s, sync=2.042 s, total=8.857 s; sync files=55, longest=0.136 s, average=0.038 s; distance=365 kB, estimate=365 kB; lsn=0/28C5018, redo lsn=0/28C3138

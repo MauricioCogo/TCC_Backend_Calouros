@@ -1,0 +1,61 @@
+name,completename,comment
+"A001 - Direção de Ensino","IFF CAMPUS_SVS > DE > A001 - Direção de Ensino",NULL
+"A002 - CGE Coord. Geral Ensino","IFF CAMPUS_SVS > DE > A002 - CGE Coord. Geral Ensino",NULL
+"A005 - Setor de Apoio Pedagógico","IFF CAMPUS_SVS > DE > A005 - Setor de Apoio Pedagógico",NULL
+"A007 - Coord de Recursos Naturais","IFF CAMPUS_SVS > DE > A007 - Coord de Recursos Naturais",
+"A008 - Secretaria da Direção de Ensino","IFF CAMPUS_SVS > DE > A008 - Secretaria da Direção de Ensino",NULL
+"A017 - Coord. de Tecnológo em Gestão","IFF CAMPUS_SVS > DE > A017 - Coord. de Tecnológo em Gestão",NULL
+"A110 - Coord. Licenc. em Biologia","IFF CAMPUS_SVS > DE > A110 - Coord. Licenc. em Biologia",
+"A210 - Coord. Licenc. em Química","IFF CAMPUS_SVS > DE > A210 - Coord. Licenc. em Química",
+"C001 - Setor de Psicologia (Consultorio)","IFF CAMPUS_SVS > DE > C001 - Setor de Psicologia (Consultorio)",NULL
+"C013 - NAPNE CAI BEABI NUGEDS","IFF CAMPUS_SVS > DE > C013 - NAPNE CAI BEABI NUGEDS",NULL
+"D1 - CAE","IFF CAMPUS_SVS > DE > D1 - CAE","ASSISTÊNCIA ESTUDANTIL"
+"D1-001A - Portaria Moradia","IFF CAMPUS_SVS > DE > D1 - CAE > D1-001A - Portaria Moradia",
+"D1-002 - Setor Assistência Estudantil","IFF CAMPUS_SVS > DE > D1 - CAE > D1-002 - Setor Assistência Estudantil","SETOR DE ASSISTENCIA AO ESTUDANTIL"
+"D1-003 - Auxílios e Bolsas","IFF CAMPUS_SVS > DE > D1 - CAE > D1-003 - Auxílios e Bolsas",
+"D1-004 - Assistência Social","IFF CAMPUS_SVS > DE > D1 - CAE > D1-004 - Assistência Social",
+"D1-005 - Sala da Coordenação","IFF CAMPUS_SVS > DE > D1 - CAE > D1-005 - Sala da Coordenação",
+"D2 - Setor de Saude","IFF CAMPUS_SVS > DE > D2 - Setor de Saude","CENTRO DE SAÚDE"
+F - CIET,IFF CAMPUS_SVS > DE > F - CIET,Centro de Informática e Salas de Aula
+"F001 - NIT Núcleo de Inovação Tecnológico","IFF CAMPUS_SVS > DE > F - CIET > F001 - NIT Núcleo de Inovação Tecnológico",NULL
+"F002 - NEAD","IFF CAMPUS_SVS > DE > F - CIET > F002 - NEAD",
+F026 - Auditório,IFF CAMPUS_SVS > DE > F - CIET > F026 - Auditório,NULL
+"F027 - Mini Auditório","IFF CAMPUS_SVS > DE > F - CIET > F027 - Mini Auditório",NULL
+"F031 - Sala de Dança","IFF CAMPUS_SVS > DE > F - CIET > F031 - Sala de Dança",NULL
+"G1 - Ginásio Poliesportivo","IFF CAMPUS_SVS > DE > G1 - Ginásio Poliesportivo",GINÁSIO
+"G2 - Centro de Convivência","IFF CAMPUS_SVS > DE > G2 - Centro de Convivência","Centro de Convivência"
+"G3 - Academia de Musculação","IFF CAMPUS_SVS > DE > G3 - Academia de Musculação",
+"H - CRA","IFF CAMPUS_SVS > DE > H - CRA","COORDENAÇÃO DE REGISTROS ACADÊMICOS"
+"I - CANTINA","IFF CAMPUS_SVS > I - CANTINA",
+"J - Templo Ecumênico","IFF CAMPUS_SVS > J - Templo Ecumênico",
+"K1-001 CGP","IFF CAMPUS_SVS > DPDI > K1-001 CGP","COORDENAÇÃO DE GESTÃO DE PESSOAS"
+"K1-005 Setor Estágios","IFF CAMPUS_SVS > DPEP > K1-005 Setor Estágios",NULL
+"K1-008 CEX","IFF CAMPUS_SVS > DPEP > K1-008 CEX","COORDENAÇÃO DE EXTENSÃO"
+"K1-009 CPE","IFF CAMPUS_SVS > DPEP > K1-009 CPE","COORDENAÇÃO DE PESQUISA"
+"K1-010 CPR","IFF CAMPUS_SVS > DPEP > K1-010 CPR","COORDENAÇÃO DE PRODUÇÃO"
+"K1-011 Diretoria DPEP","IFF CAMPUS_SVS > DPEP > K1-011 Diretoria DPEP",
+"K1-016 Gabinete DG","IFF CAMPUS_SVS > DG > K1-016 Gabinete DG","Gabinete da DG"
+"K2 - 003 Auditório Central","IFF CAMPUS_SVS > DG > K2 - Prédio Auditório Central > K2 - 003 Auditório Central",
+"K3 Pav 1  - 103 Coord. Licitações e Contratos","IFF CAMPUS_SVS > DAD > K3 Pav 1  - 103 Coord. Licitações e Contratos","COORDENAÇÃO DE LICITAÇÕES E CONTRATOS"
+"K3 Pav T - CTI","IFF CAMPUS_SVS > DPDI > K3 Pav T - CTI",
+"K4 - Lab. Quim. Solos","IFF CAMPUS_SVS > DE > K4 - Lab. Quim. Solos","LABORATÓRIO DE QUÍMICA DOS SOLOS"
+"K5 - Lab Física Solos","IFF CAMPUS_SVS > DE > K5 - Lab Física Solos","LABORATÓRIO DE FÍSICA DOS SOLOS"
+"L1 - Biblioteca","IFF CAMPUS_SVS > DE > L1 - Biblioteca",BIBLIOTECA
+"M1 - Restaurante","IFF CAMPUS_SVS > DE > D1 - CAE > M1 - Restaurante","SETOR DE ALIMENTAÇÃO"
+"N - Lab. Alimentos - 001 - Laboratório","IFF CAMPUS_SVS > DPEP > N - Lab. Alimentos - 001 - Laboratório",
+"O - NTG","IFF CAMPUS_SVS > DG > O - NTG",NULL
+"P3 - Setor de Transportes e Garagem","IFF CAMPUS_SVS > DAD > P3 - Setor de Transportes e Garagem",NULL
+"Q2 - Marcenaria","IFF CAMPUS_SVS > DPEP > Q2 - Marcenaria",NULL
+"Q3 - Serviço Agropecuário","IFF CAMPUS_SVS > DPEP > Q3 - Serviço Agropecuário",NULL
+"R - Agroindústria","IFF CAMPUS_SVS > DPEP > R - Agroindústria",
+"R3 Padaria - 001 - Processamento Padaria","IFF CAMPUS_SVS > DPEP > R - Agroindústria > R3 Padaria - 001 - Processamento Padaria",
+"R4 - Frutas - 001 - Sala Professores","IFF CAMPUS_SVS > DPEP > R - Agroindústria > R4 - Frutas - 001 - Sala Professores","LABORÁTÓRIO DE ANÁLISE DE ALIMENTOS"
+"R5 Latícinios - 001 - Adm/Inspeção","IFF CAMPUS_SVS > DPEP > R - Agroindústria > R5 Latícinios - 001 - Adm/Inspeção",
+"S1 - SA1 - Olericultura","IFF CAMPUS_SVS > DPEP > S1 - SA1 - Olericultura",
+"T1 - SZ2 - Ovinocultura","IFF CAMPUS_SVS > DPEP > T1 - SZ2 - Ovinocultura",
+"U1 - SZ3 - Bovinocultura","IFF CAMPUS_SVS > DPEP > U1 - SZ3 - Bovinocultura",
+"U4 - SZ3 - Parque de Remates","IFF CAMPUS_SVS > DPEP > U4 - SZ3 - Parque de Remates",
+"V2 - SZ1 - Aves e Peixes","IFF CAMPUS_SVS > DPEP > V2 - SZ1 - Aves e Peixes",
+"W1 - SA3 - Fruticultura e Silvicultura","IFF CAMPUS_SVS > DPEP > W1 - SA3 - Fruticultura e Silvicultura",
+"Y - Engenharia Rural","IFF CAMPUS_SVS > DE > Y - Engenharia Rural (em construção)","Engenharia Rural"
+"Z2 - SZ2 - Suinocultura","IFF CAMPUS_SVS > DPEP > Z2 - SZ2 - Suinocultura",NULL
