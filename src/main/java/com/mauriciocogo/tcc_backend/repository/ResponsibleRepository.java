@@ -15,4 +15,7 @@ public interface ResponsibleRepository extends JpaRepository<Responsible, Long> 
 
     @Query("SELECT r FROM Responsible r WHERE r.deleted IS FALSE")
     List<Responsible> findAllActive();
+
+    @Query("SELECT COUNT(r.id) FROM Responsible r WHERE r.deleted IS FALSE")
+    Integer findCount();
 }

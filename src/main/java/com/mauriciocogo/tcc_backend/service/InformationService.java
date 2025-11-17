@@ -55,6 +55,10 @@ public class InformationService {
                 .toList();
     }
 
+    public Integer getCount(){
+        return informationRepository.findCount();
+    }
+
 
     public List<InformationResponseDTO> search(String keyword) {
         return informationRepository.searchByAcronymOrName(keyword)

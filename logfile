@@ -328,3 +328,65 @@
 2025-11-13 09:24:22.560 -03 [4592] COMANDO:  alter table if exists information add constraint FKtkxvo2uyqy9vcbnlrlgtf7vji foreign key (sector) references sector
 2025-11-13 09:25:33.231 -03 [8768] LOG:  checkpoint starting: time
 2025-11-13 09:25:42.087 -03 [8768] LOG:  checkpoint complete: wrote 61 buffers (0.4%); 0 WAL file(s) added, 0 removed, 0 recycled; write=6.665 s, sync=2.042 s, total=8.857 s; sync files=55, longest=0.136 s, average=0.038 s; distance=365 kB, estimate=365 kB; lsn=0/28C5018, redo lsn=0/28C3138
+2025-11-13 11:14:10.323 -03 [14000] ERRO:  coluna i.inheritor não existe no caractere 72
+2025-11-13 11:14:10.323 -03 [14000] COMANDO:  SELECT i.inhrelid relid, pc.relnamespace parent_ns, pc.oid parent_oid, i.inheritor
+	FROM pg_catalog.pg_inherits i, pg_class rc, pg_class pc
+	WHERE rc.oid=i.inhrelid AND rc.relnamespace=$1 AND pc.oid=i.inhparent
+2025-11-13 11:15:33.338 -03 [8768] LOG:  checkpoint starting: time
+2025-11-13 11:15:35.797 -03 [8768] LOG:  checkpoint complete: wrote 16 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.668 s, sync=0.556 s, total=2.466 s; sync files=13, longest=0.050 s, average=0.043 s; distance=9 kB, estimate=329 kB; lsn=0/28C55A8, redo lsn=0/28C5550
+2025-11-13 11:20:33.808 -03 [8768] LOG:  checkpoint starting: time
+2025-11-13 11:20:34.037 -03 [8768] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.116 s, sync=0.045 s, total=0.230 s; sync files=2, longest=0.024 s, average=0.023 s; distance=0 kB, estimate=297 kB; lsn=0/28C58E8, redo lsn=0/28C5890
+2025-11-13 11:25:33.042 -03 [8768] LOG:  checkpoint starting: time
+2025-11-13 11:25:34.455 -03 [8768] LOG:  checkpoint complete: wrote 11 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.107 s, sync=0.215 s, total=1.413 s; sync files=9, longest=0.037 s, average=0.024 s; distance=2 kB, estimate=267 kB; lsn=0/28C63C8, redo lsn=0/28C6370
+2025-11-13 11:30:33.461 -03 [8768] LOG:  checkpoint starting: time
+2025-11-13 11:30:34.217 -03 [8768] LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.562 s, sync=0.081 s, total=0.757 s; sync files=6, longest=0.023 s, average=0.014 s; distance=4 kB, estimate=241 kB; lsn=0/28C77B0, redo lsn=0/28C7758
+2025-11-13 11:35:33.232 -03 [8768] LOG:  checkpoint starting: time
+2025-11-13 11:35:33.487 -03 [8768] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.121 s, sync=0.023 s, total=0.256 s; sync files=2, longest=0.013 s, average=0.012 s; distance=8 kB, estimate=218 kB; lsn=0/28C9800, redo lsn=0/28C97A8
+2025-11-13 11:40:25.837 -03 [18236] LOG:  processo servidor (PID 12128) foi terminado pela exceção 0xC000013A
+2025-11-13 11:40:25.837 -03 [18236] DETALHE:  Processo que falhou estava executando: SET search_path = public,public,"$user"
+2025-11-13 11:40:25.837 -03 [18236] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-11-13 11:40:25.910 -03 [18236] LOG:  terminando quaisquer outros processos servidor ativos
+2025-11-13 11:40:26.242 -03 [18236] LOG:  todos os processos servidor foram terminados; reinicializando
+2025-11-17 13:42:45.023 -03 [4156] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-11-17 13:42:45.030 -03 [4156] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-11-17 13:42:45.030 -03 [4156] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-11-17 13:42:48.138 -03 [16756] LOG:  sistema de banco de dados foi interrompido; última execução em 2025-11-13 11:35:33 -03
+2025-11-17 13:42:58.279 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 10.06 s, current path: ./base/1/14830
+2025-11-17 13:43:08.220 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 20.00 s, current path: ./base/1/2668
+2025-11-17 13:43:18.327 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 30.11 s, current path: ./base/1/3600_vm
+2025-11-17 13:43:28.328 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 40.11 s, current path: ./base/16388/2615
+2025-11-17 13:43:38.220 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 50.00 s, current path: ./base/16388/3596
+2025-11-17 13:43:48.236 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 60.02 s, current path: ./base/4/2615
+2025-11-17 13:43:58.219 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 70.00 s, current path: ./base/4/4172
+2025-11-17 13:44:08.352 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 80.14 s, current path: ./base/49174/2609_fsm
+2025-11-17 13:44:18.256 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 90.04 s, current path: ./base/49174/3080
+2025-11-17 13:44:28.235 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 100.02 s, current path: ./base/49174/6117
+2025-11-17 13:44:38.559 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 110.34 s, current path: ./base/5/2606_fsm
+2025-11-17 13:44:48.310 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 120.09 s, current path: ./base/5/2665
+2025-11-17 13:44:58.441 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 130.22 s, current path: ./base/5/2839
+2025-11-17 13:45:08.234 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 140.02 s, current path: ./base/5/4164
+2025-11-17 13:45:18.255 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 150.04 s, current path: ./base/57366/174
+2025-11-17 13:45:28.259 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 160.04 s, current path: ./base/57366/2692
+2025-11-17 13:45:38.331 -03 [16756] LOG:  syncing data directory (fsync), elapsed time: 170.11 s, current path: ./global/1213_vm
+2025-11-17 13:45:43.011 -03 [16756] LOG:  sistema de banco de dados não foi desligado corretamente; recuperação automática está em andamento
+2025-11-17 13:45:43.312 -03 [16756] LOG:  redo inicia em 0/28C97A8
+2025-11-17 13:45:43.438 -03 [16756] LOG:  comprimento de registro inválido em 0/28CACF8: esperado pelo menos 24, obtido 0
+2025-11-17 13:45:43.439 -03 [16756] LOG:  refazer feito em 0/28CACC0 uso do sistema: CPU: usuário: 0.00 s, sistema: 0.00 s, decorrido: 0.21 s
+2025-11-17 13:45:43.542 -03 [12176] LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-11-17 13:45:44.130 -03 [12176] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.021 s, sync=0.208 s, total=0.670 s; sync files=4, longest=0.080 s, average=0.052 s; distance=5 kB, estimate=5 kB; lsn=0/28CACF8, redo lsn=0/28CACF8
+2025-11-17 13:45:44.550 -03 [4156] LOG:  sistema de banco de dados está pronto para aceitar conexões
+2025-11-17 13:47:53.040 -03 [4280] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10053
+2025-11-17 13:48:02.021 -03 [16632] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10053
+2025-11-17 13:48:05.198 -03 [9252] LOG:  não foi possível receber dados do cliente: unrecognized winsock error 10053
+2025-11-17 14:00:43.178 -03 [12176] LOG:  checkpoint starting: time
+2025-11-17 14:00:43.571 -03 [12176] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.107 s, sync=0.075 s, total=0.395 s; sync files=2, longest=0.042 s, average=0.038 s; distance=5 kB, estimate=5 kB; lsn=0/28CC388, redo lsn=0/28CC330
+2025-11-17 14:05:43.580 -03 [12176] LOG:  checkpoint starting: time
+2025-11-17 14:05:44.898 -03 [12176] LOG:  checkpoint complete: wrote 6 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.636 s, sync=0.237 s, total=1.319 s; sync files=5, longest=0.055 s, average=0.048 s; distance=9 kB, estimate=9 kB; lsn=0/28CE7B0, redo lsn=0/28CE758
+2025-11-17 14:17:45.319 -03 [4156] LOG:  processo servidor (PID 7920) foi terminado pela exceção 0xC000013A
+2025-11-17 14:17:45.319 -03 [4156] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-11-17 14:17:45.320 -03 [4156] LOG:  terminando quaisquer outros processos servidor ativos
+2025-11-17 14:17:47.563 -03 [4156] LOG:  todos os processos servidor foram terminados; reinicializando
+2025-11-17 14:17:49.531 -03 [4156] LOG:  processo de ativação (PID 14900) foi terminado pela exceção 0xC0000142
+2025-11-17 14:17:49.531 -03 [4156] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-11-17 14:17:49.561 -03 [4156] LOG:  interrompendo a ativação devido a falha no processo de ativação
+2025-11-17 14:17:49.563 -03 [4156] LOG:  sistema de banco de dados está desligado

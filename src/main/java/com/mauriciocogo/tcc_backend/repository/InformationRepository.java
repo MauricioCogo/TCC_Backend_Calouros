@@ -28,6 +28,9 @@ public interface InformationRepository extends JpaRepository<Information, Long> 
   @Query("SELECT i FROM Information i WHERE i.deleted IS FALSE")
   List<Information> findAllActive();
 
+  @Query("SELECT COUNT(i.id) FROM Information i WHERE i.deleted IS FALSE")
+  Integer findCount();
+
   @Query("SELECT i FROM Information i WHERE i.deleted IS FALSE AND id = :id")
   Optional<Information> findByIdActive(@Param("id") Long id);
 

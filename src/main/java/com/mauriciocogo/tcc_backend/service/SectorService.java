@@ -50,6 +50,10 @@ public class SectorService {
         return SectorResponseDTO.toDTO(sector);
     }
 
+    public Integer getCount() {
+        return sectorRepository.findCount();
+    }
+
     public List<SectorLocationDTO> search(String keyword) {
         return sectorRepository.searchByAcronymOrName(keyword)
                 .stream()

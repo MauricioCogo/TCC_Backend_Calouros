@@ -64,6 +64,11 @@ public class SectorController {
         return ResponseEntity.ok(results);
     }
 
+    @GetMapping("/count")
+    public Integer getCount() {
+        return sectorService.getCount();
+    }
+
     @PutMapping("/{id}")
     @Operation(summary = "Atualizar setor", description = "Atualiza as informações de um setor existente com base no ID fornecido.")
     @ApiResponses({

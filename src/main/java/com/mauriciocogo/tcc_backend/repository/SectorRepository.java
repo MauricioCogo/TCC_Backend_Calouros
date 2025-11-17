@@ -22,4 +22,7 @@ public interface SectorRepository extends JpaRepository<Sector, Long> {
     
     @Query("SELECT s FROM Sector s WHERE s.deleted IS FALSE")
     List<Sector> findAllActive();
+
+    @Query("SELECT COUNT(s.id) FROM Sector s WHERE s.deleted = FALSE")
+    Integer findCount();
 }

@@ -41,6 +41,10 @@ public class ResponsibleService {
         return ResponsibleResponseDTO.toDTO(responsible);
     }
 
+    public Integer getCount(){
+        return responsibleRepository.findCount();
+    }
+
 
     public ResponsibleResponseDTO getResponsibleByEmail(String email) {
         Responsible responsible = responsibleRepository.findByEmail(email)

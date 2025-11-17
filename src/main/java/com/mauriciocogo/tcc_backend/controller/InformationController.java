@@ -72,6 +72,11 @@ public class InformationController {
         return ResponseEntity.ok(results);
     }
 
+    @GetMapping("/count")
+    public Integer getCount(){
+        return informationService.getCount();
+    }
+
     @PutMapping("/{id}")
     @Operation(summary = "Atualizar informação existente", description = "Atualiza os dados de uma informação existente com base no ID fornecido.")
     @ApiResponses({
