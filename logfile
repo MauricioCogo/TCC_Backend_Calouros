@@ -428,3 +428,39 @@
 2025-11-24 14:22:15.555 -03 [2196] LOG:  sistema de banco de dados está pronto para aceitar conexões
 2025-11-24 14:22:52.902 -03 [10492] FATAL:  role "postgres" não existe
 2025-11-24 14:22:54.960 -03 [9004] FATAL:  role "postgres" não existe
+2025-11-24 14:27:15.404 -03 [5472] LOG:  checkpoint starting: time
+2025-11-24 14:27:15.641 -03 [5472] LOG:  checkpoint complete: wrote 2 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.110 s, sync=0.024 s, total=0.238 s; sync files=2, longest=0.013 s, average=0.012 s; distance=6 kB, estimate=6 kB; lsn=0/28D3780, redo lsn=0/28D3728
+2025-11-24 14:52:16.850 -03 [9860] FATAL:  role "Stadium5027" não existe
+2025-11-24 14:55:18.127 -03 [2892] FATAL:  role "stadium5027" não existe
+2025-11-24 14:55:32.124 -03 [13808] FATAL:  role "stadium5027" não existe
+2025-11-24 14:56:02.661 -03 [13776] FATAL:  role "stadium5027" não existe
+2025-11-24 14:56:42.693 -03 [6788] FATAL:  role "stadium5027" não existe
+2025-11-24 14:56:47.948 -03 [9968] FATAL:  role "Stadium5027" não existe
+2025-11-24 15:01:07.473 -03 [11876] FATAL:  role "stadium5027" não existe
+2025-11-24 15:42:53.927 -03 [10828] FATAL:  role "stadium5027" não existe
+2025-11-24 15:43:04.811 -03 [2916] FATAL:  role "Sttadium5027" não existe
+2025-11-24 15:44:28.569 -03 [7200] FATAL:  role "Sttadium5027" não existe
+2025-11-24 15:44:32.841 -03 [14408] FATAL:  role "Stadium5027" não existe
+2025-11-24 15:44:37.314 -03 [6108] FATAL:  role "stadium5027" não existe
+2025-11-24 15:44:50.529 -03 [14820] FATAL:  role "stadium5027" não existe
+2025-11-24 15:52:48.486 -03 [14940] FATAL:  role "admin" não existe
+2025-11-24 15:53:38.717 -03 [13136] FATAL:  role "admin" não existe
+2025-11-24 15:53:50.435 -03 [15084] FATAL:  role "stadium5027" não existe
+2025-11-24 15:54:00.791 -03 [3976] FATAL:  role "stadium5027" não existe
+2025-11-24 16:14:22.249 -03 [2196] LOG:  processo escritor do WAL (PID 4980) foi terminado pela exceção 0xC000013A
+2025-11-24 16:14:22.249 -03 [2196] DICA:  Veja o arquivo de cabeçalho C "ntstatus.h" para obter uma descrição do valor hexadecimal.
+2025-11-24 16:14:22.363 -03 [2196] LOG:  terminando quaisquer outros processos servidor ativos
+2025-11-24 16:22:26.113 -03 [8460] LOG:  iniciando PostgreSQL 17.5 on x86_64-windows, compiled by msvc-19.44.35209, 64-bit
+2025-11-24 16:22:26.119 -03 [8460] LOG:  escutando no endereço IPv6 "::1", porta 5432
+2025-11-24 16:22:26.120 -03 [8460] LOG:  escutando no endereço IPv4 "127.0.0.1", porta 5432
+2025-11-24 16:22:28.209 -03 [7104] LOG:  sistema de banco de dados foi interrompido; última execução em 2025-11-24 14:27:15 -03
+2025-11-24 16:22:38.296 -03 [7104] LOG:  syncing data directory (fsync), elapsed time: 10.06 s, current path: ./base/1/3764
+2025-11-24 16:22:48.247 -03 [7104] LOG:  syncing data directory (fsync), elapsed time: 20.01 s, current path: ./base/16388/41023
+2025-11-24 16:22:58.253 -03 [7104] LOG:  syncing data directory (fsync), elapsed time: 30.02 s, current path: ./base/57366/3602_vm
+2025-11-24 16:22:59.274 -03 [7104] LOG:  sistema de banco de dados não foi desligado corretamente; recuperação automática está em andamento
+2025-11-24 16:22:59.370 -03 [7104] LOG:  redo inicia em 0/28D3728
+2025-11-24 16:22:59.371 -03 [7104] LOG:  comprimento de registro inválido em 0/28D3830: esperado pelo menos 24, obtido 0
+2025-11-24 16:22:59.372 -03 [7104] LOG:  refazer feito em 0/28D37F8 uso do sistema: CPU: usuário: 0.00 s, sistema: 0.00 s, decorrido: 0.02 s
+2025-11-24 16:22:59.440 -03 [13564] LOG:  checkpoint starting: end-of-recovery immediate wait
+2025-11-24 16:22:59.653 -03 [13564] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.034 s, total=0.247 s; sync files=2, longest=0.021 s, average=0.017 s; distance=0 kB, estimate=0 kB; lsn=0/28D3830, redo lsn=0/28D3830
+2025-11-24 16:22:59.762 -03 [8460] LOG:  sistema de banco de dados está pronto para aceitar conexões
