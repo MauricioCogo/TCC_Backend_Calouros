@@ -19,7 +19,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/sectors")
-@Tag(name = "Setores", description = "Operações relacionadas à gestão de setores no sistema")
+@Tag(
+    name = "Setores",
+    description = "Endpoints responsáveis pelo gerenciamento dos setores institucionais."
+)
 public class SectorController {
 
     private final SectorService sectorService;
@@ -29,10 +32,13 @@ public class SectorController {
     }
 
     @PostMapping
-    @Operation(summary = "Criar novo setor", description = "Cria um novo setor com as informações fornecidas, incluindo o vínculo com um usuário responsável (via Id).")
+    @Operation(
+        summary = "Criar setor",
+        description = "Cria um novo setor com nome, sigla, descrição, localização física, coordenadas geográficas e responsável vinculado."
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "201", description = "Setor criado com sucesso"),
-            @ApiResponse(responseCode = "400", description = "Dados inválidos fornecidos")
+        @ApiResponse(responseCode = "201", description = "Setor criado com sucesso"),
+        @ApiResponse(responseCode = "400", description = "Dados inválidos fornecidos")
     })
     public ResponseEntity<SectorResponseDTO> createSector(@RequestBody SectorCreateDTO dto) {
         SectorResponseDTO created = sectorService.createSector(dto);
@@ -40,53 +46,72 @@ public class SectorController {
     }
 
     @GetMapping
-    @Operation(summary = "Listar todos os setores", description = "Retorna uma lista de todos os setores cadastrados no sistema.")
+    @Operation(
+        summary = "Listar setores",
+        description = "Retorna a lista completa de setores cadastrados no sistema."
+    )
     @ApiResponse(responseCode = "200", description = "Lista de setores retornada com sucesso")
     public ResponseEntity<List<SectorResponseDTO>> getAllSectors() {
-        List<SectorResponseDTO> sectors = sectorService.getAllSectors();
-        return ResponseEntity.ok(sectors);
+        return ResponseEntity.ok(sectorService.getAllSectors());
     }
 
     @GetMapping("/{id}")
-    @Operation(summary = "Buscar setor por ID", description = "Retorna os dados de um setor específico com base no ID fornecido.")
+    @Operation(
+        summary = "Buscar setor por ID",
+        description = "Retorna os dados completos de um setor específico, com base no ID informado."
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Setor encontrado"),
-            @ApiResponse(responseCode = "404", description = "Setor não encontrado")
+        @ApiResponse(responseCode = "200", description = "Setor encontrado"),
+        @ApiResponse(responseCode = "404", description = "Setor não encontrado")
     })
     public ResponseEntity<SectorResponseDTO> getSectorById(@PathVariable Long id) {
-        SectorResponseDTO sector = sectorService.getSectorById(id);
-        return ResponseEntity.ok(sector);
+        return ResponseEntity.ok(sectorService.getSectorById(id));
     }
 
     @GetMapping("/search")
+    @Operation(
+        summary = "Pesquisar setores",
+        description = "Realiza a busca de setores por palavra-chave (nome, sigla ou descrição). Retorna apenas dados essenciais para listagem rápida."
+    )
+    @ApiResponse(responseCode = "200", description = "Busca realizada com sucesso")
     public ResponseEntity<List<SectorLocationDTO>> searchSectors(@RequestParam("q") String keyword) {
-        List<SectorLocationDTO> results = sectorService.search(keyword);
-        return ResponseEntity.ok(results);
+        return ResponseEntity.ok(sectorService.search(keyword));
     }
 
     @GetMapping("/count")
+    @Operation(
+        summary = "Contar setores",
+        description = "Retorna a quantidade total de setores cadastrados."
+    )
     public Integer getCount() {
         return sectorService.getCount();
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Atualizar setor", description = "Atualiza as informações de um setor existente com base no ID fornecido.")
+    @Operation(
+        summary = "Atualizar setor",
+        description = "Atualiza os dados de um setor existente com base no ID informado. Permite alterar descrição, localização, coordenadas, responsável, etc."
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Setor atualizado com sucesso"),
-            @ApiResponse(responseCode = "404", description = "Setor não encontrado")
+        @ApiResponse(responseCode = "200", description = "Setor atualizado com sucesso"),
+        @ApiResponse(responseCode = "404", description = "Setor não encontrado")
     })
     public ResponseEntity<SectorResponseDTO> updateSector(
             @PathVariable Long id,
-            @RequestBody SectorCreateDTO dto) {
+            @RequestBody SectorCreateDTO dto
+    ) {
         SectorResponseDTO updated = sectorService.updateSector(id, dto);
         return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Deletar setor", description = "Remove permanentemente um setor do sistema com base no ID informado.")
+    @Operation(
+        summary = "Excluir setor",
+        description = "Remove permanentemente um setor do sistema, com base no ID informado."
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "204", description = "Setor deletado com sucesso"),
-            @ApiResponse(responseCode = "404", description = "Setor não encontrado")
+        @ApiResponse(responseCode = "204", description = "Setor removido com sucesso"),
+        @ApiResponse(responseCode = "404", description = "Setor não encontrado")
     })
     public ResponseEntity<Void> deleteSector(@PathVariable Long id) {
         sectorService.deleteSector(id);

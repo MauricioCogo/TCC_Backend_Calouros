@@ -1,9 +1,7 @@
 package com.mauriciocogo.tcc_backend.controller;
 
 import com.mauriciocogo.tcc_backend.dto.create.ResponsibleCreateDTO;
-import com.mauriciocogo.tcc_backend.dto.create.SectorCreateDTO;
 import com.mauriciocogo.tcc_backend.dto.response.ResponsibleResponseDTO;
-import com.mauriciocogo.tcc_backend.dto.response.SectorResponseDTO;
 import com.mauriciocogo.tcc_backend.service.ResponsibleService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -20,7 +18,10 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/responsibles")
-@Tag(name = "Usuários", description = "Operações relacionadas à gestão de usuários do sistema")
+@Tag(
+    name = "Responsáveis",
+    description = "Endpoints relacionados ao gerenciamento de responsáveis por setores."
+)
 public class ResponsibleController {
 
     private final ResponsibleService responsibleService;
@@ -30,55 +31,78 @@ public class ResponsibleController {
     }
 
     @PostMapping
-    @Operation(summary = "Criar novo usuário", description = "Cria um novo usuário no sistema com as informações fornecidas.")
-    @ApiResponse(responseCode = "201", description = "Usuário criado com sucesso")
-    public ResponseEntity<ResponsibleResponseDTO> createResponsible(@RequestBody ResponsibleCreateDTO dto) {
+    @Operation(
+        summary = "Criar responsável",
+        description = "Cria um novo responsável vinculado a um setor. Requer nome, email e função."
+    )
+    @ApiResponses({
+        @ApiResponse(responseCode = "201", description = "Responsável criado com sucesso"),
+        @ApiResponse(responseCode = "400", description = "Dados inválidos fornecidos")
+    })
+    public ResponseEntity<ResponsibleResponseDTO> createResponsible(
+            @RequestBody ResponsibleCreateDTO dto
+    ) {
         ResponsibleResponseDTO created = responsibleService.createResponsible(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
 
     @GetMapping
-    @Operation(summary = "Listar todos os usuários", description = "Retorna uma lista contendo todos os usuários cadastrados no sistema.")
-    @ApiResponse(responseCode = "200", description = "Lista de usuários retornada com sucesso")
+    @Operation(
+        summary = "Listar responsáveis",
+        description = "Retorna a lista de todos os responsáveis cadastrados."
+    )
+    @ApiResponse(responseCode = "200", description = "Lista retornada com sucesso")
     public ResponseEntity<List<ResponsibleResponseDTO>> getAllResponsibles() {
-        List<ResponsibleResponseDTO> responsibles = responsibleService.getAllResponsibles();
-        return ResponseEntity.ok(responsibles);
+        return ResponseEntity.ok(responsibleService.getAllResponsibles());
     }
 
     @GetMapping("/{id}")
-    @Operation(summary = "Buscar usuário por ID", description = "Retorna os dados do usuário correspondente ao ID informado.")
+    @Operation(
+        summary = "Buscar responsável por ID",
+        description = "Retorna os dados de um responsável específico pelo ID fornecido."
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Usuário encontrado"),
-            @ApiResponse(responseCode = "404", description = "Usuário não encontrado")
+        @ApiResponse(responseCode = "200", description = "Responsável encontrado"),
+        @ApiResponse(responseCode = "404", description = "Responsável não encontrado")
     })
     public ResponseEntity<ResponsibleResponseDTO> getResponsibleById(@PathVariable Long id) {
-        ResponsibleResponseDTO responsible = responsibleService.getResponsibleById(id);
-        return ResponseEntity.ok(responsible);
+        return ResponseEntity.ok(responsibleService.getResponsibleById(id));
     }
 
     @GetMapping("/count")
+    @Operation(
+        summary = "Contar responsáveis",
+        description = "Retorna o número total de responsáveis cadastrados."
+    )
     public Integer getCount() {
         return responsibleService.getCount();
     }
 
     @PutMapping("/{id}")
-    @Operation(summary = "Atualizar setor", description = "Atualiza as informações de um setor existente com base no ID fornecido.")
+    @Operation(
+        summary = "Atualizar responsável",
+        description = "Atualiza os dados de um responsável existente com base no ID informado."
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Setor atualizado com sucesso"),
-            @ApiResponse(responseCode = "404", description = "Setor não encontrado")
+        @ApiResponse(responseCode = "200", description = "Responsável atualizado com sucesso"),
+        @ApiResponse(responseCode = "404", description = "Responsável não encontrado")
     })
     public ResponseEntity<ResponsibleResponseDTO> updateResponsible(
             @PathVariable Long id,
-            @RequestBody ResponsibleCreateDTO dto) {
+            @RequestBody ResponsibleCreateDTO dto
+    ) {
         ResponsibleResponseDTO updated = responsibleService.updateResponsible(id, dto);
         return ResponseEntity.ok(updated);
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Deletar usuário", description = "Remove um usuário do sistema com base no ID informado.")
+    @Operation(
+        summary = "Deletar responsável",
+        description = "Remove um responsável do sistema pelo ID informado."
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "204", description = "Usuário deletado com sucesso"),
-            @ApiResponse(responseCode = "404", description = "Usuário não encontrado")
+        @ApiResponse(responseCode = "204", description = "Responsável deletado com sucesso"),
+        @ApiResponse(responseCode = "404", description = "Responsável não encontrado")
     })
     public ResponseEntity<Void> deleteResponsible(@PathVariable Long id) {
         responsibleService.deleteResponsible(id);

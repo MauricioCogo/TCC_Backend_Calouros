@@ -19,7 +19,7 @@ import java.util.Map;
 @RestController
 @Tag(
     name = "Scraping",
-    description = "Endpoints responsáveis por coletar notícias e comunicados diretamente do site do IFFarroupilha - Campus São Vicente do Sul."
+    description = "Coleta de notícias e comunicados diretamente do portal do IFFarroupilha - Campus SVS."
 )
 public class ScrapingController {
 
@@ -31,11 +31,8 @@ public class ScrapingController {
 
     @GetMapping("/news")
     @Operation(
-        summary = "Obter notícias recentes do campus",
-        description = """
-            Realiza web scraping no portal do IFFar São Vicente do Sul e retorna as **3 notícias mais recentes**. \
-            Cada notícia contém título, link para o conteúdo completo, imagem (banner) e uma breve descrição.
-            """,
+        summary = "Obter notícias recentes",
+        description = "Retorna as 3 notícias mais recentes extraídas automaticamente do portal do campus.",
         responses = {
             @ApiResponse(
                 responseCode = "200",
@@ -45,15 +42,15 @@ public class ScrapingController {
                     [
                       {
                         "title": "IFFar divulga calendário acadêmico 2025",
-                        "link": "https://www.iffarroupilha.edu.br/sao-vicente-do-sul/noticias/12345",
-                        "banner": "https://www.iffarroupilha.edu.br/images/banner123.jpg",
-                        "description": "O Instituto Federal Farroupilha divulgou o novo calendário acadêmico..."
+                        "link": "https://iffarroupilha.edu.br/noticia/123",
+                        "banner": "https://iffarroupilha.edu.br/banner123.jpg",
+                        "description": "Resumo da notícia..."
                       }
                     ]
                     """
                 )))
             ),
-            @ApiResponse(responseCode = "500", description = "Erro ao coletar notícias do site")
+            @ApiResponse(responseCode = "500", description = "Erro ao coletar notícias")
         }
     )
     public List<Map<String, String>> news() throws IOException {
@@ -62,11 +59,8 @@ public class ScrapingController {
 
     @GetMapping("/announcements")
     @Operation(
-        summary = "Obter comunicados (editais) do campus",
-        description = """
-            Coleta e retorna uma lista de **editais recentes** publicados no site do IFFar São Vicente do Sul. \
-            Cada item contém o título (geralmente iniciando com 'Edital nº') e o link para o documento completo.
-            """,
+        summary = "Obter editais recentes",
+        description = "Retorna editais e comunicados publicados recentemente no portal do campus.",
         responses = {
             @ApiResponse(
                 responseCode = "200",
@@ -75,14 +69,14 @@ public class ScrapingController {
                     example = """
                     [
                       {
-                        "title": "Edital nº 05/2025 - Seleção de Bolsistas PIBID",
-                        "link": "https://www.iffarroupilha.edu.br/sao-vicente-do-sul/editais/98765"
+                        "title": "Edital nº 05/2025 - Seleção de Bolsistas",
+                        "link": "https://iffarroupilha.edu.br/edital/98765"
                       }
                     ]
                     """
                 )))
             ),
-            @ApiResponse(responseCode = "500", description = "Erro ao coletar comunicados do site")
+            @ApiResponse(responseCode = "500", description = "Erro ao coletar comunicados")
         }
     )
     public List<Map<String, String>> announcements() throws IOException {

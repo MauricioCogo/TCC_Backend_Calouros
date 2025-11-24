@@ -6,6 +6,7 @@ public record SectorLocationDTO(
         Long id,
         String acronym,
         String name,
+        String description,
         String lat,
         String longi,
         String build,
@@ -20,6 +21,7 @@ public record SectorLocationDTO(
                 sector.getId(),
                 sector.getAcronym(),
                 sector.getName(),
+                sector.getDescription(),
                 sector.getLat(),
                 sector.getLongi(),
                 sector.getBuild(),
@@ -35,6 +37,7 @@ public record SectorLocationDTO(
         sector.setId(dto.id());
         sector.setAcronym(dto.acronym());
         sector.setName(dto.name());
+        sector.setDescription(dto.description());
         sector.setLat(dto.lat());
         sector.setLongi(dto.longi());
         sector.setBuild(dto.build());

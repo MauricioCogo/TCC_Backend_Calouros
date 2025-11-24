@@ -43,7 +43,7 @@ public class Responsible  {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Boolean deleted = false;
 
     @Column(name = "deleted_at")
