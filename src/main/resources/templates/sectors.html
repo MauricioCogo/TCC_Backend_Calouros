@@ -329,7 +329,6 @@
         });
     }
 
-    // NOVA versão: cria layout dos dias, mas sem horários iniciais
     function createHoursInputs(periods = {}) {
       hoursContainer.innerHTML = "";
       const layout = [
@@ -345,11 +344,9 @@
           const dayDiv = document.createElement("div");
           dayDiv.innerHTML = `<strong>${day}</strong><br>`;
 
-          // adiciona períodos já existentes (ex: ao editar)
           const existing = periods[day] || [];
           existing.forEach(p => addPeriodRow(dayDiv, day, p.open, p.close));
 
-          // botão de adicionar período
           const addBtn = document.createElement("button");
           addBtn.type = "button";
           addBtn.textContent = "+ Adicionar horário";
