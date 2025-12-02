@@ -1,5 +1,6 @@
 package com.mauriciocogo.tcc_backend.dto.response;
 
+import com.mauriciocogo.tcc_backend.dto.OperatingHours;
 import com.mauriciocogo.tcc_backend.entity.Sector;
 
 public record SectorLocationDTO(
@@ -10,7 +11,8 @@ public record SectorLocationDTO(
         String lat,
         String longi,
         String build,
-        String room) {
+        String room,
+        OperatingHours operatingHours) {
 
     public static SectorLocationDTO toDTO(Sector sector) {
         if (sector == null) {
@@ -25,7 +27,8 @@ public record SectorLocationDTO(
                 sector.getLat(),
                 sector.getLongi(),
                 sector.getBuild(),
-                sector.getRoom());
+                sector.getRoom(),
+                sector.getOperatingHours());
     }
 
     public static Sector toEntity(SectorLocationDTO dto) {
@@ -42,6 +45,7 @@ public record SectorLocationDTO(
         sector.setLongi(dto.longi());
         sector.setBuild(dto.build());
         sector.setRoom(dto.room());
+        sector.setOperatingHours(dto.operatingHours());
 
         return sector;
     }

@@ -31,7 +31,6 @@ public class SectorService {
         Sector sector = SectorCreateDTO.toEntity(dto);
         Responsible u = ResponsibleResponseDTO.toEntity(responsibleService.getResponsibleById(dto.responsibleId()));
         sector.setResponsible(u);
-        System.out.println("Acronym do sector: " + sector.getAcronym());
 
         sector.setOperatingHours(dto.operatingHours());
         Sector savedSector = sectorRepository.save(sector);
